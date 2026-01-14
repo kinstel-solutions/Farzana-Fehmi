@@ -35,7 +35,7 @@ export function Header() {
           'fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent',
           isScrolled || isMobileMenuOpen
             ? 'bg-white/95 backdrop-blur-md border-border py-2 shadow-sm text-black'
-            : 'bg-transparent py-6 text-white'
+            : 'bg-gradient-to-b from-black/50 to-transparent py-6 text-white'
         )}
       >
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -54,7 +54,7 @@ export function Header() {
             {/* Desktop Nav */}
             <nav className={cn(
               "hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide transition-colors duration-300",
-               isScrolled ? "text-primary" : "text-white/90"
+               isScrolled ? "text-primary" : "text-white"
             )}>
               <Link href="/shop" className="hover:opacity-70 transition-opacity">SHOP</Link>
               <Link href="/shop" className="hover:opacity-70 transition-opacity">COLLECTIONS</Link>
