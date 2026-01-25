@@ -1,6 +1,7 @@
 import { getCMSProvider } from '@/lib/cms/cms-provider';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { ProductGallery } from '@/components/product/ProductGallery';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -40,22 +41,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-          {/* Image Section */}
-          <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden">
-             <Image
-               src={product.image}
-               alt={product.name}
-               fill
-               className="object-cover"
-               priority
-               sizes="(max-width: 768px) 100vw, 50vw"
+          {/* Gallery Section */}
+          <div className="md:sticky md:top-32 self-start">
+             <ProductGallery 
+                mainImage={product.mainImage} 
+                additionalImages={product.additionalImages} 
+                productName={product.name}
              />
           </div>
 
           {/* Details Section */}
           <div className="flex flex-col justify-center space-y-8">
             <div>
-              <p className="text-gray-500 uppercase tracking-widest text-sm mb-2">{product.category}</p>
+              <p className="text-gray-500 uppercase tracking-widest text-sm mb-2">{product.collections.join(', ')}</p>
               <h1 className="font-serif text-3xl md:text-5xl mb-4">{product.name}</h1>
               <p className="text-xl font-medium">{product.price}</p>
             </div>
@@ -65,14 +63,33 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             <div className="border-t border-b border-gray-100 py-6">
-              <h3 className="uppercase tracking-widest text-xs font-semibold mb-4 text-gray-900">Product Details</h3>
-              <ul className="space-y-2 text-sm text-gray-600 font-light">
-                 {product.details?.map((detail, index) => (
-                   <li key={index} className="flex items-start">
-                     <span className="mr-2">•</span> {detail}
-                   </li>
-                 ))}
-              </ul>
+              <h3 className="uppercase tracking-widest text-xs font-semibold mb-6 text-gray-900">Product Specifications</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-600 font-light">
+                 {product.material && (
+                   <div className="flex flex-col space-y-1">
+                     <span className="text-gray-400 text-xs uppercase tracking-wide">Material</span>
+                     <span>{product.material}</span>
+                   </div>
+                 )}
+                 {product.fit && (
+                   <div className="flex flex-col space-y-1">
+                     <span className="text-gray-400 text-xs uppercase tracking-wide">Fit</span>
+                     <span>{product.fit}</span>
+                   </div>
+                 )}
+                 {product.occasion && product.occasion.length > 0 && (
+                   <div className="flex flex-col space-y-1">
+                     <span className="text-gray-400 text-xs uppercase tracking-wide">Occasion</span>
+                     <span>{product.occasion.join(', ')}</span>
+                   </div>
+                 )}
+                 {product.tags && product.tags.length > 0 && (
+                   <div className="flex flex-col space-y-1">
+                     <span className="text-gray-400 text-xs uppercase tracking-wide">Tags</span>
+                     <span>{product.tags.join(', ')}</span>
+                   </div>
+                 )}
+              </div>
             </div>
 
             <div className="space-y-4 pt-4">

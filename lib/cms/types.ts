@@ -1,13 +1,19 @@
 
 export interface Product {
   id: string;
-  name: string;
-  price: string;
-  image: string;
-  category: string;
-  description: string;
-  details: string[];
   slug: string;
+  name: string;
+  collections: string[];
+  price: string;
+  priceNumeric: number;
+  featured: boolean;
+  mainImage: string | null;
+  additionalImages: string[];
+  description: string;
+  material: string;
+  occasion: string[];
+  fit?: string;
+  tags: string[];
 }
 
 export interface Collection {

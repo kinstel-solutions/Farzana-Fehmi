@@ -19,7 +19,7 @@ export function Hero({ data }: { data: any }) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/20" /> {/* Mood overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" /> {/* Cinematic overlay */}
       </div>
 
       {/* Content */}

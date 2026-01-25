@@ -24,7 +24,7 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "300",
+    "price": "$300",
     "priceNumeric": 300,
     "featured": true,
     "mainImage": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1305-Edit.jpg",
@@ -49,15 +49,16 @@ export const products: Product[] = [
     "id": "P002",
     "name": "Emerald Green Kaamdaani suit",
     "collections": [
-      "Occasion",
       "Party"
     ],
-    "price": "200",
+    "price": "$200",
     "priceNumeric": 200,
     "featured": true,
     "mainImage": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit.jpg",
     "additionalImages": [
-      "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit.jpg"
+      "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit.jpg",
+      "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit.jpg",
+      "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit.jpg"
     ],
     "description": "This Luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
     "material": "Georgette and Shantoon",
@@ -76,10 +77,9 @@ export const products: Product[] = [
     "id": "P003",
     "name": "Magenta Orange Gota Patti Suit",
     "collections": [
-      "Occasion",
       "Party"
     ],
-    "price": "Price on request",
+    "price": "Price on Request",
     "priceNumeric": 0,
     "featured": true,
     "mainImage": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit.jpg",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     "collections": [
       "Everyday Wear"
     ],
-    "price": "180",
+    "price": "$180",
     "priceNumeric": 180,
     "featured": true,
     "mainImage": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1.jpg",
@@ -127,12 +127,14 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "230",
+    "price": "$230",
     "priceNumeric": 230,
     "featured": true,
     "mainImage": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit.jpg",
     "additionalImages": [
-      "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit.jpg"
+      "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit.jpg",
+      "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1734-Edit.jpg",
+      "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1842-Edit.jpg"
     ],
     "description": "This outfit is perfect for a light evening wear, featuring Anarkali style with delicate silk thread embroidery around neckline and sleeve band, paired with a crepe dupatta adorned with small booties.",
     "material": "Georgette and Crepe",
@@ -152,11 +154,15 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "200",
+    "price": "$200",
     "priceNumeric": 200,
     "featured": true,
     "mainImage": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset1.jpg",
-    "additionalImages": [],
+    "additionalImages": [
+      "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset2.jpg",
+      "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset3.jpg",
+      "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset4.jpg"
+    ],
     "description": "A vibrant crepe silk suit, featuring intricate zardozi hand embroidery on the front and sleeves, is sure to add a festive touch to any occasion.",
     "material": "Crepe silk",
     "occasion": [
@@ -176,11 +182,16 @@ export const products: Product[] = [
     "collections": [
       "Everyday Wear"
     ],
-    "price": "190",
+    "price": "$190",
     "priceNumeric": 190,
     "featured": true,
     "mainImage": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset1.jpg",
-    "additionalImages": [],
+    "additionalImages": [
+      "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1.jpg",
+      "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2.jpg",
+      "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3.jpg",
+      "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4.jpg"
+    ],
     "description": "This elegant off-white tissue suit, adorned with diagonal mettalic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
     "material": "Tissue and Chiffon",
     "occasion": [
@@ -200,11 +211,15 @@ export const products: Product[] = [
     "collections": [
       "Everyday Wear"
     ],
-    "price": "185",
+    "price": "$185",
     "priceNumeric": 185,
     "featured": true,
     "mainImage": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset1.jpg",
-    "additionalImages": [],
+    "additionalImages": [
+      "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset2.jpg",
+      "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset3.jpg",
+      "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset4.jpg"
+    ],
     "description": "This azure sequinned suit is perfect for daytime wear, elevated by Mughal floral embroidery around the neckline and sleeves, giving it a breezy feel.",
     "material": "Georgette and chiffon",
     "occasion": [
@@ -225,11 +240,15 @@ export const products: Product[] = [
     "collections": [
       "Everyday Wear"
     ],
-    "price": "185",
+    "price": "$185",
     "priceNumeric": 185,
     "featured": true,
     "mainImage": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset1.jpg",
-    "additionalImages": [],
+    "additionalImages": [
+      "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset2.jpg",
+      "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset4.jpg",
+      "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset5.jpg"
+    ],
     "description": "Exquisite apricot and salmon pink sequined georgette suit, adorned with delicate embroidery on the front lower hemline, paired with chiffon dupatta makes it ideal for daytime events.",
     "material": "Georgette and chiffon",
     "occasion": [
@@ -250,7 +269,7 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "150",
+    "price": "$150",
     "priceNumeric": 150,
     "featured": true,
     "mainImage": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1.jpg",
@@ -276,10 +295,9 @@ export const products: Product[] = [
     "id": "P011",
     "name": "Dusty Rose Organza suit set",
     "collections": [
-      "Occasion",
       "Party"
     ],
-    "price": "170",
+    "price": "$170",
     "priceNumeric": 170,
     "featured": true,
     "mainImage": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset2.jpg",
@@ -307,7 +325,7 @@ export const products: Product[] = [
     "collections": [
       "Everyday Wear"
     ],
-    "price": "160",
+    "price": "$160",
     "priceNumeric": 160,
     "featured": true,
     "mainImage": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset1.jpg",
@@ -335,7 +353,7 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "180",
+    "price": "$180",
     "priceNumeric": 180,
     "featured": true,
     "mainImage": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3.jpg",
@@ -363,7 +381,7 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "200",
+    "price": "$200",
     "priceNumeric": 200,
     "featured": true,
     "mainImage": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit1.jpg",
@@ -390,7 +408,7 @@ export const products: Product[] = [
     "collections": [
       "Festive"
     ],
-    "price": "230",
+    "price": "$230",
     "priceNumeric": 230,
     "featured": true,
     "mainImage": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1500-Edit.jpg",
@@ -415,7 +433,6 @@ export const products: Product[] = [
 export const allCollections = [
   "Everyday Wear",
   "Festive",
-  "Occasion",
   "Party"
 ];
 export const allOccasions = [
@@ -433,7 +450,7 @@ export const allTags = [
 
 export function formatPrice(price: number): string {
     if (price === 0) return 'Price on Request';
-    return `$${price.toLocaleString()}`;
+    return price.toLocaleString('en-AU', { style: 'currency', currency: 'AUD' });
 }
 
 export function getProductsByCollection(collection: string): Product[] {
@@ -441,7 +458,6 @@ export function getProductsByCollection(collection: string): Product[] {
 }
 
 export function getRelatedProducts(product: Product): Product[] {
-    // Determine related by overlapping collections or tags
     return products.filter(p => {
         if (p.id === product.id) return false;
         const sameCollection = p.collections.some(c => product.collections.includes(c));

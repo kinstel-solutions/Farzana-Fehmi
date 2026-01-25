@@ -4,6 +4,7 @@ import { Product, Collection, HeroData, StoryData, GlobalData } from './types';
 
 export interface CMSProvider {
   getAllProducts(): Promise<Product[]>;
+  getFeaturedProducts(): Promise<Product[]>;
   getProductBySlug(slug: string): Promise<Product | null>;
   getAllCollections(): Promise<Collection[]>;
   getHeroData(): Promise<HeroData>;

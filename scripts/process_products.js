@@ -48,14 +48,28 @@ function parseProducts() {
             
             if (line.includes('**Collection(s):**')) {
                 const raw = line.split('**Collection(s):**')[1].trim();
-                data.collections = raw.split(/[,\/]+/).map(s => s.trim()).filter(s => s);
+                // Filter out 'Occasion' from collections as requested
+                data.collections = raw.split(/[,\/]+/)
+                    .map(s => s.trim())
+                    .filter(s => s && s.toLowerCase() !== 'occasion');
             }
             
             if (line.includes('**Price:**')) {
                 const rawPrice = line.split('**Price:**')[1].trim();
-                data.price = rawPrice;
                 const numeric = parseInt(rawPrice.replace(/[^0-9]/g, ''), 10);
                 data.priceNumeric = isNaN(numeric) ? 0 : numeric;
+                
+                // Format display price
+                if (data.priceNumeric > 0) {
+                    data.price = new Intl.NumberFormat('en-AU', { 
+                        style: 'currency', 
+                        currency: 'AUD',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                    }).format(data.priceNumeric);
+                } else {
+                    data.price = "Price on Request";
+                }
             }
             
             if (line.includes('**Featured on Homepage?:**')) data.featured = line.split('**Featured on Homepage?:**')[1].trim().toLowerCase() === 'yes';
@@ -71,22 +85,18 @@ function parseProducts() {
 
             if (line.includes('**Fit / Style (Optional):**')) {
                 let fit = line.split('**Fit / Style (Optional):**')[1].trim();
-                // Fix typos
                 if (fit.toLowerCase() === 'laarge') fit = 'Large';
                 data.fit = fit;
             }
             
             if (line.includes('**Tags:**')) {
-                // Fix typos in tags if any, though standard cleanup is usually enough
                 data.tags = line.split('**Tags:**')[1].trim().split(',').map(t => {
                    let tag = t.trim();
-                   // Title Case
                    return tag.charAt(0).toUpperCase() + tag.slice(1);
                 }).filter(t => t);
             }
         });
 
-        // Typos in Description fixing
         data.description = data.description.replace(/\bnad\b/g, 'and');
         data.description = data.description.replace(/\bhis\b/g, 'this');
 
@@ -149,26 +159,38 @@ function linkImages(products) {
             return globalMatch || null;
         };
 
+        // Determine Main Image
         let mainImagePath = findImagePath(p.mainImage, productFolder);
+        
+        // If no main image specific match, but we have a folder, take the first valid image
         if (!mainImagePath && productFolder) {
             const filesInFolder = fs.readdirSync(productFolder).filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f));
             if (filesInFolder.length > 0) mainImagePath = path.join(productFolder, filesInFolder[0]);
         }
 
+        // Determine Additional Images
+        // Aggressively grab ALL images from the folder if it exists
         const normalizeToPublic = (p) => p ? p.split('public')[1].replace(/\\/g, '/') : null;
         let additionalPaths = [];
-        if (p.additionalImages) {
-            additionalPaths = p.additionalImages.split(',').map(img => findImagePath(img.trim(), productFolder)).filter(Boolean);
-        }
-        if (additionalPaths.length === 0 && productFolder) {
-             const files = fs.readdirSync(productFolder).filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f)).map(f => path.join(productFolder, f));
+        
+        if (productFolder) {
+             const files = fs.readdirSync(productFolder)
+                .filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+                .map(f => path.join(productFolder, f));
+             
+             // Filter out the main image from the additional list
              additionalPaths = files.filter(f => f !== mainImagePath);
+        } else if (p.additionalImages) {
+             // Fallback to text defined if no folder found (unlikely)
+             additionalPaths = p.additionalImages.split(',')
+                .map(img => findImagePath(img.trim(), productFolder))
+                .filter(Boolean);
         }
 
         return {
             ...p,
             mainImage: normalizeToPublic(mainImagePath),
-            additionalImages: [...new Set(additionalPaths.map(normalizeToPublic))].filter(img => img && img !== normalizeToPublic(mainImagePath))
+            additionalImages: additionalPaths.map(normalizeToPublic)
         };
     });
 }
@@ -178,7 +200,6 @@ function run() {
     let products = parseProducts();
     products = linkImages(products);
 
-    // Extract unique lists
     const allCollections = [...new Set(products.flatMap(p => p.collections))].sort();
     const allOccasions = [...new Set(products.flatMap(p => p.occasion))].sort();
     const allTags = [...new Set(products.flatMap(p => p.tags))].sort();
@@ -209,7 +230,7 @@ export const allTags = ${JSON.stringify(allTags, null, 2)};
 
 export function formatPrice(price: number): string {
     if (price === 0) return 'Price on Request';
-    return \`$\${price.toLocaleString()}\`;
+    return price.toLocaleString('en-AU', { style: 'currency', currency: 'AUD' });
 }
 
 export function getProductsByCollection(collection: string): Product[] {
@@ -217,7 +238,6 @@ export function getProductsByCollection(collection: string): Product[] {
 }
 
 export function getRelatedProducts(product: Product): Product[] {
-    // Determine related by overlapping collections or tags
     return products.filter(p => {
         if (p.id === product.id) return false;
         const sameCollection = p.collections.some(c => product.collections.includes(c));
@@ -227,7 +247,7 @@ export function getRelatedProducts(product: Product): Product[] {
 }
 `;
     fs.writeFileSync(OUTPUT_TS, output);
-    console.log('Done! Generated optimized data with extracted lists.');
+    console.log('Done! Generated optimized data.');
 }
 
 run();
