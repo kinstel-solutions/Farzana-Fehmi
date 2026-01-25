@@ -1,0 +1,226 @@
+Here is the data presented as a list of entries, with each entry's details labeled:
+
+  * **sr. No.: P001**
+    
+      * **Product Name:** Rani Silk Suit
+      * **Collection(s):** Festive
+      * **Price:** 300
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** DSCF1305-Edit.jpg
+      * **Additional Image Filenames:** DSCF-Edit.jpg
+      * **Short Product Description:** An elegant suit set crafted in luxurious silk and adorned with intricate and colourful sequins, is ideal for any festive occasion.
+      * **Fabric / Material:** silk
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Handcrafted, Festive, Limited
+      * **Notes (Internal / Optional):** New stock, check color options
+
+  * **sr. No.: P002**
+    
+      * **Product Name:** Emerald Green Kaamdaani suit
+      * **Collection(s):** Occasion/Party
+      * **Price:** 200
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** DSCF1292-Edit.jpg
+      * **Additional Image Filenames:** DSCF1283-Edit.jpg
+      * **Short Product Description:** This Luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.
+      * **Fabric / Material:** Georgette and Shantoon
+      * **Occasion / Use:** Party
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Festive, Handcrafted, Limited
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P003**
+    
+      * **Product Name:** Magenta Orange Gota Patti Suit
+      * **Collection(s):** Occasion/Party
+      * **Price:** Price on request
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** DSCF1354-Edit.jpg
+      * **Additional Image Filenames:** DSCF1344-Edit.jpg
+      * **Short Product Description:** Inspired by rich heritage and craftmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.
+      * **Fabric / Material:** Pure Silk and crepe
+      * **Occasion / Use:** Party
+      * **Fit / Style (Optional):** Made-to-order
+      * **Tags:** Handcrafted, Limited
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P004**
+    
+      * **Product Name:** Vintage Maroon Chanderi Suit Set
+      * **Collection(s):** Everyday Wear
+      * **Price:** 180
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 32 vintage Maroon Chanderi Silk Suit
+      * **Additional Image Filenames:**
+      * **Short Product Description:** This Chanderi suit set, featuring a vintage frock style with geometrical patterns, is perfectly suited for any casual event with its relaxed style.
+      * **Fabric / Material:** Chanderi Silk abd Shantoon
+      * **Occasion / Use:** Casual
+      * **Fit / Style (Optional):** Large
+      * **Tags:**
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P005**
+    
+      * **Product Name:** Dark Mauve Anarkali suit
+      * **Collection(s):** Festive
+      * **Price:** 230
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** DSCF1671-Edit.jpg
+      * **Additional Image Filenames:** DSCF1678-Edit.jpg
+      * **Short Product Description:** This outfit is perfect for a light evening wear, featuring Anarkali style with delicate silk thread embroidery around neckline and sleeve band, paired with a crepe dupatta adorned with small booties.
+      * **Fabric / Material:** Georgette and Crepe
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** small
+      * **Tags:** Limited, Handcrafted
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P006**
+    
+      * **Product Name:** Maharani Shalwar suit set
+      * **Collection(s):** Festive
+      * **Price:** 200
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 21 Maharani Shalwar suit set 1.jpg
+      * **Additional Image Filenames:** 21 Maharani Shalwar suit set 1.jpg
+      * **Short Product Description:** A vibrant crepe silk suit, featuring intricate zardozi hand embroidery on the front and sleeves, is sure to add a festive touch to any occasion.
+      * **Fabric / Material:** Crepe silk
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Medium
+      * **Tags:** Limited, Handcrafted, Festive
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P007**
+    
+      * **Product Name:** Leheria Tissue Suit Set
+      * **Collection(s):** Everyday Wear
+      * **Price:** 190
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 34 Leheriya Tissue suit set 1.jpg
+      * **Additional Image Filenames:** 34 Leheriya Tissue suit set 1.jpg
+      * **Short Product Description:** This elegant off-white tissue suit, adorned with diagonal mettalic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.
+      * **Fabric / Material:** Tissue and Chiffon
+      * **Occasion / Use:** Casual
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Limited, Casual, Handcrafted
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P008**
+    
+      * **Product Name:** Azure Blue Sequined suit set
+      * **Collection(s):** Everyday Wear
+      * **Price:** 185
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 11 Azure Blue Sequinned suit set 1.JPG
+      * **Additional Image Filenames:** 11 Azure Blue Sequinned suit set 1.JPG
+      * **Short Product Description:** This azure sequinned suit is perfect for daytime wear, elevated by Mughal floral embroidery around the neckline and sleeves, giving it a breezy feel.
+      * **Fabric / Material:** Georgette and chiffon
+      * **Occasion / Use:** Casual
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Casual, Handcrafted, Limited, Comfort Wear
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P009**
+    
+      * **Product Name:** Apricot and Salmon Pink Georgette Suit Set
+      * **Collection(s):** Everyday Wear
+      * **Price:** 185
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 10 Apricot and Salmon Pink Sequinned suit set 1.JPG
+      * **Additional Image Filenames:** 10 Apricot and Salmon Pink Sequinned suit set 1.JPG
+      * **Short Product Description:** Exquisite apricot and salmon pink sequined georgette suit, adorned with delicate embroidery on the front lower hemline, paired with chiffon dupatta makes it ideal for daytime events.
+      * **Fabric / Material:** Georgette and chiffon
+      * **Occasion / Use:** Casual
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Casual, Handcrafted, Limited, Comfort Wear
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P010**
+    
+      * **Product Name:** Bottle Green Mirror Sequined suit set
+      * **Collection(s):** Festive
+      * **Price:** 150
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 25Bottle Green Mirror sequined suit set1.jpg
+      * **Additional Image Filenames:**
+      * **Short Product Description:** Ideal for celebrations, this bottle green crepe ensemble with intricate floral resham and zari embroidery, paired with a gorgeous crepe dupatta featuring, mirror nad banarsi border details.
+      * **Fabric / Material:** Crepe silk
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Handcrafted, Festive, Comfort Wear
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P011**
+    
+      * **Product Name:** Dusty Rose Organza suit set
+      * **Collection(s):** Occasion/Party
+      * **Price:** 170
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 4 Dusty Rose Organza suit set 2.jpg
+      * **Additional Image Filenames:**
+      * **Short Product Description:** A beautiful dusty rose organza suit set adorned with heavy sequinned front and delicately adorned tissue dupatta transforms it into an exclusive piece.
+      * **Fabric / Material:** Organza
+      * **Occasion / Use:** Party
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Festive, Handcrafted, Limited
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P012**
+    
+      * **Product Name:** Royal Blue Crepe Bandhani suit set
+      * **Collection(s):** Everyday Wear
+      * **Price:** 160
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 3. Royal Blue Crepe Bandhani suit set 1.jpg
+      * **Additional Image Filenames:**
+      * **Short Product Description:** This elegant royal blue bandhani crepe suit is adorned with light embroidery on the front, perfect for a casual yet refined atmosphere.
+      * **Fabric / Material:** crepe silk and chiffon
+      * **Occasion / Use:** Casual
+      * **Fit / Style (Optional):** Medium
+      * **Tags:** Casual, Handcrafted, Comfort Wear
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P013**
+    
+      * **Product Name:** Jade Applique Suit Set
+      * **Collection(s):** Festive
+      * **Price:** 180
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 30Jade Applique suit set 3.JPG
+      * **Additional Image Filenames:**
+      * **Short Product Description:** This jade-hued tissue suit set, adorned with intricate applique work on the front and beautiful banarsi border on the hem, exudes elegance.
+      * **Fabric / Material:** Tissue and Shantoon
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Festive, Handcrafted, Limited
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P014**
+    
+      * **Product Name:** Purple Tissue Front Slit Suit
+      * **Collection(s):** Festive
+      * **Price:** 200
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** 20 Purple Tissue Front Slit Suit 1
+      * **Additional Image Filenames:**
+      * **Short Product Description:** Elevate your festive look with his stunning purple ombre suit, crafted with leheriya tissue. The suit's front slit paired with a pant-style bottom exudes a smart, polished look. Delicate floral patterns on the front and crepe dupatta adorned with intricate booties add a touch of elegance to this ensemble.
+      * **Fabric / Material:** Tissue and Crepe
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Large
+      * **Tags:** Festive, Handcrafted
+      * **Notes (Internal / Optional):**
+
+  * **sr. No.: P015**
+    
+      * **Product Name:** Sea Green Semi-Crepe Suit Set
+      * **Collection(s):** Festive
+      * **Price:** 230
+      * **Featured on Homepage?:** Yes
+      * **Cover / Main Image Filename:** DSCF1500-Edit
+      * **Additional Image Filenames:**
+      * **Short Product Description:** Elevate your summer style with this stunning mint green suit, exclusively crafted from crepe and featuring a soothing colour palette ideal for any warm-weather celebration. The ensemble features bell sleeves and intricate sequin work on the sleeves and lower front hemline.
+      * **Fabric / Material:** Crepe
+      * **Occasion / Use:** Festive
+      * **Fit / Style (Optional):** Laarge
+      * **Tags:** Festive, Handcrafted
+      * **Notes (Internal / Optional):**

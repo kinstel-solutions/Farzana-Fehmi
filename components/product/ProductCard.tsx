@@ -10,11 +10,12 @@ interface ProductCardProps {
   price: string;
   image: string;
   category: string;
+  slug: string;
 }
 
-export function ProductCard({ id, name, price, image, category }: ProductCardProps) {
+export function ProductCard({ id, name, price, image, category, slug }: ProductCardProps) {
   return (
-    <Link href={`/product/${id}`} className="group block cursor-pointer">
+    <Link href={`/product/${slug}`} className="group block cursor-pointer">
       <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
         <Image
           src={image}

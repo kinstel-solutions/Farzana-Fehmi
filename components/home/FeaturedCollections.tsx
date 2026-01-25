@@ -4,31 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-const collections = [
-  {
-    id: 1,
-    title: 'New Arrivals',
-    image: '/hero.png', // Reusing hero image for now as it's stunning
-    link: '/shop?category=new',
-    size: 'large'
-  },
-  {
-    id: 2,
-    title: 'Dresses',
-    image: '/images/collection-dresses.png',
-    link: '/shop?category=dresses',
-    size: 'small'
-  },
-  {
-    id: 3,
-    title: 'Separates',
-    image: '/images/collection-separates.png',
-    link: '/shop?category=separates',
-    size: 'small'
-  }
-];
 
-export function FeaturedCollections() {
+import { Collection } from '@/lib/cms/types';
+
+export function FeaturedCollections({ collections }: { collections: Collection[] }) {
+  if (!collections || collections.length < 3) return null;
+
   return (
     <section className="py-20 md:py-32 bg-white">
       <div className="container mx-auto px-4 md:px-8">

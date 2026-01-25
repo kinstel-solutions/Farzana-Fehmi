@@ -7,7 +7,13 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export function Header() {
+export function Header({ 
+  siteName, 
+  navigation 
+}: { 
+  siteName: string;
+  navigation: Array<{ label: string; href: string }>;
+}) {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -56,10 +62,9 @@ export function Header() {
               "hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide transition-colors duration-300",
                isScrolled ? "text-primary" : "text-white/90"
             )}>
-              <Link href="/shop" className="hover:opacity-70 transition-opacity">SHOP</Link>
-              <Link href="/shop" className="hover:opacity-70 transition-opacity">COLLECTIONS</Link>
-              <Link href="/story" className="hover:opacity-70 transition-opacity">STORY</Link>
-              <Link href="/contact" className="hover:opacity-70 transition-opacity">CONTACT</Link>
+              {navigation.map((link) => (
+                <Link key={link.label} href={link.href} className="hover:opacity-70 transition-opacity">{link.label}</Link>
+              ))}
             </nav>
           </div>
 
@@ -69,7 +74,7 @@ export function Header() {
               "font-serif font-bold tracking-tighter uppercase transition-all duration-300",
               isScrolled || isMobileMenuOpen ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl"
             )}>
-              Farzana Fehmi
+              {siteName}
             </h1>
           </Link>
 
@@ -103,34 +108,16 @@ export function Header() {
             className="fixed inset-0 z-40 bg-white pt-24 px-4 overflow-y-auto"
           >
             <nav className="flex flex-col items-center space-y-8 mt-12">
-              <Link 
-                href="/shop" 
-                className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                SHOP
-              </Link>
-              <Link 
-                href="/shop" 
-                className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                COLLECTIONS
-              </Link>
-              <Link 
-                href="/story" 
-                className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                STORY
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                CONTACT
-              </Link>
+              {navigation.map((link) => (
+                <Link 
+                  key={link.label}
+                  href={link.href} 
+                  className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               
               <div className="w-12 h-[1px] bg-gray-200 my-8" />
               

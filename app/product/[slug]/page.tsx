@@ -1,4 +1,4 @@
-import { products } from '@/lib/data';
+import { getCMSProvider } from '@/lib/cms/cms-provider';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -12,14 +12,17 @@ interface ProductPageProps {
 }
 
 export async function generateStaticParams() {
+  const provider = getCMSProvider();
+  const products = await provider.getAllProducts();
   return products.map((product) => ({
-    slug: product.id,
+    slug: product.slug,
   }));
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = products.find((p) => p.id === slug);
+  const provider = getCMSProvider();
+  const product = await provider.getProductBySlug(slug);
 
   if (!product) {
     notFound();

@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { getCMSProvider } from '@/lib/cms/cms-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,15 +23,18 @@ export const metadata: Metadata = {
   description: 'Discover the latest collection of designer garments by Farzana Fehmi.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const provider = getCMSProvider();
+  const globalData = await provider.getGlobalData();
+
   return (
     <html lang="en" className={cn(inter.variable, playfair.variable)}>
       <body className="font-sans antialiased text-foreground bg-background selection:bg-black selection:text-white">
-        <Header />
+        <Header siteName={globalData.siteName} navigation={globalData.navigation} />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

@@ -4,14 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export function Hero() {
+export function Hero({ data }: { data: any }) {
+  if (!data) return null;
+
   return (
     <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero.png"
-          alt="Farzana Fehmi Latest Collection - Ethnic Luxury"
+          src={data.image}
+          alt={`${data.title} - ${data.subtitle}`}
           fill
           className="object-cover object-center"
           priority
@@ -28,7 +30,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4">
-            Spring / Summer 2026
+            {data.subtitle}
           </h2>
         </motion.div>
 
@@ -38,7 +40,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4 }}
         >
           <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-8">
-            ETHEREAL ELEGANCE
+            {data.title}
           </h1>
         </motion.div>
 
@@ -48,10 +50,10 @@ export function Hero() {
            transition={{ duration: 0.8, delay: 0.8 }}
         >
            <Link 
-             href="/shop" 
+             href={data.buttonLink} 
              className="inline-block border-b-2 border-white pb-2 text-base md:text-lg font-medium tracking-[0.15em] hover:text-white/80 hover:border-white/80 transition-all uppercase"
            >
-             Discover The Collection
+             {data.buttonText}
            </Link>
         </motion.div>
       </div>
