@@ -8,7 +8,7 @@ interface ProductCardProps {
   id: string;
   name: string;
   price: string;
-  mainImage: string | null;
+  mainImage: { grid: string; detail: string; hero: string } | null;
   collections: string[];
   slug: string;
 }
@@ -19,7 +19,7 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
       <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 mb-4 transition-all duration-500 ease-out">
         {mainImage ? (
           <Image
-            src={mainImage}
+            src={mainImage.grid}
             alt={name}
             fill
             className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"

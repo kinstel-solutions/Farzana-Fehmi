@@ -5,7 +5,7 @@ import { products, allCollections } from '@/lib/products-data';
 // Helper to get image for a collection
 const getCollectionImage = (colName: string) => {
   const p = products.find(p => p.collections.includes(colName) && p.mainImage);
-  return p?.mainImage || '/hero.png';
+  return p?.mainImage?.hero || p?.mainImage?.detail || '/hero.png';
 };
 
 // Map allCollections to Collection interface
@@ -23,7 +23,7 @@ const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || pro
 const heroData: HeroData = {
   title: 'ETHEREAL ELEGANCE',
   subtitle: 'Spring / Summer 2026',
-  image: featuredHeroProduct?.mainImage || '/hero.png',
+  image: featuredHeroProduct?.mainImage?.hero || '/hero.png',
   buttonText: 'Discover The Collection',
   buttonLink: '/shop'
 };

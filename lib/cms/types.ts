@@ -1,4 +1,10 @@
 
+export interface ImageVariant {
+  grid: string;
+  detail: string;
+  hero: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -7,8 +13,8 @@ export interface Product {
   price: string;
   priceNumeric: number;
   featured: boolean;
-  mainImage: string | null;
-  additionalImages: string[];
+  mainImage: ImageVariant | null;
+  additionalImages: ImageVariant[];
   description: string;
   material: string;
   occasion: string[];

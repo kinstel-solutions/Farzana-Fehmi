@@ -2,21 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 const PRODUCTS_TXT = path.join(process.cwd(), 'data', 'products.txt');
+// Source of truth for optimized images is now public/Product-images
 const IMAGES_ROOT = path.join(process.cwd(), 'public', 'Product-images');
 const OUTPUT_TS = path.join(process.cwd(), 'lib', 'products-data.ts');
 
-function renameRecursive(currentDir) {
-    if (!fs.existsSync(currentDir)) return;
-    const items = fs.readdirSync(currentDir, { withFileTypes: true });
-    for (const item of items) {
-        const oldName = item.name;
-        const newName = oldName.replace(/\s+/g, '');
-        const oldPath = path.join(currentDir, oldName);
-        const newPath = path.join(currentDir, newName);
-        if (oldName !== newName) { fs.renameSync(oldPath, newPath); }
-        if (item.isDirectory()) { renameRecursive(newPath); }
-    }
-}
+// We no longer need to rename recursive in public since optimization script handles names,
+// but let's keep it safe or just rely on the optimization script's output. 
+// Actually, optimized images already have clean names from the script.
 
 function parseProducts() {
     const content = fs.readFileSync(PRODUCTS_TXT, 'utf8');
@@ -34,8 +26,8 @@ function parseProducts() {
             price: '',
             priceNumeric: 0,
             featured: false,
-            mainImage: '',
-            additionalImages: '',
+            mainImage: null, // Will be object
+            additionalImages: [], // Will be array of objects
             description: '',
             material: '',
             occasion: [],
@@ -48,7 +40,6 @@ function parseProducts() {
             
             if (line.includes('**Collection(s):**')) {
                 const raw = line.split('**Collection(s):**')[1].trim();
-                // Filter out 'Occasion' from collections as requested
                 data.collections = raw.split(/[,\/]+/)
                     .map(s => s.trim())
                     .filter(s => s && s.toLowerCase() !== 'occasion');
@@ -59,7 +50,6 @@ function parseProducts() {
                 const numeric = parseInt(rawPrice.replace(/[^0-9]/g, ''), 10);
                 data.priceNumeric = isNaN(numeric) ? 0 : numeric;
                 
-                // Format display price
                 if (data.priceNumeric > 0) {
                     data.price = new Intl.NumberFormat('en-AU', { 
                         style: 'currency', 
@@ -73,8 +63,10 @@ function parseProducts() {
             }
             
             if (line.includes('**Featured on Homepage?:**')) data.featured = line.split('**Featured on Homepage?:**')[1].trim().toLowerCase() === 'yes';
-            if (line.includes('**Cover / Main Image Filename:**')) data.mainImage = line.split('**Cover / Main Image Filename:**')[1].trim();
-            if (line.includes('**Additional Image Filenames:**')) data.additionalImages = line.split('**Additional Image Filenames:**')[1].trim();
+            // We store the raw filename to match later
+            if (line.includes('**Cover / Main Image Filename:**')) data.mainImageRaw = line.split('**Cover / Main Image Filename:**')[1].trim();
+            if (line.includes('**Additional Image Filenames:**')) data.additionalImagesRaw = line.split('**Additional Image Filenames:**')[1].trim();
+            
             if (line.includes('**Short Product Description:**')) data.description = line.split('**Short Product Description:**')[1].trim();
             if (line.includes('**Fabric / Material:**')) data.material = line.split('**Fabric / Material:**')[1].trim();
             
@@ -110,18 +102,40 @@ function parseProducts() {
 }
 
 function linkImages(products) {
-    const allFiles = [];
+    const allFiles = []; // will store paths to -detail.webp as the "canonical" reference
     const allFolders = [];
+    
     function walkSync(dir) {
+        if (!fs.existsSync(dir)) return;
         const items = fs.readdirSync(dir, { withFileTypes: true });
         for (const item of items) {
             const res = path.join(dir, item.name);
-            if (item.isDirectory()) { allFolders.push(res); walkSync(res); } else { allFiles.push(res); }
+            if (item.isDirectory()) { 
+                allFolders.push(res); 
+                walkSync(res); 
+            } else { 
+                if (res.endsWith('-detail.webp')) {
+                    allFiles.push(res); 
+                }
+            }
         }
     }
     walkSync(IMAGES_ROOT);
 
+    // Helpers to construct variants from a detail path
+    const getVariants = (detailPath) => {
+        if (!detailPath) return null;
+        const basePath = detailPath.replace('-detail.webp', '');
+        const relativeBase = basePath.split('public')[1].replace(/\\/g, '/');
+        return {
+            grid: `${relativeBase}-grid.webp`,
+            detail: `${relativeBase}-detail.webp`,
+            hero: `${relativeBase}-hero.webp`
+        };
+    };
+
     return products.map(p => {
+        // 1. Find the best folder for this product
         const nameWords = p.name.toLowerCase().replace(/[()]/g, '').split(/\s+/).filter(w => w.length > 2);
         const noise = ['suit', 'set', 'wear', 'light', 'party', 'casual', 'festive'];
         const cleanWords = nameWords.filter(w => !noise.includes(w));
@@ -139,64 +153,75 @@ function linkImages(products) {
         
         const productFolder = maxIntersection >= 1 ? bestFolder : null;
 
-        const findImagePath = (filename, folder = null) => {
-            if (!filename) return null;
-            const target = filename.replace(/\s+/g, '').toLowerCase();
+        // 2. Find Main Image
+        const findImageVariant = (filenameRaw, folder = null) => {
+            if (!filenameRaw) return null;
+            // Remove extension and spaces
+            const targetBase = filenameRaw.split('.')[0].replace(/\s+/g, '').toLowerCase();
             
+            // Search in folder first
             if (folder) {
-                const files = fs.readdirSync(folder);
+                const files = fs.readdirSync(folder).filter(f => f.endsWith('-detail.webp'));
                 const match = files.find(f => {
-                    const fname = f.replace(/\s+/g, '').toLowerCase();
-                    return fname === target || fname.includes(target) || target.includes(fname.replace(/\.[^/.]+$/, ""));
+                    const fBase = f.replace('-detail.webp', '').toLowerCase();
+                    return fBase.includes(targetBase) || targetBase.includes(fBase);
                 });
-                if (match) return path.join(folder, match);
+                if (match) return getVariants(path.join(folder, match));
             }
 
+            // Global search
             const globalMatch = allFiles.find(f => {
-                const fname = path.basename(f).replace(/\s+/g, '').toLowerCase();
-                return fname === target || fname.includes(target) || target.includes(fname.replace(/\.[^/.]+$/, ""));
+                const fBase = path.basename(f).replace('-detail.webp', '').toLowerCase();
+                return fBase.includes(targetBase) || targetBase.includes(fBase);
             });
-            return globalMatch || null;
+            return globalMatch ? getVariants(globalMatch) : null;
         };
 
-        // Determine Main Image
-        let mainImagePath = findImagePath(p.mainImage, productFolder);
+        let mainImage = findImageVariant(p.mainImageRaw, productFolder);
         
-        // If no main image specific match, but we have a folder, take the first valid image
-        if (!mainImagePath && productFolder) {
-            const filesInFolder = fs.readdirSync(productFolder).filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f));
-            if (filesInFolder.length > 0) mainImagePath = path.join(productFolder, filesInFolder[0]);
+        // Auto-select if not found
+        if (!mainImage && productFolder) {
+            const files = fs.readdirSync(productFolder).filter(f => f.endsWith('-detail.webp'));
+            if (files.length > 0) {
+                mainImage = getVariants(path.join(productFolder, files[0]));
+            }
         }
 
-        // Determine Additional Images
-        // Aggressively grab ALL images from the folder if it exists
-        const normalizeToPublic = (p) => p ? p.split('public')[1].replace(/\\/g, '/') : null;
-        let additionalPaths = [];
-        
+        // 3. Find Additional Images (All in folder except main)
+        let additionalImages = [];
         if (productFolder) {
-             const files = fs.readdirSync(productFolder)
-                .filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+            const files = fs.readdirSync(productFolder)
+                .filter(f => f.endsWith('-detail.webp'))
                 .map(f => path.join(productFolder, f));
-             
-             // Filter out the main image from the additional list
-             additionalPaths = files.filter(f => f !== mainImagePath);
-        } else if (p.additionalImages) {
-             // Fallback to text defined if no folder found (unlikely)
-             additionalPaths = p.additionalImages.split(',')
-                .map(img => findImagePath(img.trim(), productFolder))
-                .filter(Boolean);
+            
+            // Exclude main image if present
+            const mainDetailPath = mainImage ? path.join(process.cwd(), 'public', mainImage.detail) : '';
+            
+            additionalImages = files
+                .filter(f => path.normalize(f) !== path.normalize(mainDetailPath))
+                .map(f => getVariants(f));
         }
 
         return {
-            ...p,
-            mainImage: normalizeToPublic(mainImagePath),
-            additionalImages: additionalPaths.map(normalizeToPublic)
+            id: p.id,
+            slug: p.slug,
+            name: p.name,
+            collections: p.collections,
+            price: p.price,
+            priceNumeric: p.priceNumeric,
+            featured: p.featured,
+            description: p.description,
+            material: p.material,
+            occasion: p.occasion,
+            fit: p.fit,
+            tags: p.tags,
+            mainImage,
+            additionalImages
         };
     });
 }
 
 function run() {
-    renameRecursive(IMAGES_ROOT);
     let products = parseProducts();
     products = linkImages(products);
 
@@ -205,6 +230,12 @@ function run() {
     const allTags = [...new Set(products.flatMap(p => p.tags))].sort();
 
     const output = `
+export interface ImageVariant {
+    grid: string;
+    detail: string;
+    hero: string;
+}
+
 export interface Product {
     id: string;
     slug: string;
@@ -213,8 +244,8 @@ export interface Product {
     price: string;
     priceNumeric: number;
     featured: boolean;
-    mainImage: string | null;
-    additionalImages: string[];
+    mainImage: ImageVariant | null;
+    additionalImages: ImageVariant[];
     description: string;
     material: string;
     occasion: string[];
@@ -237,6 +268,10 @@ export function getProductsByCollection(collection: string): Product[] {
     return products.filter(p => p.collections.includes(collection));
 }
 
+export function getFeaturedProducts(): Product[] {
+    return products.filter(p => p.featured).slice(0, 4);
+}
+
 export function getRelatedProducts(product: Product): Product[] {
     return products.filter(p => {
         if (p.id === product.id) return false;
@@ -247,7 +282,7 @@ export function getRelatedProducts(product: Product): Product[] {
 }
 `;
     fs.writeFileSync(OUTPUT_TS, output);
-    console.log('Done! Generated optimized data.');
+    console.log('Done! Generated optimized data with variants.');
 }
 
 run();

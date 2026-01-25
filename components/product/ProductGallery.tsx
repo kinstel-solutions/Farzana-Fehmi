@@ -5,9 +5,15 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+interface ImageVariant {
+  grid: string;
+  detail: string;
+  hero: string;
+}
+
 interface ProductGalleryProps {
-  mainImage: string | null;
-  additionalImages: string[];
+  mainImage: ImageVariant | null;
+  additionalImages: ImageVariant[];
   productName: string;
 }
 
@@ -15,7 +21,8 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
-  const allImages = [mainImage, ...additionalImages].filter(Boolean) as string[];
+  // Flatten to array of variants
+  const allVariants = [mainImage, ...additionalImages].filter(Boolean) as ImageVariant[];
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -32,7 +39,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
     // eslint-disable-next-line
   }, [emblaApi, onSelect]); // intended dependency check skip
 
-  if (allImages.length === 0) {
+  if (allVariants.length === 0) {
       return (
         <div className="relative aspect-[3/4] bg-gray-50 flex items-center justify-center text-gray-400">
             No Image Available
@@ -46,10 +53,10 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
       <div className="relative group">
         <div className="overflow-hidden bg-gray-50 aspect-[3/4]" ref={emblaRef}>
           <div className="flex touch-pan-y">
-            {allImages.map((img, index) => (
+            {allVariants.map((variant, index) => (
               <div className="flex-[0_0_100%] min-w-0 relative aspect-[3/4]" key={index}>
                 <Image
-                  src={img}
+                  src={variant.detail} // Use detail size
                   alt={`${productName} view ${index + 1}`}
                   fill
                   className="object-cover"
@@ -62,7 +69,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
         </div>
 
         {/* Arrow Navigation */}
-        {allImages.length > 1 && (
+        {allVariants.length > 1 && (
           <>
             <button
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0"
@@ -81,9 +88,9 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
       </div>
 
       {/* Thumbnails */}
-      {allImages.length > 1 && (
+      {allVariants.length > 1 && (
         <div className="grid grid-cols-4 gap-2">
-            {allImages.map((img, idx) => (
+            {allVariants.map((variant, idx) => (
                 <button 
                   key={idx}
                   onClick={() => emblaApi && emblaApi.scrollTo(idx)}
@@ -92,7 +99,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
                   }`}
                 >
                     <Image
-                        src={img}
+                        src={variant.grid} // Use grid size for thumbs
                         alt={`${productName} thumbnail ${idx + 1}`}
                         fill
                         className="object-cover"
