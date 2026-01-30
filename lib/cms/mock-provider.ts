@@ -82,7 +82,7 @@ export class MockCMSProvider implements CMSProvider {
 
   async getGlobalData(): Promise<GlobalData> {
     return {
-      siteName: 'Farzana Fehmi',
+      siteName: 'Fehmi Farzana',
       description: 'Defining contemporary luxury through heritage craftsmanship.',
       navigation: [
         { label: 'SHOP', href: '/shop' },

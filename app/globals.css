@@ -42,6 +42,10 @@
   --border: #e5e5e5;
 }
 
+.font-tangerine {
+  font-family: var(--font-tangerine);
+}
+
 @media (prefers-color-scheme: dark) {
   /* Optional dark mode support if needed, but sticking to brand identity first */
   /* Remove this block if you want to force light mode, or keep for user pref */

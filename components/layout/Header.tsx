@@ -71,8 +71,8 @@ export function Header({
           {/* Logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2 group" onClick={() => setIsMobileMenuOpen(false)}>
             <h1 className={cn(
-              "font-serif font-bold tracking-tighter uppercase transition-all duration-300",
-              isScrolled || isMobileMenuOpen ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl"
+              "font-tangerine lowercase transition-all duration-300",
+              isScrolled || isMobileMenuOpen ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
             )}>
               {siteName}
             </h1>
