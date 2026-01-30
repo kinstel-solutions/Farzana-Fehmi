@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { getCMSProvider } from '@/lib/cms/cms-provider';
 
@@ -11,9 +12,19 @@ export async function Footer() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
-          {/* Brand */}
+{/* Brand */}
           <div className="space-y-6">
-            <h2 className="font-serif text-2xl">{siteName}</h2>
+            <Link href="/" className="block">
+              <div className="relative h-36 w-48">
+                <Image 
+                  src="/logo.png" 
+                  alt={siteName} 
+                  fill
+                  className="object-contain object-left invert mix-blend-screen"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </Link>
             <p className="text-gray-400 text-sm font-light leading-relaxed">
               {description}
             </p>
