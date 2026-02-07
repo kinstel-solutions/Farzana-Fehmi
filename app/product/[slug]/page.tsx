@@ -2,6 +2,7 @@ import { getCMSProvider } from '@/lib/cms/cms-provider';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { ProductGallery } from '@/components/product/ProductGallery';
+import { SizeGuide } from '@/components/product/SizeGuide';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -93,6 +94,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             <div className="space-y-4 pt-4">
+              <div className="flex justify-start">
+                <SizeGuide />
+              </div>
+
               <Link href={`/contact?subject=Enquiry: ${product.name}`}>
                 <Button size="lg" className="w-full md:w-auto min-w-[200px] uppercase tracking-wider text-xs">
                   Enquire Now
