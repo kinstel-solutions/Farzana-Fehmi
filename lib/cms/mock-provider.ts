@@ -36,10 +36,12 @@ const storyData: StoryData = {
   },
   narrative: [
     {
-      title: "A Vision of Timelessness",
+      title: "Our Story",
       content: [
-        "Farzana Fehmi established her eponymous label with a singular vision: to create garments that transcend seasons. Drawing inspiration from the rich tapestry of ethnic craftsmanship and blending it with modern silhouettes, the brand stands as a testament to the enduring allure of quiet luxury.",
-        "Every piece is a dialogue between the past and the present, designed for the woman who moves through the world with grace and purpose."
+        "Fehmifarzana Designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
+        "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
+        "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
+        "We don’t follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet."
       ]
     }
   ],
