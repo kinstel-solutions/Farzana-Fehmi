@@ -8,7 +8,7 @@ interface ProductCardProps {
   id: string;
   name: string;
   price: string;
-  mainImage: { grid: string; detail: string; hero: string } | null;
+  mainImage: { grid: string; detail: string; hero: string; focalPoint?: { x: number; y: number } } | null;
   collections: string[];
   slug: string;
 }
@@ -23,6 +23,7 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
             alt={name}
             fill
             className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+            style={mainImage.focalPoint ? { objectPosition: `${mainImage.focalPoint.x}% ${mainImage.focalPoint.y}%` } : undefined}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (

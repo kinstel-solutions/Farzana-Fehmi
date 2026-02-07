@@ -3,6 +3,7 @@ export interface ImageVariant {
     grid: string;
     detail: string;
     hero: string;
+    focalPoint?: { x: number; y: number };
 }
 
 export interface Product {
@@ -47,18 +48,30 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1305-Edit-grid.webp",
       "detail": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1305-Edit-detail.webp",
-      "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1305-Edit-hero.webp"
+      "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1305-Edit-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1313-Edit-grid.webp",
         "detail": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1313-Edit-detail.webp",
-        "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1313-Edit-hero.webp"
+        "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1313-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1324-Edit-grid.webp",
         "detail": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1324-Edit-detail.webp",
-        "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1324-Edit-hero.webp"
+        "hero": "/Product-images/RaniSilkSuitSet(Festive)/DSCF1324-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   },
@@ -86,23 +99,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit-grid.webp",
       "detail": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit-detail.webp",
-      "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit-hero.webp"
+      "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 51
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit-grid.webp",
         "detail": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit-detail.webp",
-        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit-hero.webp"
+        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit-grid.webp",
         "detail": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit-detail.webp",
-        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit-hero.webp"
+        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 53
+        }
       },
       {
         "grid": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit-grid.webp",
         "detail": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit-detail.webp",
-        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit-hero.webp"
+        "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       }
     ]
   },
@@ -129,13 +158,21 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-grid.webp",
       "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-detail.webp",
-      "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-hero.webp"
+      "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 49
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-grid.webp",
         "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-detail.webp",
-        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-hero.webp"
+        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 53
+        }
       }
     ]
   },
@@ -159,18 +196,30 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1-grid.webp",
       "detail": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1-detail.webp",
-      "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1-hero.webp"
+      "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 53
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset2-grid.webp",
         "detail": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset2-detail.webp",
-        "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset2-hero.webp"
+        "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 53
+        }
       },
       {
         "grid": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset3-grid.webp",
         "detail": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset3-detail.webp",
-        "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset3-hero.webp"
+        "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       }
     ]
   },
@@ -197,23 +246,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-grid.webp",
       "detail": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-detail.webp",
-      "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-hero.webp"
+      "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit-grid.webp",
         "detail": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit-detail.webp",
-        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit-hero.webp"
+        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1734-Edit-grid.webp",
         "detail": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1734-Edit-detail.webp",
-        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1734-Edit-hero.webp"
+        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1734-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1842-Edit-grid.webp",
         "detail": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1842-Edit-detail.webp",
-        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1842-Edit-hero.webp"
+        "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1842-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   },
@@ -241,23 +306,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset1-grid.webp",
       "detail": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset1-detail.webp",
-      "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset1-hero.webp"
+      "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset2-grid.webp",
         "detail": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset2-detail.webp",
-        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset2-hero.webp"
+        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 49
+        }
       },
       {
         "grid": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset3-grid.webp",
         "detail": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset3-detail.webp",
-        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset3-hero.webp"
+        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       },
       {
         "grid": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset4-grid.webp",
         "detail": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset4-detail.webp",
-        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset4-hero.webp"
+        "hero": "/Product-images/MaharaniShalwarSuitSet(LightPartyWear)/21MaharaniShalwarsuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 55
+        }
       }
     ]
   },
@@ -285,28 +366,48 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset1-grid.webp",
       "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset1-detail.webp",
-      "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset1-hero.webp"
+      "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 49
+        }
       },
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       }
     ]
   },
@@ -335,23 +436,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset1-grid.webp",
       "detail": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset1-detail.webp",
-      "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset1-hero.webp"
+      "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 44
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset2-grid.webp",
         "detail": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset2-detail.webp",
-        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset2-hero.webp"
+        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset3-grid.webp",
         "detail": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset3-detail.webp",
-        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset3-hero.webp"
+        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset4-grid.webp",
         "detail": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset4-detail.webp",
-        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset4-hero.webp"
+        "hero": "/Product-images/AzureBlueSequinnedSuitSet(CasualWear)/11AzureBlueSequinnedsuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   },
@@ -380,23 +497,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset1-grid.webp",
       "detail": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset1-detail.webp",
-      "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset1-hero.webp"
+      "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 53
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset2-grid.webp",
         "detail": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset2-detail.webp",
-        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset2-hero.webp"
+        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 53
+        }
       },
       {
         "grid": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset4-grid.webp",
         "detail": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset4-detail.webp",
-        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset4-hero.webp"
+        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 53
+        }
       },
       {
         "grid": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset5-grid.webp",
         "detail": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset5-detail.webp",
-        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset5-hero.webp"
+        "hero": "/Product-images/ApricotandSalmonPinkSequinnedSuitSet(CasualWear)/10ApricotandSalmonPinkSequinnedsuitset5-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   },
@@ -424,23 +557,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1-grid.webp",
       "detail": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1-detail.webp",
-      "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1-hero.webp"
+      "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 51
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset2-grid.webp",
         "detail": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset2-detail.webp",
-        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset2-hero.webp"
+        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset3-grid.webp",
         "detail": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset3-detail.webp",
-        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset3-hero.webp"
+        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 55
+        }
       },
       {
         "grid": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset4-grid.webp",
         "detail": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset4-detail.webp",
-        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset4-hero.webp"
+        "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 55
+        }
       }
     ]
   },
@@ -468,23 +617,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset2-grid.webp",
       "detail": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset2-detail.webp",
-      "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset2-hero.webp"
+      "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset2-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset1-grid.webp",
         "detail": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset1-detail.webp",
-        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset1-hero.webp"
+        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset1-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset3-grid.webp",
         "detail": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset3-detail.webp",
-        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset3-hero.webp"
+        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 55
+        }
       },
       {
         "grid": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset4-grid.webp",
         "detail": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset4-detail.webp",
-        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset4-hero.webp"
+        "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       }
     ]
   },
@@ -512,23 +677,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset1-grid.webp",
       "detail": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset1-detail.webp",
-      "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset1-hero.webp"
+      "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset2-grid.webp",
         "detail": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset2-detail.webp",
-        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset2-hero.webp"
+        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       },
       {
         "grid": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset3-grid.webp",
         "detail": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset3-detail.webp",
-        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset3-hero.webp"
+        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset4-grid.webp",
         "detail": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset4-detail.webp",
-        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset4-hero.webp"
+        "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       }
     ]
   },
@@ -556,23 +737,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-grid.webp",
       "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-detail.webp",
-      "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp"
+      "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 49
+        }
       },
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-grid.webp",
         "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp"
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 51
+        }
       }
     ]
   },
@@ -599,23 +796,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit1-grid.webp",
       "detail": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit1-detail.webp",
-      "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit1-hero.webp"
+      "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit1-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 44
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit2-grid.webp",
         "detail": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit2-detail.webp",
-        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit2-hero.webp"
+        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit3-grid.webp",
         "detail": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit3-detail.webp",
-        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit3-hero.webp"
+        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit3-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit4-grid.webp",
         "detail": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit4-detail.webp",
-        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit4-hero.webp"
+        "hero": "/Product-images/PurpleTissueFrontSlitSuitSet(LightPartyWear)/20PurpleTissueFrontSlitSuit4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   },
@@ -642,23 +855,39 @@ export const products: Product[] = [
     "mainImage": {
       "grid": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1500-Edit-grid.webp",
       "detail": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1500-Edit-detail.webp",
-      "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1500-Edit-hero.webp"
+      "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1500-Edit-hero.webp",
+      "focalPoint": {
+        "x": 50,
+        "y": 46
+      }
     },
     "additionalImages": [
       {
         "grid": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1508-Edit-grid.webp",
         "detail": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1508-Edit-detail.webp",
-        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1508-Edit-hero.webp"
+        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1508-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       },
       {
         "grid": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1516-Edit-grid.webp",
         "detail": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1516-Edit-detail.webp",
-        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1516-Edit-hero.webp"
+        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1516-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
       },
       {
         "grid": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1539-Edit-grid.webp",
         "detail": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1539-Edit-detail.webp",
-        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1539-Edit-hero.webp"
+        "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1539-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
+        }
       }
     ]
   }

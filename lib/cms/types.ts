@@ -3,6 +3,7 @@ export interface ImageVariant {
   grid: string;
   detail: string;
   hero: string;
+  focalPoint?: { x: number; y: number };
 }
 
 export interface Product {
