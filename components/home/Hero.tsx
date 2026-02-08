@@ -18,6 +18,9 @@ export function Hero({ data }: { data: any }) {
 
   if (!data) return null;
 
+  // Duplicate images for infinite marquee on desktop
+  const desktopImages = [...data.images, ...data.images, ...data.images, ...data.images];
+
   return (
     <section className="relative h-[100dvh] w-full bg-black overflow-hidden flex flex-col md:flex-row">
       
@@ -96,26 +99,30 @@ export function Hero({ data }: { data: any }) {
           </div>
        </div>
 
-       {/* Right Column: Image Slideshow (Desktop Only) */}
-       {/* 50% width, full height, centered content */}
-       <div className="hidden md:flex w-1/2 h-full relative bg-zinc-900 items-center justify-center overflow-hidden">
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              key={currentImage}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
-              className="absolute inset-0 flex items-center justify-center" 
-            >
-               {/* 100% height image, width auto */}
-               <img
-                 src={data.images[currentImage]}
-                 alt={`Hero image ${currentImage + 1}`}
-                 className="h-full w-auto object-contain max-w-none"
-               />
-            </motion.div>
-          </AnimatePresence>
+       {/* Right Column: Image Auto-Scroll (Desktop Only) */}
+       {/* 50% width, full height, auto-scrolling images */}
+       <div className="hidden md:flex w-1/2 h-full relative bg-zinc-900 overflow-hidden">
+          {/* Scrolling Container */}
+          <motion.div 
+             className="flex h-full min-w-max"
+             animate={{ x: ["0%", "-50%"] }} // Right to Left scroll
+             transition={{ 
+                 duration: 60, 
+                 ease: "linear", 
+                 repeat: Infinity 
+             }}
+          >
+             {/* Render images twice for seamless loop */}
+             {[...desktopImages, ...desktopImages].map((src, index) => (
+               <div key={index} className="h-full relative shrink-0">
+                  <img
+                    src={src}
+                    alt={`Hero scroll image`}
+                    className="h-full w-auto object-cover max-w-none"
+                  />
+               </div>
+             ))}
+          </motion.div>
        </div>
 
     </section>
