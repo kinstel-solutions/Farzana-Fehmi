@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, ShoppingBag, Menu, User, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -45,34 +45,63 @@ export function Header({
             : 'bg-gradient-to-b from-black/50 to-transparent py-6 text-white'
         )}
       >
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {/* Mobile Menu Toggle */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className={cn("lg:hidden relative z-10", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-            
-            {/* Desktop Nav */}
-            <nav className={cn(
-              "hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide transition-colors duration-300",
-               isScrolled ? "text-primary" : "text-white"
-            )}>
-              {navigation.map((link) => (
-                <Link key={link.label} href={link.href} className="hover:opacity-70 transition-opacity">{link.label}</Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 group h-12 w-48" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between relative">
+          
+          {/* Left: F-Logo */}
+          <Link 
+            href="/" 
+            className={cn(
+              "relative z-20 shrink-0 transition-all duration-300",
+              isScrolled || isMobileMenuOpen ? "h-10 w-10" : "h-14 w-14"
+            )} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             <Image
-              src={isScrolled || isMobileMenuOpen ? "/logo-black-noBg.svg" : "/logo-white-Nobg.svg"}
+              src={isScrolled || isMobileMenuOpen 
+                ? "/logos/Fahemi_Logo-F_(forLight-BG).svg" 
+                : "/logos/Fahemi_Logo-F_(forDark-BG).svg"
+              }
+              alt="F Logo"
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
+
+          {/* Center: Text Logo */}
+          <Link 
+            href="/" 
+            className={cn(
+              "absolute left-1/2 -translate-x-1/2 z-20 hidden md:block transition-all duration-300",
+              isScrolled || isMobileMenuOpen ? "h-8 w-40" : "h-12 w-56"
+            )}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Image
+              src={isScrolled || isMobileMenuOpen 
+                ? "/logos/Fahemi_Logo-text_(forLight-BG).svg" 
+                : "/logos/Fahemi_Logo-text_(forDark-BG).svg"
+              }
+              alt={siteName}
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
+          {/* Mobile Center Text Logo */}
+           <Link 
+             href="/" 
+             className={cn(
+               "absolute left-1/2 -translate-x-1/2 z-20 md:hidden transition-all duration-300",
+               isScrolled || isMobileMenuOpen ? "h-6 w-32" : "h-8 w-40"
+             )}
+             onClick={() => setIsMobileMenuOpen(false)}
+           >
+            <Image
+              src={isScrolled || isMobileMenuOpen 
+                ? "/logos/Fahemi_Logo-text_(forLight-BG).svg" 
+                : "/logos/Fahemi_Logo-text_(forDark-BG).svg"
+              }
               alt={siteName}
               fill
               className="object-contain transition-all duration-300"
@@ -80,20 +109,28 @@ export function Header({
             />
           </Link>
 
-          {/* Icons */}
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className={cn("transition-colors", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <Search className="w-5 h-5" />
-              <span className="sr-only">Search</span>
-            </Button>
-            <Button variant="ghost" size="icon" className={cn("hidden md:inline-flex transition-colors", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <User className="w-5 h-5" />
-              <span className="sr-only">Account</span>
-            </Button>
-            <Button variant="ghost" size="icon" className={cn("transition-colors relative", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <ShoppingBag className="w-5 h-5" />
-              <div className={cn("absolute top-2 right-2 w-2 h-2 rounded-full", isScrolled || isMobileMenuOpen ? "bg-black" : "bg-white")}></div>
-              <span className="sr-only">Cart</span>
+
+          {/* Right: Navigation & Mobile Menu Toggle */}
+          <div className="flex items-center gap-4">
+             {/* Desktop Nav */}
+            <nav className={cn(
+              "hidden lg:flex items-center gap-8 font-medium tracking-wide transition-all duration-300",
+               isScrolled ? "text-primary/80 hover:text-primary text-sm" : "text-white/90 hover:text-white text-base"
+            )}>
+              {navigation.map((link) => (
+                <Link key={link.label} href={link.href} className="hover:opacity-70 transition-opacity">{link.label}</Link>
+              ))}
+            </nav>
+
+            {/* Mobile Menu Toggle */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className={cn("lg:hidden relative z-30", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <span className="sr-only">Toggle Menu</span>
             </Button>
           </div>
         </div>
