@@ -12,27 +12,24 @@ export function Hero({ data }: { data: any }) {
     if (!data?.images?.length) return;
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % data.images.length);
-    }, 4000);
+    }, 4000); // 4 seconds interval for changing images
     return () => clearInterval(interval);
   }, [data?.images?.length]);
 
   if (!data) return null;
 
-  // Duplicate images for infinite marquee on desktop
-  const desktopImages = [...data.images, ...data.images, ...data.images, ...data.images];
-
   return (
-    <section className="relative h-[100dvh] w-full bg-black overflow-hidden flex flex-col md:flex-row">
+    <section className="relative h-[100dvh] w-full bg-black overflow-hidden flex items-center justify-center">
       
-      {/* --- Mobile View: Full Screen Slideshow --- */}
-      <div className="absolute inset-0 md:hidden">
+      {/* Background Slideshow */}
+      <div className="absolute inset-0 z-0">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={currentImage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1.5 }} // Smooth crossfade
             className="absolute inset-0"
           >
              <Image
@@ -45,86 +42,45 @@ export function Hero({ data }: { data: any }) {
             />
           </motion.div>
         </AnimatePresence>
-         <div className="absolute inset-0 bg-black/30" />
+        {/* Helper overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-       {/* --- Desktop View: Split Layout --- */}
-       
-       {/* Left Column: Text (Editorial Style) */}
-       <div className="relative z-10 w-1/2 h-full flex flex-col items-start justify-center px-6 md:pl-20 md:pr-10 text-white pointer-events-none md:pointer-events-auto overflow-hidden">
-          
-          {/* Watermark Logo */}
-          <div className="absolute left-0 top-0 h-full w-auto z-0 hidden md:flex items-center opacity-30 pointer-events-none select-none">
-             {/* Using img to allow height-based auto-width easily without knowing aspect ratio */}
-             <img
-                src="/logos/Fahemi_Logo-F_(forDark-BG).svg"
-                alt=""
-                className="h-full w-auto object-contain"
-             />
-          </div>
+      {/* Content */}
+      <div className="relative z-10 text-center text-white space-y-6 max-w-4xl px-4 mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h2 className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4 drop-shadow-lg">
+            {data.subtitle}
+          </h2>
+        </motion.div>
 
-          <div className="relative z-10 max-w-xl space-y-6 md:space-y-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h2 className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4 text-white/80 md:text-white/60">
-                {data.subtitle}
-              </h2>
-            </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl">
+            {data.title}
+          </h1>
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
-                {data.title}
-              </h1>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <Link 
-                href={data.buttonLink} 
-                className="inline-block border-b border-white pb-2 text-base md:text-lg font-medium tracking-[0.1em] hover:text-white/70 hover:border-white/70 transition-all uppercase"
-              >
-                {data.buttonText}
-              </Link>
-            </motion.div>
-          </div>
-       </div>
-
-       {/* Right Column: Image Auto-Scroll (Desktop Only) */}
-       {/* 50% width, full height, auto-scrolling images */}
-       <div className="hidden md:flex w-1/2 h-full relative bg-zinc-900 overflow-hidden">
-          {/* Scrolling Container */}
-          <motion.div 
-             className="flex h-full min-w-max"
-             animate={{ x: ["0%", "-50%"] }} // Right to Left scroll
-             transition={{ 
-                 duration: 60, 
-                 ease: "linear", 
-                 repeat: Infinity 
-             }}
-          >
-             {/* Render images twice for seamless loop */}
-             {[...desktopImages, ...desktopImages].map((src, index) => (
-               <div key={index} className="h-full relative shrink-0">
-                  <img
-                    src={src}
-                    alt={`Hero scroll image`}
-                    className="h-full w-auto object-cover max-w-none"
-                  />
-               </div>
-             ))}
-          </motion.div>
-       </div>
-
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, delay: 0.8 }}
+        >
+           <Link 
+             href={data.buttonLink} 
+             className="inline-block border-b-2 border-white pb-2 text-base md:text-lg font-medium tracking-[0.15em] hover:text-white/80 hover:border-white/80 transition-all uppercase drop-shadow-md"
+           >
+             {data.buttonText}
+           </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }
