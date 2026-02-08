@@ -57,13 +57,41 @@ const storyData: StoryData = {
   }
 };
 
+const sortProductsByColor = (items: Product[]) => {
+  if (!items.length) return [];
+  
+  // Group by color
+  const groups: { [key: string]: Product[] } = {};
+  items.forEach(p => {
+    const color = p.bgColor || 'unknown';
+    if (!groups[color]) groups[color] = [];
+    groups[color].push(p);
+  });
+
+  // Interleave
+  const sorted: Product[] = [];
+  const keys = Object.keys(groups);
+  let maxLen = 0;
+  keys.forEach(k => maxLen = Math.max(maxLen, groups[k].length));
+
+  for (let i = 0; i < maxLen; i++) {
+    keys.forEach(k => {
+      if (groups[k][i]) {
+        sorted.push(groups[k][i]);
+      }
+    });
+  }
+  return sorted;
+};
+
 export class MockCMSProvider implements CMSProvider {
   async getAllProducts(): Promise<Product[]> {
-    return products;
+    return sortProductsByColor(products);
   }
 
   async getFeaturedProducts(): Promise<Product[]> {
-    return products.filter(p => p.featured).slice(0, 4);
+    const featured = products.filter(p => p.featured);
+    return sortProductsByColor(featured).slice(0, 4);
   }
 
   async getProductBySlug(slug: string): Promise<Product | null> {

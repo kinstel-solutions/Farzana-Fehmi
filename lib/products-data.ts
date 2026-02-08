@@ -21,11 +21,13 @@ export interface Product {
     occasion: string[];
     fit?: string;
     tags: string[];
+    bgColor?: 'green' | 'blue' | 'purple' | 'neutral' | 'dark' | string;
 }
 
 export const products: Product[] = [
   {
     "id": "P001",
+    "bgColor": "blue",
     "slug": "rani-silk-suit",
     "name": "Rani Silk Suit",
     "collections": [
@@ -77,6 +79,7 @@ export const products: Product[] = [
   },
   {
     "id": "P002",
+    "bgColor": "blue",
     "slug": "emerald-green-kaamdaani-suit",
     "name": "Emerald Green Kaamdaani suit",
     "collections": [
@@ -137,6 +140,7 @@ export const products: Product[] = [
   },
   {
     "id": "P003",
+    "bgColor": "blue",
     "slug": "magenta-orange-gota-patti-suit",
     "name": "Magenta Orange Gota Patti Suit",
     "collections": [
@@ -178,6 +182,7 @@ export const products: Product[] = [
   },
   {
     "id": "P004",
+    "bgColor": "blue",
     "slug": "vintage-maroon-chanderi-suit-set",
     "name": "Vintage Maroon Chanderi Suit Set",
     "collections": [
@@ -225,6 +230,7 @@ export const products: Product[] = [
   },
   {
     "id": "P005",
+    "bgColor": "blue",
     "slug": "dark-mauve-anarkali-suit",
     "name": "Dark Mauve Anarkali suit",
     "collections": [
@@ -284,6 +290,7 @@ export const products: Product[] = [
   },
   {
     "id": "P006",
+    "bgColor": "green",
     "slug": "maharani-shalwar-suit-set",
     "name": "Maharani Shalwar suit set",
     "collections": [
@@ -344,6 +351,7 @@ export const products: Product[] = [
   },
   {
     "id": "P007",
+    "bgColor": "green",
     "slug": "leheria-tissue-suit-set",
     "name": "Leheria Tissue Suit Set",
     "collections": [
@@ -413,6 +421,7 @@ export const products: Product[] = [
   },
   {
     "id": "P008",
+    "bgColor": "green",
     "slug": "azure-blue-sequined-suit-set",
     "name": "Azure Blue Sequined suit set",
     "collections": [
@@ -474,6 +483,7 @@ export const products: Product[] = [
   },
   {
     "id": "P009",
+    "bgColor": "green",
     "slug": "apricot-and-salmon-pink-georgette-suit-set",
     "name": "Apricot and Salmon Pink Georgette Suit Set",
     "collections": [
@@ -535,6 +545,7 @@ export const products: Product[] = [
   },
   {
     "id": "P010",
+    "bgColor": "blue",
     "slug": "bottle-green-mirror-sequined-suit-set",
     "name": "Bottle Green Mirror Sequined suit set",
     "collections": [
@@ -595,6 +606,7 @@ export const products: Product[] = [
   },
   {
     "id": "P011",
+    "bgColor": "green",
     "slug": "dusty-rose-organza-suit-set",
     "name": "Dusty Rose Organza suit set",
     "collections": [
@@ -655,6 +667,7 @@ export const products: Product[] = [
   },
   {
     "id": "P012",
+    "bgColor": "blue",
     "slug": "royal-blue-crepe-bandhani-suit-set",
     "name": "Royal Blue Crepe Bandhani suit set",
     "collections": [
@@ -715,6 +728,7 @@ export const products: Product[] = [
   },
   {
     "id": "P013",
+    "bgColor": "green",
     "slug": "jade-applique-suit-set",
     "name": "Jade Applique Suit Set",
     "collections": [
@@ -775,6 +789,7 @@ export const products: Product[] = [
   },
   {
     "id": "P014",
+    "bgColor": "green",
     "slug": "purple-tissue-front-slit-suit",
     "name": "Purple Tissue Front Slit Suit",
     "collections": [
@@ -834,6 +849,7 @@ export const products: Product[] = [
   },
   {
     "id": "P015",
+    "bgColor": "blue", 
     "slug": "sea-green-semi-crepe-suit-set",
     "name": "Sea Green Semi-Crepe Suit Set",
     "collections": [

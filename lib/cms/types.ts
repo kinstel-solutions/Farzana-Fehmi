@@ -21,6 +21,7 @@ export interface Product {
   occasion: string[];
   fit?: string;
   tags: string[];
+  bgColor?: string;
 }
 
 export interface Collection {
