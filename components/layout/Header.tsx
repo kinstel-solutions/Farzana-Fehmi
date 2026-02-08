@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, ShoppingBag, Menu, User, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -69,13 +70,14 @@ export function Header({
           </div>
 
           {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 group" onClick={() => setIsMobileMenuOpen(false)}>
-            <h1 className={cn(
-              "font-tangerine lowercase transition-all duration-300",
-              isScrolled || isMobileMenuOpen ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
-            )}>
-              {siteName}
-            </h1>
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 group h-12 w-48" onClick={() => setIsMobileMenuOpen(false)}>
+            <Image
+              src={isScrolled || isMobileMenuOpen ? "/logo-black-noBg.svg" : "/logo-white-Nobg.svg"}
+              alt={siteName}
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
           </Link>
 
           {/* Icons */}

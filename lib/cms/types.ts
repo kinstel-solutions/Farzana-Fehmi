@@ -35,7 +35,7 @@ export interface Collection {
 export interface HeroData {
   title: string;
   subtitle: string;
-  image: string;
+  images: string[];
   buttonText: string;
   buttonLink: string;
 }

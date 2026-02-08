@@ -17,10 +17,10 @@ export async function Footer() {
             <Link href="/" className="block">
               <div className="relative h-36 w-48">
                 <Image 
-                  src="/logo.png" 
+                  src="/logo-white-Nobg.svg" 
                   alt={siteName} 
                   fill
-                  className="object-contain object-left invert mix-blend-screen"
+                  className="object-contain object-left"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>

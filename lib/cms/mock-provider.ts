@@ -9,13 +9,29 @@ const getCollectionImage = (colName: string) => {
 };
 
 // Map allCollections to Collection interface
-const collections: Collection[] = allCollections.map((col, idx) => ({
-  id: idx + 1,
-  title: col,
-  image: getCollectionImage(col),
-  link: `/shop?category=${encodeURIComponent(col)}`,
-  size: (idx === 0 ? 'large' : 'small') as 'large' | 'small' // 1st is large, rest small for grid layout
-})).slice(0, 3); // Limit to 3 for the home layout
+const collections: Collection[] = [
+  {
+    id: 1,
+    title: 'Everyday Wear',
+    image: '/photos/cards/casual-wear.webp',
+    link: '/shop?category=Everyday%20Wear',
+    size: 'large'
+  },
+  {
+    id: 2,
+    title: 'Festive',
+    image: '/photos/cards/festive-wear.webp',
+    link: '/shop?category=Festive',
+    size: 'small'
+  },
+  {
+    id: 3,
+    title: 'Party',
+    image: '/photos/cards/party-wear.webp',
+    link: '/shop?category=Party',
+    size: 'small'
+  }
+];
 
 // Dynamic Hero Data from a Featured Product
 const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || products[0];
@@ -23,7 +39,12 @@ const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || pro
 const heroData: HeroData = {
   title: 'ETHEREAL ELEGANCE',
   subtitle: 'Spring / Summer 2026',
-  image: featuredHeroProduct?.mainImage?.hero || '/hero.png',
+  images: [
+    '/photos/hero/hero-1.webp',
+    '/photos/hero/hero-2.webp',
+    '/photos/hero/hero-3.webp',
+    '/photos/hero/hero-4.webp',
+  ],
   buttonText: 'Discover The Collection',
   buttonLink: '/shop'
 };
