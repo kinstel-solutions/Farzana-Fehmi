@@ -57,7 +57,7 @@ export function Hero({ data }: { data: any }) {
           <div className="absolute left-0 top-0 h-full w-auto z-0 hidden md:flex items-center opacity-30 pointer-events-none select-none">
              {/* Using img to allow height-based auto-width easily without knowing aspect ratio */}
              <img
-                src="/logo-white-noBg.svg"
+                src="/logos/Fahemi_Logo-F_(forDark-BG).svg"
                 alt=""
                 className="h-full w-auto object-contain"
              />
