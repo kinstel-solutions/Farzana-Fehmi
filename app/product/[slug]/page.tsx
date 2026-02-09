@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="flex flex-col justify-center space-y-8">
             <div>
               <p className="text-gray-500 uppercase tracking-widest text-sm mb-2">{product.collections.join(', ')}</p>
-              <h1 className="font-serif text-3xl md:text-5xl mb-4">{product.name}</h1>
+              <h1 className="font-sans text-3xl md:text-5xl mb-4">{product.name}</h1>
               <p className="text-xl font-medium">{product.price}</p>
             </div>
 

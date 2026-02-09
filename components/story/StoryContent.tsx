@@ -25,7 +25,7 @@ export function StoryContent({ data }: { data: StoryData }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl font-bold mb-4"
+            className="font-sans text-5xl md:text-7xl font-bold mb-4"
           >
             {data.hero.title}
           </motion.h1>
@@ -52,7 +52,7 @@ export function StoryContent({ data }: { data: StoryData }) {
           >
             {data.narrative.map((section, index) => (
               <div key={index}>
-                <h2 className="font-serif text-3xl md:text-4xl text-black">{section.title}</h2>
+                <h2 className="font-sans text-3xl md:text-4xl text-black">{section.title}</h2>
                 <div className="w-20 h-[1px] bg-black/30 my-4" />
                 {section.content.map((paragraph, pIndex) => (
                   <p key={pIndex} className="text-gray-600 leading-relaxed font-light mb-4">
@@ -71,7 +71,7 @@ export function StoryContent({ data }: { data: StoryData }) {
              className="bg-gray-100 p-12 md:p-16 flex flex-col justify-center items-center text-center space-y-6"
           >
             <h3 className="uppercase tracking-[0.2em] text-sm text-gray-500">{data.philosophy.title}</h3>
-            <blockquote className="font-serif text-2xl md:text-3xl italic text-gray-800">
+            <blockquote className="font-sans text-2xl md:text-3xl italic text-gray-800">
               "{data.philosophy.quote}"
             </blockquote>
             <cite className="not-italic text-sm font-medium mt-4 block">— {data.philosophy.author}</cite>
@@ -82,7 +82,7 @@ export function StoryContent({ data }: { data: StoryData }) {
       {/* Footer Quote or Transition */}
       <section className="py-20 bg-black text-white text-center">
          <div className="container mx-auto px-4">
-            <h2 className="font-serif text-3xl md:text-4xl mb-8">{data.footer.title}</h2>
+            <h2 className="font-sans text-3xl md:text-4xl mb-8">{data.footer.title}</h2>
             <a href={data.footer.buttonLink} className="inline-block border text-white px-8 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition-colors uppercase">
               {data.footer.buttonText}
             </a>

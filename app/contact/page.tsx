@@ -12,7 +12,7 @@ export default function ContactPage() {
            <motion.h1 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             className="font-serif text-4xl md:text-5xl"
+             className="font-sans text-4xl md:text-5xl"
            >
              Contact Us
            </motion.h1>

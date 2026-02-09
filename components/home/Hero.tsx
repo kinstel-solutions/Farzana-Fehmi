@@ -80,7 +80,7 @@ export function Hero({ data }: { data: any }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl">
+          <h1 className="font-sans text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl">
             {data.title}
           </h1>
         </motion.div>

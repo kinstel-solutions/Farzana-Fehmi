@@ -14,7 +14,7 @@ export function FeaturedCollections({ collections }: { collections: Collection[]
     <section className="py-20 md:py-32 bg-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold">The Collections</h2>
+          <h2 className="font-sans text-3xl md:text-5xl font-bold">The Collections</h2>
           <p className="text-muted-foreground uppercase tracking-widest text-xs md:text-sm">Curated for the modern muse</p>
         </div>
 
@@ -30,7 +30,7 @@ export function FeaturedCollections({ collections }: { collections: Collection[]
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
               <div className="absolute bottom-8 left-8 z-10 text-white">
-                 <h3 className="text-2xl font-serif mb-2">{collection.title}</h3>
+                 <h3 className="text-2xl font-sans mb-2">{collection.title}</h3>
                  <Link href={collection.link} className="text-sm border-b border-white pb-1 inline-block hover:opacity-80 transition-opacity">SHOP NOW</Link>
               </div>
             </div>

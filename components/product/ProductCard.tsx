@@ -40,7 +40,7 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
       </div>
       
       <div className="space-y-1 text-center">
-        <h3 className="font-serif text-lg text-gray-900 group-hover:text-black transition-colors">{name}</h3>
+        <h3 className="font-sans text-lg text-gray-900 group-hover:text-black transition-colors">{name}</h3>
 
         <p className="text-sm font-medium tracking-wide text-gray-900">{price}</p>
       </div>

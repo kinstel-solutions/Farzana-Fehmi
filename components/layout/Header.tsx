@@ -151,7 +151,7 @@ export function Header({
                 <Link 
                   key={link.label}
                   href={link.href} 
-                  className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
+                  className="text-2xl font-sans font-medium tracking-wide hover:opacity-70 transition-opacity"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}

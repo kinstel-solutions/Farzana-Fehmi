@@ -22,7 +22,7 @@ export function SizeGuide() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="font-serif text-2xl text-center mb-2">Suit Measurements</DialogTitle>
+          <DialogTitle className="font-sans text-2xl text-center mb-2">Suit Measurements</DialogTitle>
           <DialogDescription className="text-center mb-4">
             All measurements are in inches.
           </DialogDescription>
@@ -31,7 +31,7 @@ export function SizeGuide() {
         <div className="space-y-8">
           {/* Kurta Table */}
           <div>
-            <h3 className="text-lg font-medium text-center mb-4 font-serif">Kurta</h3>
+            <h3 className="text-lg font-medium text-center mb-4 font-sans">Kurta</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead className="text-xs text-gray-500 uppercase bg-gray-50">
@@ -84,7 +84,7 @@ export function SizeGuide() {
 
           {/* Bottom/Pant Table */}
           <div>
-            <h3 className="text-lg font-medium text-center mb-4 font-serif">Bottom/Pant</h3>
+            <h3 className="text-lg font-medium text-center mb-4 font-sans">Bottom/Pant</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead className="text-xs text-gray-500 uppercase bg-gray-50">
