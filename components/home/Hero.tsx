@@ -36,7 +36,7 @@ export function Hero({ data }: { data: any }) {
               src={data.images[currentImage]}
               alt={`Hero image ${currentImage + 1}`}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               priority
               sizes="100vw"
             />

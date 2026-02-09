@@ -40,10 +40,10 @@ const heroData: HeroData = {
   title: 'ETHEREAL ELEGANCE',
   subtitle: 'Spring / Summer 2026',
   images: [
-    '/photos/hero/hero-1.webp',
-    '/photos/hero/hero-2.webp',
-    '/photos/hero/hero-3.webp',
-    '/photos/hero/hero-4.webp',
+    '/photos/hero/hero-v2-1.webp',
+    '/photos/hero/hero-v2-2.webp',
+    '/photos/hero/hero-v2-3.webp',
+    '/photos/hero/hero-v2-4.webp',
   ],
   buttonText: 'Discover The Collection',
   buttonLink: '/shop'
