@@ -32,14 +32,31 @@ export function Hero({ data }: { data: any }) {
             transition={{ duration: 1.5 }} // Smooth crossfade
             className="absolute inset-0"
           >
-             <Image
-              src={data.images[currentImage]}
-              alt={`Hero image ${currentImage + 1}`}
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="100vw"
-            />
+             {/* Mobile Image */}
+             <div className={data.desktopImages ? 'md:hidden' : ''}>
+               <Image
+                src={data.images[currentImage]}
+                alt={`Hero image ${currentImage + 1}`}
+                fill
+                className="object-contain object-top"
+                priority
+                sizes="100vw"
+              />
+             </div>
+
+             {/* Desktop Image */}
+             {data.desktopImages && (
+               <div className="hidden md:block">
+                 <Image
+                  src={data.desktopImages[currentImage]}
+                  alt={`Hero image ${currentImage + 1}`}
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  sizes="100vw"
+                />
+               </div>
+             )}
           </motion.div>
         </AnimatePresence>
         {/* Helper overlay for text readability */}

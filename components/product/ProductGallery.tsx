@@ -60,8 +60,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
                   src={variant.detail} // Use detail size
                   alt={`${productName} view ${index + 1}`}
                   fill
-                  className="object-cover"
-                  style={variant.focalPoint ? { objectPosition: `${variant.focalPoint.x}% ${variant.focalPoint.y}%` } : undefined}
+                  className="object-contain"
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -104,8 +103,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
                         src={variant.grid} // Use grid size for thumbs
                         alt={`${productName} thumbnail ${idx + 1}`}
                         fill
-                        className="object-cover"
-                        style={variant.focalPoint ? { objectPosition: `${variant.focalPoint.x}% ${variant.focalPoint.y}%` } : undefined}
+                        className="object-contain"
                         sizes="20vw"
                     />
                 </button>

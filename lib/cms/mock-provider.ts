@@ -45,6 +45,12 @@ const heroData: HeroData = {
     '/photos/hero/hero-v2-3.webp',
     '/photos/hero/hero-v2-4.webp',
   ],
+  desktopImages: [
+    '/photos/hero-landscapes-v2/hero-landscape-v2-1.webp',
+    '/photos/hero-landscapes-v2/hero-landscape-v2-2.webp',
+    '/photos/hero-landscapes-v2/hero-landscape-v2-3.webp',
+    '/photos/hero-landscapes-v2/hero-landscape-v2-4.webp',
+  ],
   buttonText: 'Discover The Collection',
   buttonLink: '/shop'
 };

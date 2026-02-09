@@ -36,6 +36,7 @@ export interface HeroData {
   title: string;
   subtitle: string;
   images: string[];
+  desktopImages?: string[];
   buttonText: string;
   buttonLink: string;
 }

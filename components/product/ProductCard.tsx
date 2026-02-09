@@ -22,8 +22,7 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
             src={mainImage.grid}
             alt={name}
             fill
-            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-            style={mainImage.focalPoint ? { objectPosition: `${mainImage.focalPoint.x}% ${mainImage.focalPoint.y}%` } : undefined}
+            className="object-contain transition-transform duration-700 ease-in-out group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (
