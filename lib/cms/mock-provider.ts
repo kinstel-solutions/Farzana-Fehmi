@@ -37,8 +37,8 @@ const collections: Collection[] = [
 const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || products[0];
 
 const heroData: HeroData = {
-  title: 'ETHEREAL ELEGANCE',
-  subtitle: 'Spring / Summer 2026',
+  title: '',
+  subtitle: '',
   images: [
     '/photos/hero/hero-v2-1.webp',
     '/photos/hero/hero-v2-2.webp',

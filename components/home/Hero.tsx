@@ -64,25 +64,21 @@ export function Hero({ data }: { data: any }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white space-y-6 max-w-4xl px-4 mt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h2 className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4 drop-shadow-lg">
-            {data.subtitle}
-          </h2>
-        </motion.div>
-
+      <div className="relative z-10 text-center text-white space-y-6 max-w-2xl px-4 mt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
+          className="flex justify-center mb-8"
         >
-          <h1 className="font-sans text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl">
-            {data.title}
-          </h1>
+          <Image
+            src="/logo-white-Nobg.svg"
+            alt="Farzana Fehmi"
+            width={1200}
+            height={400}
+            className="w-[70vw] md:w-[70vw] lg:w-[60vw] max-w-5xl h-auto drop-shadow-2xl"
+            priority
+          />
         </motion.div>
 
         <motion.div
