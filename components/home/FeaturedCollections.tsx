@@ -15,7 +15,6 @@ export function FeaturedCollections({ collections }: { collections: Collection[]
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16 space-y-4">
           <h2 className="font-sans text-3xl md:text-5xl font-bold">The Collections</h2>
-          <p className="text-muted-foreground uppercase tracking-widest text-xs md:text-sm">Curated for the modern muse</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">

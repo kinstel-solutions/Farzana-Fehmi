@@ -6,10 +6,10 @@ import { StoryData } from '@/lib/cms/types';
 
 export function StoryContent({ data }: { data: StoryData }) {
   return (
-    <div className="bg-white pt-[80px]"> {/* Offset for fixed header */}
+    <div>
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center bg-gray-50 overflow-hidden">
+      <section className="relative h-[100vh] flex items-center justify-center bg-gray-50 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={data.hero.image}
@@ -18,7 +18,7 @@ export function StoryContent({ data }: { data: StoryData }) {
             className="object-cover opacity-80"
             priority
           />
-          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1 
@@ -41,7 +41,7 @@ export function StoryContent({ data }: { data: StoryData }) {
       </section>
 
       {/* Narrative Section */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <motion.div 
              initial={{ opacity: 0, x: -20 }}

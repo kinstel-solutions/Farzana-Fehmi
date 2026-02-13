@@ -72,7 +72,7 @@ export interface NavigationLink {
 
 export interface GlobalData {
   siteName: string;
-  description: string;
+  description?: string;
   navigation: NavigationLink[];
   footer: {
     explore: NavigationLink[];

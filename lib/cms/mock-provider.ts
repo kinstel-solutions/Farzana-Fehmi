@@ -146,7 +146,6 @@ export class MockCMSProvider implements CMSProvider {
   async getGlobalData(): Promise<GlobalData> {
     return {
       siteName: 'Fehmi Farzana',
-      description: 'Defining contemporary luxury through heritage craftsmanship.',
       navigation: [
         { label: 'SHOP', href: '/shop' },
         { label: 'COLLECTIONS', href: '/shop' },
@@ -158,7 +157,6 @@ export class MockCMSProvider implements CMSProvider {
           { label: 'Shop All', href: '/shop' },
           { label: 'Our Story', href: '/story' },
           { label: 'Contact', href: '/contact' },
-          { label: 'Press', href: '#' },
         ],
         customerCare: [
           { label: 'Shipping & Returns', href: '#' },
