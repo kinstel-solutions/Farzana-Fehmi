@@ -13,21 +13,21 @@ const collections: Collection[] = [
   {
     id: 1,
     title: 'Everyday Wear',
-    image: '/photos/cards/casual-wear.webp',
+    image: '/photos/Collections-images-here/Casual Wear.jpg',
     link: '/shop?category=Everyday%20Wear',
     size: 'large'
   },
   {
     id: 2,
     title: 'Festive',
-    image: '/photos/cards/festive-wear.webp',
+    image: '/photos/Collections-images-here/Festive Wear.jpg',
     link: '/shop?category=Festive',
     size: 'small'
   },
   {
     id: 3,
     title: 'Party',
-    image: '/photos/cards/party-wear.webp',
+    image: '/photos/Collections-images-here/Party Wear.jpg',
     link: '/shop?category=Party',
     size: 'small'
   }
