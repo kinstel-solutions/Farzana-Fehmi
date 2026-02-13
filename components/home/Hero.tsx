@@ -32,13 +32,13 @@ export function Hero({ data }: { data: any }) {
             transition={{ duration: 1.5 }} // Smooth crossfade
             className="absolute inset-0"
           >
-             {/* Mobile Image */}
+            {/* Mobile Image */}
              <div className={data.desktopImages ? 'md:hidden' : ''}>
                <Image
                 src={data.images[currentImage]}
                 alt={`Hero image ${currentImage + 1}`}
                 fill
-                className="object-contain object-top"
+                className="object-cover object-top"
                 priority
                 sizes="100vw"
               />
@@ -76,7 +76,7 @@ export function Hero({ data }: { data: any }) {
             alt="Farzana Fehmi"
             width={1200}
             height={400}
-            className="w-[70vw] md:w-[70vw] lg:w-[60vw] max-w-5xl h-auto drop-shadow-2xl"
+            className="w-[35vw] md:w-[35vw] lg:w-[20vw] max-w-xl h-auto drop-shadow-2xl"
             priority
           />
         </motion.div>
