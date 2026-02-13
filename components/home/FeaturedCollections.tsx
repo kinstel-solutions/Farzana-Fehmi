@@ -20,7 +20,7 @@ export function FeaturedCollections({ collections }: { collections: Collection[]
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           {collections.slice(0, 3).map((collection) => (
-            <div key={collection.id} className="relative h-[600px] group overflow-hidden bg-gray-100">
+            <div key={collection.id} className="relative aspect-[1/2] group overflow-hidden bg-gray-100">
               <Image 
                 src={collection.image}
                 alt={collection.title}

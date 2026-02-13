@@ -18,6 +18,20 @@ const CONFIG = {
     width: 600, // Card width
     quality: 80,
     prefix: '' 
+  },
+  collections: {
+    sourceDir: 'assets/originals/hero-and-cards/Collections-images-here',
+    destDir: 'public/photos/cards',
+    width: 600, // Card width
+    quality: 80,
+    prefix: '' 
+  },
+  'hero-blurred': {
+    sourceDir: 'assets/originals/hero-and-cards/hero-new-v3/blurred',
+    destDir: 'public/photos/hero',
+    width: 1920, // Full width for hero
+    quality: 80,
+    prefix: 'hero-'
   }
 };
 
@@ -73,8 +87,8 @@ async function processImages(type) {
 }
 
 async function main() {
-  await processImages('hero');
-  await processImages('cards');
+  await processImages('collections');
+  await processImages('hero-blurred');
 }
 
 main();
