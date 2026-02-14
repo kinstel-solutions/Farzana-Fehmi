@@ -81,14 +81,14 @@ export const products: Product[] = [
     "id": "P002",
     "bgColor": "blue",
     "slug": "emerald-green-kaamdaani-suit",
-    "name": "Emerald Green Kaamdaani suit",
+    "name": "Emerald Green Kaamdaani Suit",
     "collections": [
       "Party"
     ],
     "price": "$200",
     "priceNumeric": 200,
     "featured": true,
-    "description": "This Luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
+    "description": "This luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
     "material": "Georgette and Shantoon",
     "occasion": [
       "Party"
@@ -149,7 +149,7 @@ export const products: Product[] = [
     "price": "Price on Request",
     "priceNumeric": 0,
     "featured": true,
-    "description": "Inspired by rich heritage and craftmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
+    "description": "Inspired by rich heritage and craftsmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
     "material": "Pure Silk and crepe",
     "occasion": [
       "Party"
@@ -192,7 +192,7 @@ export const products: Product[] = [
     "priceNumeric": 180,
     "featured": true,
     "description": "This Chanderi suit set, featuring a vintage frock style with geometrical patterns, is perfectly suited for any casual event with its relaxed style.",
-    "material": "Chanderi Silk abd Shantoon",
+    "material": "Chanderi Silk and Shantoon",
     "occasion": [
       "Casual"
     ],
@@ -232,7 +232,7 @@ export const products: Product[] = [
     "id": "P005",
     "bgColor": "blue",
     "slug": "dark-mauve-anarkali-suit",
-    "name": "Dark Mauve Anarkali suit",
+    "name": "Dark Mauve Anarkali Suit",
     "collections": [
       "Festive"
     ],
@@ -292,7 +292,7 @@ export const products: Product[] = [
     "id": "P006",
     "bgColor": "green",
     "slug": "maharani-shalwar-suit-set",
-    "name": "Maharani Shalwar suit set",
+    "name": "Maharani Shalwar Suit Set",
     "collections": [
       "Festive"
     ],
@@ -360,7 +360,7 @@ export const products: Product[] = [
     "price": "$190",
     "priceNumeric": 190,
     "featured": true,
-    "description": "This elegant off-white tissue suit, adorned with diagonal mettalic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
+    "description": "This elegant off-white tissue suit, adorned with diagonal metallic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
     "material": "Tissue and Chiffon",
     "occasion": [
       "Casual"
@@ -414,7 +414,7 @@ export const products: Product[] = [
     "id": "P008",
     "bgColor": "green",
     "slug": "azure-blue-sequined-suit-set",
-    "name": "Azure Blue Sequined suit set",
+    "name": "Azure Blue Sequined Suit Set",
     "collections": [
       "Everyday Wear"
     ],
@@ -538,7 +538,7 @@ export const products: Product[] = [
     "id": "P010",
     "bgColor": "blue",
     "slug": "bottle-green-mirror-sequined-suit-set",
-    "name": "Bottle Green Mirror Sequined suit set",
+    "name": "Bottle Green Mirror Sequined Suit Set",
     "collections": [
       "Festive"
     ],
@@ -599,7 +599,7 @@ export const products: Product[] = [
     "id": "P011",
     "bgColor": "green",
     "slug": "dusty-rose-organza-suit-set",
-    "name": "Dusty Rose Organza suit set",
+    "name": "Dusty Rose Organza Suit Set",
     "collections": [
       "Party"
     ],
@@ -660,7 +660,7 @@ export const products: Product[] = [
     "id": "P012",
     "bgColor": "blue",
     "slug": "royal-blue-crepe-bandhani-suit-set",
-    "name": "Royal Blue Crepe Bandhani suit set",
+    "name": "Royal Blue Crepe Bandhani Suit Set",
     "collections": [
       "Everyday Wear"
     ],
@@ -668,7 +668,7 @@ export const products: Product[] = [
     "priceNumeric": 160,
     "featured": true,
     "description": "This elegant royal blue bandhani crepe suit is adorned with light embroidery on the front, perfect for a casual yet refined atmosphere.",
-    "material": "crepe silk and chiffon",
+    "material": "Crepe Silk and Chiffon",
     "occasion": [
       "Casual"
     ],
