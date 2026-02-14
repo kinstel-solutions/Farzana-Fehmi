@@ -382,39 +382,30 @@ export const products: Product[] = [
     },
     "additionalImages": [
       {
-        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-grid.webp",
-        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp",
-        "focalPoint": {
-          "x": 50,
-          "y": 49
-        }
-      },
-      {
-        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-grid.webp",
-        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp",
-        "focalPoint": {
-          "x": 50,
-          "y": 44
-        }
-      },
-      {
-        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-grid.webp",
-        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp",
+        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-grid.webp",
+        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-detail.webp",
+        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-hero.webp",
         "focalPoint": {
           "x": 50,
           "y": 46
         }
       },
       {
-        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-grid.webp",
-        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-detail.webp",
-        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp",
+        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-grid.webp",
+        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-detail.webp",
+        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 51
+          "y": 46
+        }
+      },
+      {
+        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-grid.webp",
+        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-detail.webp",
+        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 46
         }
       }
     ]
