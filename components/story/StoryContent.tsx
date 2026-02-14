@@ -26,6 +26,7 @@ export function StoryContent({ data }: { data: StoryData }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="font-sans text-5xl md:text-7xl font-bold mb-4"
+            style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)' }}
           >
             {data.hero.title}
           </motion.h1>
@@ -34,6 +35,7 @@ export function StoryContent({ data }: { data: StoryData }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl tracking-wide font-light max-w-2xl mx-auto"
+            style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6)' }}
           >
             {data.hero.subtitle}
           </motion.p>
