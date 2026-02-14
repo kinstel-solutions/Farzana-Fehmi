@@ -63,9 +63,9 @@ const heroData: HeroData = {
 
 const storyData: StoryData = {
   hero: {
-    title: "The Artisan's Tale",
-    subtitle: "Where heritage meets contemporary elegance.",
-    image: "/images/designer-studio.png"
+    title: "Design With Purpose",
+    subtitle: "Honoring craft, people, and the process behind every piece.",
+    image: "/photos/to-be-processed-then-delete/DSCF1508-Edit.jpg"
   },
   narrative: [
     {
@@ -74,13 +74,15 @@ const storyData: StoryData = {
         "Fehmifarzana Designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
         "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
         "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
-        "We don’t follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet."
+        "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet."
       ]
     }
   ],
+
   philosophy: {
-    title: "Philosophy",
-    quote: "Fashion is not just about what you wear, but how it makes you feel. It is an armor of elegance.",
+    title: "Mission and Philosophy",
+    quote: "Design With Purpose",
+    description: "We exist to make beautiful clothes the right way. By honoring craft, people, and the process behind every piece, we design fashion with purpose-so fashion can be worn with confidence and care.",
     author: "Farzana Fehmi"
   },
   footer: {

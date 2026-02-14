@@ -50,17 +50,50 @@ export function StoryContent({ data }: { data: StoryData }) {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
-             className="space-y-6"
+             className="space-y-10"
           >
             {data.narrative.map((section, index) => (
-              <div key={index}>
-                <h2 className="font-sans text-3xl md:text-4xl text-black">{section.title}</h2>
-                <div className="w-20 h-[1px] bg-black/30 my-4" />
-                {section.content.map((paragraph, pIndex) => (
-                  <p key={pIndex} className="text-gray-600 leading-relaxed font-light mb-4">
-                    {paragraph}
-                  </p>
-                ))}
+              <div key={index} className="space-y-6">
+                {/* Title with decorative underline */}
+                <div className="space-y-3">
+                  <h2 className="font-sans text-4xl md:text-5xl font-bold text-black tracking-tight">
+                    {section.title}
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <div className="w-12 h-[2px] bg-black"></div>
+                    <div className="w-2 h-2 rounded-full bg-black"></div>
+                  </div>
+                </div>
+                
+                {/* Content with enhanced typography and decorative elements */}
+                <div className="relative bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 rounded-sm border border-gray-100">
+                  {/* Decorative corner accents */}
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gray-300 opacity-50"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gray-300 opacity-50"></div>
+                  
+                  {/* Decorative quote mark */}
+                  <div className="absolute -top-4 -left-4 text-6xl text-black/5 font-serif leading-none">"</div>
+                  
+                  <div className="relative space-y-5">
+                    {section.content.map((paragraph, pIndex) => (
+                      <p 
+                        key={pIndex} 
+                        className="text-gray-700 text-lg leading-relaxed font-light first-letter:text-2xl first-letter:font-medium first-letter:text-black"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  
+                  {/* Decorative bottom accent */}
+                  <div className="flex justify-center mt-6 pt-6 border-t border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                      <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                      <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </motion.div>
@@ -70,13 +103,56 @@ export function StoryContent({ data }: { data: StoryData }) {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
-             className="bg-gray-100 p-12 md:p-16 flex flex-col justify-center items-center text-center space-y-6"
+             className="relative"
           >
-            <h3 className="uppercase tracking-[0.2em] text-sm text-gray-500">{data.philosophy.title}</h3>
-            <blockquote className="font-sans text-2xl md:text-3xl italic text-gray-800">
-              "{data.philosophy.quote}"
-            </blockquote>
-            <cite className="not-italic text-sm font-medium mt-4 block">— {data.philosophy.author}</cite>
+            <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-16 md:p-24 flex flex-col justify-center items-center text-center overflow-hidden">
+              {/* Decorative corner elements */}
+              <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-black/10"></div>
+              <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-black/10"></div>
+              <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-black/10"></div>
+              <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-black/10"></div>
+              
+              <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+                {/* Title with decorative line */}
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-black/30"></div>
+                  <h3 className="uppercase tracking-[0.3em] text-xs font-medium text-gray-500 whitespace-nowrap">
+                    {data.philosophy.title}
+                  </h3>
+                  <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-black/30"></div>
+                </div>
+
+                {/* Main quote - large and bold */}
+                <blockquote className="relative">
+                  <div className="absolute -top-6 -left-4 text-6xl md:text-8xl text-black/5 font-serif">"</div>
+                  <h2 className="font-sans text-4xl md:text-6xl font-bold text-black leading-tight tracking-tight">
+                    {data.philosophy.quote}
+                  </h2>
+                  <div className="absolute -bottom-6 -right-4 text-6xl md:text-8xl text-black/5 font-serif">"</div>
+                </blockquote>
+
+                {/* Decorative divider */}
+                <div className="flex items-center justify-center gap-3 py-4">
+                  <div className="w-2 h-2 rounded-full bg-black/20"></div>
+                  <div className="h-[1px] w-16 bg-black/20"></div>
+                  <div className="w-2 h-2 rounded-full bg-black/20"></div>
+                </div>
+
+                {/* Description */}
+                {data.philosophy.description && (
+                  <p className="text-gray-700 text-xl md:text-2xl leading-relaxed font-light max-w-3xl mx-auto">
+                    {data.philosophy.description}
+                  </p>
+                )}
+
+                {/* Author attribution */}
+                <div className="pt-6">
+                  <cite className="not-italic text-sm font-medium tracking-wider uppercase text-gray-600">
+                    — {data.philosophy.author}
+                  </cite>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -53,9 +53,15 @@ export interface StoryData {
     image: string;
   };
   narrative: StorySection[];
+  mission?: {
+    title: string;
+    quote: string;
+    description: string;
+  };
   philosophy: {
     title: string;
     quote: string;
+    description?: string;
     author: string;
   };
   footer: {
