@@ -43,6 +43,8 @@ export function Header({
 
   // Determine if we should show transparent mode (only on hero pages when not scrolled)
   const isTransparent = hasHero && !isScrolled && !isMobileMenuOpen;
+  const isHomePage = pathname === '/';
+  const shouldHideLogos = isHomePage && isTransparent;
 
   return (
     <>
@@ -61,7 +63,8 @@ export function Header({
             href="/" 
             className={cn(
               "relative z-20 shrink-0 transition-all duration-300",
-              isTransparent ? "h-14 w-14" : "h-10 w-10"
+              isTransparent ? "h-14 w-14" : "h-10 w-10",
+              shouldHideLogos && "opacity-0 pointer-events-none"
             )} 
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -82,7 +85,8 @@ export function Header({
             href="/" 
             className={cn(
               "absolute left-1/2 -translate-x-1/2 z-20 hidden md:block transition-all duration-300",
-              isTransparent ? "h-12 w-56" : "h-8 w-40"
+              isTransparent ? "h-12 w-56" : "h-8 w-40",
+              shouldHideLogos && "opacity-0 pointer-events-none"
             )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -102,7 +106,8 @@ export function Header({
              href="/" 
              className={cn(
                "absolute left-1/2 -translate-x-1/2 z-20 md:hidden transition-all duration-300",
-               isTransparent ? "h-8 w-40" : "h-6 w-32"
+               isTransparent ? "h-8 w-40" : "h-6 w-32",
+               shouldHideLogos && "opacity-0 pointer-events-none"
              )}
              onClick={() => setIsMobileMenuOpen(false)}
            >
