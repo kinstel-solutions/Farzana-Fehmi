@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MessageCircle } from 'lucide-react';
 import { getCMSProvider } from '@/lib/cms/cms-provider';
 
 export async function Footer() {
@@ -10,7 +10,7 @@ export async function Footer() {
   return (
     <footer className="bg-black text-white pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
 {/* Brand */}
           <div className="space-y-6">
@@ -49,6 +49,35 @@ export async function Footer() {
                  </li>
                ))}
             </ul>
+          </div>
+
+          {/* Get In Touch */}
+          <div>
+            <h3 className="uppercase tracking-widest text-xs font-semibold mb-6 text-gray-400">Get In Touch</h3>
+            <div className="space-y-4 text-sm font-light">
+              <a href="mailto:farzana@fehmifarz.com" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+                <Mail className="w-4 h-4 text-red-500" />
+                <span>farzana@fehmifarz.com</span>
+              </a>
+              <a href="tel:+919876543210" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+                <Phone className="w-4 h-4 text-blue-400" />
+                <span>+91 987 654 3210</span>
+              </a>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+                <MessageCircle className="w-4 h-4 text-green-500" />
+                <span>WhatsApp</span>
+              </a>
+              <div className="pt-2 space-y-3">
+                <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+                  <Instagram className="w-4 h-4 text-pink-500" />
+                  <span>Instagram</span>
+                </a>
+                <a href={footer.socials.facebook} className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+                  <Facebook className="w-4 h-4 text-blue-500" />
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
