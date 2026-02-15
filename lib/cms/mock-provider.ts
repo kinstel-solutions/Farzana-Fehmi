@@ -148,6 +148,13 @@ export class MockCMSProvider implements CMSProvider {
   async getGlobalData(): Promise<GlobalData> {
     return {
       siteName: 'Fehmi Farzana',
+      contact: {
+        email: 'farzana@fehmifarz.com',
+        phone: '+61 416 966 865',
+        phoneFull: '+61416966865',
+        whatsapp: 'WhatsApp',
+        whatsappFull: '61416966865',
+      },
       navigation: [
         { label: 'SHOP', href: '/shop' },
         { label: 'COLLECTIONS', href: '/shop' },

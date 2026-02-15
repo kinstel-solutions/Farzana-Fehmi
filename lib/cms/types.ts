@@ -79,6 +79,13 @@ export interface NavigationLink {
 export interface GlobalData {
   siteName: string;
   description?: string;
+  contact: {
+    email: string;
+    phone: string;
+    phoneFull: string;
+    whatsapp: string;
+    whatsappFull: string;
+  };
   navigation: NavigationLink[];
   footer: {
     explore: NavigationLink[];

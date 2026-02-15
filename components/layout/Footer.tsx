@@ -5,7 +5,7 @@ import { getCMSProvider } from '@/lib/cms/cms-provider';
 
 export async function Footer() {
   const provider = getCMSProvider();
-  const { footer, siteName, description } = await provider.getGlobalData();
+  const { footer, siteName, contact } = await provider.getGlobalData();
 
   return (
     <footer className="bg-black text-white pt-20 pb-10">
@@ -55,17 +55,17 @@ export async function Footer() {
           <div>
             <h3 className="uppercase tracking-widest text-xs font-semibold mb-6 text-gray-400">Get In Touch</h3>
             <div className="space-y-4 text-sm font-light">
-              <a href="mailto:farzana@fehmifarz.com" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+              <a href={`mailto:${contact.email}`} className="flex items-center gap-3 hover:text-gray-300 transition-colors">
                 <Mail className="w-4 h-4 text-red-500" />
-                <span>farzana@fehmifarz.com</span>
+                <span>{contact.email}</span>
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+              <a href={`tel:${contact.phoneFull}`} className="flex items-center gap-3 hover:text-gray-300 transition-colors">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <span>+91 987 654 3210</span>
+                <span>{contact.phone}</span>
               </a>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
+              <a href={`https://wa.me/${contact.whatsappFull}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
                 <MessageCircle className="w-4 h-4 text-green-500" />
-                <span>WhatsApp</span>
+                <span>{contact.whatsapp}</span>
               </a>
               <div className="pt-2 space-y-3">
                 <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gray-300 transition-colors">
