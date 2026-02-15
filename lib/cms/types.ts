@@ -87,7 +87,6 @@ export interface GlobalData {
     socials: {
         instagram: string;
         facebook: string;
-        twitter: string;
     };
   };
 }

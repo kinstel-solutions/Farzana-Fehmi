@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { getCMSProvider } from '@/lib/cms/cms-provider';
 
 export async function Footer() {
@@ -57,9 +57,8 @@ export async function Footer() {
             © {new Date().getFullYear()} {footer.copyRight}
           </p>
           <div className="flex gap-6 text-gray-400">
-            <a href={footer.socials.instagram} className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+            <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
             <a href={footer.socials.facebook} className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-            <a href={footer.socials.twitter} className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
           </div>
         </div>
       </div>

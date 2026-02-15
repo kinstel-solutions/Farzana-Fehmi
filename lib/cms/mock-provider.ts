@@ -168,9 +168,8 @@ export class MockCMSProvider implements CMSProvider {
         ],
         copyRight: `Farzana Fehmi. All rights reserved.`,
         socials: {
-            instagram: '#',
-            facebook: '#',
-            twitter: '#'
+            instagram: 'https://instagram.com/fehmifarzanadesigns',
+            facebook: '#'
         }
       }
     };
