@@ -32,13 +32,13 @@ export function StoryContent({ data }: { data: StoryData }) {
               {data.philosophy.title}
             </h3>
             
-            <h1 className="font-sans text-4xl md:text-5xl font-bold mb-3"
+            <h1 className="font-sans text-3xl md:text-4xl font-bold mb-3"
                 style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)' }}>
               {data.philosophy.quote}
             </h1>
             
             {data.philosophy.description && (
-              <p className="text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto"
+              <p className="text-base md:text-lg leading-relaxed font-light max-w-2xl mt-8 mx-auto"
                  style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6)' }}>
                 {data.philosophy.description}
               </p>
