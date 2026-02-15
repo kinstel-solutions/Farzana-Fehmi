@@ -161,10 +161,10 @@ export class MockCMSProvider implements CMSProvider {
           { label: 'Contact', href: '/contact' },
         ],
         customerCare: [
-          { label: 'Shipping & Returns', href: '#' },
-          { label: 'Size Guide', href: '#' },
-          { label: 'Terms of Service', href: '#' },
-          { label: 'Privacy Policy', href: '#' },
+          { label: 'Shipping & Returns', href: '/shipping-returns' },
+          { label: 'Size Guide', href: '/size-guide' },
+          { label: 'Terms of Service', href: '/terms-of-service' },
+          { label: 'Privacy Policy', href: '/privacy-policy' },
         ],
         copyRight: `Farzana Fehmi. All rights reserved.`,
         socials: {
