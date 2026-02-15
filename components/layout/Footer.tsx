@@ -84,7 +84,7 @@ export async function Footer() {
             <h3 className="uppercase tracking-[0.2em] text-[12px] font-semibold text-gray-100">Designed in Brisbane, Australia and manufactured in India</h3>
             <div className="space-y-4">
               <p className="text-gray-200 text-[12px] leading-relaxed font-light max-w-2xl mx-auto italic">
-                We acknowledge the Traditional Owners of country throughout Australia and pay our respect to Elders past, present and emerging.
+                We acknowledge the Traditional Owners of Country throughout Australia and pay our respect to Elders past, present and emerging.
               </p>
               <p className="text-gray-200 text-[12px] leading-relaxed font-light max-w-2xl mx-auto">
                 We recognize our responsibility to tread lightly on our planet and are committed to minimize the impact of our business has on our environment and do our best to implement environmentally sustainable procedures wherever possible.
