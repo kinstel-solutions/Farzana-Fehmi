@@ -21,13 +21,11 @@ export interface Product {
     occasion: string[];
     fit?: string;
     tags: string[];
-    bgColor?: 'green' | 'blue' | 'purple' | 'neutral' | 'dark' | string;
 }
 
 export const products: Product[] = [
   {
     "id": "P001",
-    "bgColor": "blue",
     "slug": "rani-silk-suit",
     "name": "Rani Silk Suit",
     "collections": [
@@ -79,16 +77,15 @@ export const products: Product[] = [
   },
   {
     "id": "P002",
-    "bgColor": "blue",
     "slug": "emerald-green-kaamdaani-suit",
-    "name": "Emerald Green Kaamdaani Suit",
+    "name": "Emerald Green Kaamdaani suit",
     "collections": [
       "Party"
     ],
     "price": "$200",
     "priceNumeric": 200,
     "featured": true,
-    "description": "This luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
+    "description": "This Luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
     "material": "Georgette and Shantoon",
     "occasion": [
       "Party"
@@ -105,7 +102,7 @@ export const products: Product[] = [
       "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1292-Edit-hero.webp",
       "focalPoint": {
         "x": 50,
-        "y": 51
+        "y": 60
       }
     },
     "additionalImages": [
@@ -115,7 +112,7 @@ export const products: Product[] = [
         "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1283-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 46
+          "y": 35
         }
       },
       {
@@ -124,7 +121,7 @@ export const products: Product[] = [
         "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1296-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 53
+          "y": 68
         }
       },
       {
@@ -133,14 +130,13 @@ export const products: Product[] = [
         "hero": "/Product-images/EmeraldGreenKaamdaanisuitset(PartyWear)/DSCF1302-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 44
+          "y": 33
         }
       }
     ]
   },
   {
     "id": "P003",
-    "bgColor": "blue",
     "slug": "magenta-orange-gota-patti-suit",
     "name": "Magenta Orange Gota Patti Suit",
     "collections": [
@@ -149,7 +145,7 @@ export const products: Product[] = [
     "price": "Price on Request",
     "priceNumeric": 0,
     "featured": true,
-    "description": "Inspired by rich heritage and craftsmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
+    "description": "Inspired by rich heritage and craftmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
     "material": "Pure Silk and crepe",
     "occasion": [
       "Party"
@@ -160,29 +156,64 @@ export const products: Product[] = [
       "Limited"
     ],
     "mainImage": {
-      "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-grid.webp",
-      "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-detail.webp",
-      "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-hero.webp",
+      "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1354-Edit-grid.webp",
+      "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1354-Edit-detail.webp",
+      "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1354-Edit-hero.webp",
       "focalPoint": {
         "x": 50,
-        "y": 49
+        "y": 35
       }
     },
     "additionalImages": [
+      {
+        "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-grid.webp",
+        "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-detail.webp",
+        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1344-Edit-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      {
+        "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1356-Edit-grid.webp",
+        "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1356-Edit-detail.webp",
+        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1356-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 35
+        }
+      },
       {
         "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-grid.webp",
         "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-detail.webp",
         "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1364-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 53
+          "y": 66
+        }
+      },
+      {
+        "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1366-Edit-grid.webp",
+        "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1366-Edit-detail.webp",
+        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1366-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 66
+        }
+      },
+      {
+        "grid": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1367-Edit-grid.webp",
+        "detail": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1367-Edit-detail.webp",
+        "hero": "/Product-images/MagentaOrangeGotaPattisuitset(PartyWear-madetoorder))/DSCF1367-Edit-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 38
         }
       }
     ]
   },
   {
     "id": "P004",
-    "bgColor": "blue",
     "slug": "vintage-maroon-chanderi-suit-set",
     "name": "Vintage Maroon Chanderi Suit Set",
     "collections": [
@@ -192,7 +223,7 @@ export const products: Product[] = [
     "priceNumeric": 180,
     "featured": true,
     "description": "This Chanderi suit set, featuring a vintage frock style with geometrical patterns, is perfectly suited for any casual event with its relaxed style.",
-    "material": "Chanderi Silk and Shantoon",
+    "material": "Chanderi Silk abd Shantoon",
     "occasion": [
       "Casual"
     ],
@@ -204,7 +235,7 @@ export const products: Product[] = [
       "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset1-hero.webp",
       "focalPoint": {
         "x": 50,
-        "y": 53
+        "y": 50
       }
     },
     "additionalImages": [
@@ -214,7 +245,7 @@ export const products: Product[] = [
         "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset2-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 53
+          "y": 46
         }
       },
       {
@@ -223,16 +254,15 @@ export const products: Product[] = [
         "hero": "/Product-images/VintageMaroonChanderiSilkSuitSet(CasualWear)/32VintageMaroonChanderisilkAnarkalisuitset3-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 51
+          "y": 44
         }
       }
     ]
   },
   {
     "id": "P005",
-    "bgColor": "blue",
     "slug": "dark-mauve-anarkali-suit",
-    "name": "Dark Mauve Anarkali Suit",
+    "name": "Dark Mauve Anarkali suit",
     "collections": [
       "Festive"
     ],
@@ -255,7 +285,7 @@ export const products: Product[] = [
       "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-hero.webp",
       "focalPoint": {
         "x": 50,
-        "y": 46
+        "y": 44
       }
     },
     "additionalImages": [
@@ -265,7 +295,7 @@ export const products: Product[] = [
         "hero": "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1678-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 46
+          "y": 49
         }
       },
       {
@@ -290,9 +320,8 @@ export const products: Product[] = [
   },
   {
     "id": "P006",
-    "bgColor": "green",
     "slug": "maharani-shalwar-suit-set",
-    "name": "Maharani Shalwar Suit Set",
+    "name": "Maharani Shalwar suit set",
     "collections": [
       "Festive"
     ],
@@ -351,7 +380,6 @@ export const products: Product[] = [
   },
   {
     "id": "P007",
-    "bgColor": "green",
     "slug": "leheria-tissue-suit-set",
     "name": "Leheria Tissue Suit Set",
     "collections": [
@@ -360,7 +388,7 @@ export const products: Product[] = [
     "price": "$190",
     "priceNumeric": 190,
     "featured": true,
-    "description": "This elegant off-white tissue suit, adorned with diagonal metallic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
+    "description": "This elegant off-white tissue suit, adorned with diagonal mettalic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
     "material": "Tissue and Chiffon",
     "occasion": [
       "Casual"
@@ -382,39 +410,47 @@ export const products: Product[] = [
     },
     "additionalImages": [
       {
-        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-grid.webp",
-        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-detail.webp",
-        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset2-hero.webp",
+        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-grid.webp",
+        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-detail.webp",
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset1-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 49
+        }
+      },
+      {
+        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-grid.webp",
+        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-detail.webp",
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset2-hero.webp",
+        "focalPoint": {
+          "x": 50,
+          "y": 44
+        }
+      },
+      {
+        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-grid.webp",
+        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-detail.webp",
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset3-hero.webp",
         "focalPoint": {
           "x": 50,
           "y": 46
         }
       },
       {
-        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-grid.webp",
-        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-detail.webp",
-        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset3-hero.webp",
+        "grid": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-grid.webp",
+        "detail": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-detail.webp",
+        "hero": "/Product-images/JadeTissueAppliqueSuitSet(LightPartyWear)/30JadeAppliqueSuitset4-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 46
-        }
-      },
-      {
-        "grid": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-grid.webp",
-        "detail": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-detail.webp",
-        "hero": "/Product-images/LeheriyaTissueSuitSet(CasualWear)/34LeheriyaTissuesuitset4-hero.webp",
-        "focalPoint": {
-          "x": 50,
-          "y": 46
+          "y": 51
         }
       }
     ]
   },
   {
     "id": "P008",
-    "bgColor": "green",
     "slug": "azure-blue-sequined-suit-set",
-    "name": "Azure Blue Sequined Suit Set",
+    "name": "Azure Blue Sequined suit set",
     "collections": [
       "Everyday Wear"
     ],
@@ -474,7 +510,6 @@ export const products: Product[] = [
   },
   {
     "id": "P009",
-    "bgColor": "green",
     "slug": "apricot-and-salmon-pink-georgette-suit-set",
     "name": "Apricot and Salmon Pink Georgette Suit Set",
     "collections": [
@@ -536,9 +571,8 @@ export const products: Product[] = [
   },
   {
     "id": "P010",
-    "bgColor": "blue",
     "slug": "bottle-green-mirror-sequined-suit-set",
-    "name": "Bottle Green Mirror Sequined Suit Set",
+    "name": "Bottle Green Mirror Sequined suit set",
     "collections": [
       "Festive"
     ],
@@ -562,7 +596,7 @@ export const products: Product[] = [
       "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset1-hero.webp",
       "focalPoint": {
         "x": 50,
-        "y": 51
+        "y": 46
       }
     },
     "additionalImages": [
@@ -572,7 +606,7 @@ export const products: Product[] = [
         "hero": "/Product-images/BottleGreenMirrorSequinedsuitset(LightPartyWear)/25BottleGreenMirrorSequinedsuitset2-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 46
+          "y": 44
         }
       },
       {
@@ -597,9 +631,8 @@ export const products: Product[] = [
   },
   {
     "id": "P011",
-    "bgColor": "green",
     "slug": "dusty-rose-organza-suit-set",
-    "name": "Dusty Rose Organza Suit Set",
+    "name": "Dusty Rose Organza suit set",
     "collections": [
       "Party"
     ],
@@ -642,7 +675,7 @@ export const products: Product[] = [
         "hero": "/Product-images/DustyRoseOrganzaSuitSet(PartyWear)/4DustyRoseOrganzasuitset3-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 55
+          "y": 53
         }
       },
       {
@@ -658,9 +691,8 @@ export const products: Product[] = [
   },
   {
     "id": "P012",
-    "bgColor": "blue",
     "slug": "royal-blue-crepe-bandhani-suit-set",
-    "name": "Royal Blue Crepe Bandhani Suit Set",
+    "name": "Royal Blue Crepe Bandhani suit set",
     "collections": [
       "Everyday Wear"
     ],
@@ -668,7 +700,7 @@ export const products: Product[] = [
     "priceNumeric": 160,
     "featured": true,
     "description": "This elegant royal blue bandhani crepe suit is adorned with light embroidery on the front, perfect for a casual yet refined atmosphere.",
-    "material": "Crepe Silk and Chiffon",
+    "material": "crepe silk and chiffon",
     "occasion": [
       "Casual"
     ],
@@ -694,7 +726,7 @@ export const products: Product[] = [
         "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset2-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 51
+          "y": 42
         }
       },
       {
@@ -712,14 +744,13 @@ export const products: Product[] = [
         "hero": "/Product-images/RoyalBlueCrepeBandhanisuit(CasualWear)/3.RoyalBlueCrepeBandhanisuitset4-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 51
+          "y": 46
         }
       }
     ]
   },
   {
     "id": "P013",
-    "bgColor": "green",
     "slug": "jade-applique-suit-set",
     "name": "Jade Applique Suit Set",
     "collections": [
@@ -780,7 +811,6 @@ export const products: Product[] = [
   },
   {
     "id": "P014",
-    "bgColor": "green",
     "slug": "purple-tissue-front-slit-suit",
     "name": "Purple Tissue Front Slit Suit",
     "collections": [
@@ -840,7 +870,6 @@ export const products: Product[] = [
   },
   {
     "id": "P015",
-    "bgColor": "blue", 
     "slug": "sea-green-semi-crepe-suit-set",
     "name": "Sea Green Semi-Crepe Suit Set",
     "collections": [
@@ -875,7 +904,7 @@ export const products: Product[] = [
         "hero": "/Product-images/SeaGreenSemi-Crepesuitset(LightPartyWear)/DSCF1508-Edit-hero.webp",
         "focalPoint": {
           "x": 50,
-          "y": 46
+          "y": 49
         }
       },
       {
