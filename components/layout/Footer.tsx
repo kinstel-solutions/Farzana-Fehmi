@@ -11,7 +11,7 @@ export async function Footer() {
   return (
     <footer className="bg-black text-white pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
           
 {/* Brand */}
           <div className="space-y-6">
@@ -20,8 +20,8 @@ export async function Footer() {
                  <LogoWhiteNoBGwithDesigns width={200} height={80} />
               </div>
             </Link>
-            <p className="text-gray-400 text-[11px] font-light tracking-wide leading-relaxed max-w-[200px]">
-              Designed in Brisbane, Australia and manufactured in India.
+            <p className="text-gray-200 mt-12 text-[16px] font-light tracking-wide leading-relaxed max-w-[200px]">
+              Brisbane, Australia.
             </p>
           </div>
 
@@ -79,14 +79,14 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-900 pt-8 flex flex-col items-center gap-8 text-center">
-          <div className="max-w-3xl space-y-6">
-            <h3 className="uppercase tracking-[0.2em] text-[10px] font-semibold text-gray-500">Our Commitment</h3>
+        <div className="border-t border-gray-900 pt-4 flex flex-col items-center gap-4 text-center">
+          <div className="max-w-3xl space-y-4">
+            <h3 className="uppercase tracking-[0.2em] text-[12px] font-semibold text-gray-100">Designed in Brisbane, Australia and manufactured in India</h3>
             <div className="space-y-4">
-              <p className="text-gray-300 text-[12px] leading-relaxed font-light max-w-2xl mx-auto italic">
+              <p className="text-gray-200 text-[12px] leading-relaxed font-light max-w-2xl mx-auto italic">
                 We acknowledge the Traditional Owners of country throughout Australia and pay our respect to Elders past, present and emerging.
               </p>
-              <p className="text-gray-400 text-[11px] leading-relaxed font-light max-w-2xl mx-auto">
+              <p className="text-gray-200 text-[12px] leading-relaxed font-light max-w-2xl mx-auto">
                 We recognize our responsibility to tread lightly on our planet and are committed to minimize the impact of our business has on our environment and do our best to implement environmentally sustainable procedures wherever possible.
               </p>
             </div>
