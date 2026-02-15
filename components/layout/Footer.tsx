@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Instagram, Mail, Phone, MessageCircle } from 'lucide-react';
+import { LogoWhiteNoBGwithDesigns } from '@/components/ui/LogoWhiteNoBGwithDesigns';
 import { getCMSProvider } from '@/lib/cms/cms-provider';
 
 export async function Footer() {
@@ -15,14 +16,8 @@ export async function Footer() {
 {/* Brand */}
           <div className="space-y-6">
             <Link href="/" className="block">
-              <div className="relative h-36 w-48">
-                <Image 
-                  src="/logo-white-Nobg.svg" 
-                  alt={siteName} 
-                  fill
-                  className="object-contain object-left"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              <div className="relative w-48">
+                 <LogoWhiteNoBGwithDesigns width={200} height={80} />
               </div>
             </Link>
           </div>
@@ -81,13 +76,24 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-xs font-light">
-            © {new Date().getFullYear()} {footer.copyRight}
-          </p>
-          <div className="flex gap-6 text-gray-400">
-            <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href={footer.socials.facebook} className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
+        <div className="border-t border-gray-900 pt-8 flex flex-col items-center gap-8 text-center">
+          <div className="max-w-2xl space-y-4">
+            <p className="text-gray-100 text-sm font-light tracking-wide">
+              Designed in Brisbane, Australia, manufactured in India.
+            </p>
+            <p className="text-gray-300 text-[12px] leading-relaxed font-light max-w-xl mx-auto italic">
+              We acknowledge the Traditional Owners of Country throughout Australia and pay our respect to Elders past, present and emerging.
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 pt-4 mt-4 border-t border-gray-900/50">
+            <p className="text-gray-500 text-xs font-light">
+              © {new Date().getFullYear()} {footer.copyRight}
+            </p>
+            <div className="flex gap-6 text-gray-400">
+              <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+              <a href={footer.socials.facebook} className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
+            </div>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LogoWhiteNoBGwithDesigns } from '@/components/ui/LogoWhiteNoBGwithDesigns';
 import { useEffect, useState } from 'react';
 
 export function Hero({ data }: { data: any }) {
@@ -71,9 +72,7 @@ export function Hero({ data }: { data: any }) {
           transition={{ duration: 1, delay: 0.4 }}
           className="flex justify-center mb-8"
         >
-          <Image
-            src="/logo-white-Nobg.svg"
-            alt="Farzana Fehmi"
+          <LogoWhiteNoBGwithDesigns 
             width={1200}
             height={400}
             className="w-[35vw] md:w-[35vw] lg:w-[20vw] max-w-xl h-auto drop-shadow-2xl"
