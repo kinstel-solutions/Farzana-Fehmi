@@ -5,6 +5,7 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { SizeGuide } from "@/components/product/SizeGuide";
 import { Button } from "@/components/ui/button";
 import { EnquiryModal } from "@/components/product/EnquiryModal";
+import { AddToCart } from "@/components/product/AddToCart";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -112,8 +113,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <SizeGuide />
               </div>
 
-              <EnquiryModal product={product} />
-              <p className="text-xs text-gray-400 text-center md:text-left">
+              <div className="flex flex-col gap-3">
+                <AddToCart product={product} />
+                <div className="flex items-center gap-4">
+                  <div className="w-32 hidden sm:block"></div>{" "}
+                  {/* Spacer to align with quantity selector input width */}
+                  <EnquiryModal product={product} />
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-400 text-center md:text-left pt-2">
                 * Our team will contact you for sizing and customization.
               </p>
             </div>
