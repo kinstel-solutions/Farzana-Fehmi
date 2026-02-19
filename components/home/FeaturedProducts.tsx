@@ -13,10 +13,7 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className="space-y-4">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Heirlooms of Tomorrow</h2>
-            <p className="text-muted-foreground uppercase tracking-widest text-xs md:text-sm max-w-md">
-              Hand-selected pieces that embody our commitment to craft and heritage.
-            </p>
+            <h2 className="font-sans text-3xl md:text-4xl font-bold">Browse the Collection</h2>
           </div>
           <Link href="/shop" className="text-sm font-medium border-b border-black pb-1 hover:opacity-60 transition-opacity">
             VIEW ALL

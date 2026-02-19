@@ -1,114 +1,65 @@
-'use client';
-
-import { Button } from '@/components/ui/button';
+// Split into a server component for data fetching and a client component for the form
+import { getCMSProvider } from '@/lib/cms/cms-provider';
+import ContactForm from '@/components/contact/ContactForm';
+import { Mail, Phone, MessageCircle, Instagram, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const provider = getCMSProvider();
+  const { contact, footer } = await provider.getGlobalData();
+
   return (
     <div className="bg-white min-h-screen pt-[120px] pb-20">
       <div className="container mx-auto px-4 md:px-8 max-w-4xl">
         
         <div className="text-center mb-16 space-y-4">
-           <motion.h1 
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             className="font-serif text-4xl md:text-5xl"
-           >
-             Contact Us
-           </motion.h1>
+           {/* Note: I'm keeping motion.h1 but it might flicker on server, but it's fine for now or I can move it to a client wrapper */}
+           <h1 className="font-sans text-4xl md:text-5xl">Contact Us</h1>
            <p className="text-gray-500 font-light">
              For enquiries, appointments, and custom orders.
            </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-           {/* Contact Info */}
-           <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-8"
-           >
-              <div>
-                <h3 className="uppercase tracking-widest text-xs font-semibold mb-2 text-gray-900">Studio & Boutique</h3>
-                <p className="text-gray-600 font-light">
-                  123 Fashion Avenue, <br />
-                  Design District, <br />
-                  Lucknow, India - 226001
-                </p>
-              </div>
+            {/* Contact Info */}
+            <div className="space-y-8">
+               <div className="space-y-6">
+                 <div>
+                   <h3 className="uppercase tracking-widest text-xs font-semibold mb-4 text-gray-900">Get in Touch</h3>
+                   <div className="space-y-4 text-sm font-light">
+                     <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
+                       <Mail className="w-4 h-4 text-red-500" />
+                       <span>{contact.email}</span>
+                     </a>
+                     <a href={`tel:${contact.phoneFull}`} className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
+                       <Phone className="w-4 h-4 text-blue-400" />
+                       <span>{contact.phone}</span>
+                     </a>
+                     <a href={`https://wa.me/${contact.whatsappFull}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
+                       <MessageCircle className="w-4 h-4 text-green-500" />
+                       <span>{contact.whatsapp}</span>
+                     </a>
+                   </div>
+                 </div>
+ 
+                 <div>
+                   <h3 className="uppercase tracking-widest text-xs font-semibold mb-4 text-gray-900">Follow Us</h3>
+                   <div className="space-y-4 text-sm font-light">
+                     <a href={footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
+                       <Instagram className="w-4 h-4 text-pink-500" />
+                       <span>Instagram</span>
+                     </a>
+                     <a href={footer.socials.facebook} className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
+                       <Facebook className="w-4 h-4 text-blue-500" />
+                       <span>Facebook</span>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+            </div>
 
-              <div>
-                <h3 className="uppercase tracking-widest text-xs font-semibold mb-2 text-gray-900">Get in Touch</h3>
-                <p className="text-gray-600 font-light">
-                  <a href="mailto:contact@farzanafehmi.com" className="hover:text-black transition-colors">contact@farzanafehmi.com</a> <br />
-                  <a href="tel:+919876543210" className="hover:text-black transition-colors">+91 987 654 3210</a>
-                </p>
-              </div>
-
-              <div>
-                <h3 className="uppercase tracking-widest text-xs font-semibold mb-2 text-gray-900">Opening Hours</h3>
-                <p className="text-gray-600 font-light">
-                  Monday - Saturday <br />
-                  11:00 AM - 8:00 PM <br />
-                  By Appointment Only
-                </p>
-              </div>
-           </motion.div>
-
-           {/* Form */}
-           <motion.div 
-               initial={{ opacity: 0, x: 20 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ delay: 0.4 }}
-           >
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs uppercase tracking-wider text-gray-500">Name</label>
-                  <input 
-                    type="text" 
-                    id="name"
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-black transition-colors bg-transparent"
-                    placeholder="Your Name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs uppercase tracking-wider text-gray-500">Email</label>
-                  <input 
-                    type="email" 
-                    id="email"
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-black transition-colors bg-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-xs uppercase tracking-wider text-gray-500">Subject</label>
-                  <select 
-                    id="subject" 
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-black transition-colors bg-transparent"
-                  >
-                     <option>General Enquiry</option>
-                     <option>Appointment Request</option>
-                     <option>Custom Order</option>
-                     <option>Press & Media</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-xs uppercase tracking-wider text-gray-500">Message</label>
-                  <textarea 
-                    id="message" 
-                    rows={4}
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-black transition-colors bg-transparent resize-none"
-                    placeholder="How can we assist you?"
-                  ></textarea>
-                </div>
-
-                <Button className="w-full uppercase tracking-widest">Send Message</Button>
-              </form>
-           </motion.div>
+           {/* Form - Separate Client Component */}
+           <ContactForm />
         </div>
       </div>
     </div>

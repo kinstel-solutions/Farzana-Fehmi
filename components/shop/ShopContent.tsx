@@ -21,8 +21,8 @@ export function ShopContent({ products }: { products: Product[] }) {
         
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
-          <h1 className="font-serif text-4xl md:text-5xl">The Collection</h1>
-          <p className="text-gray-500 font-light">Spring / Summer 2026</p>
+          <h1 className="font-sans text-4xl md:text-5xl">The Collection</h1>
+          {/* <p className="text-gray-500 font-light">Spring / Summer 2026</p> */}
         </div>
 
         {/* Filter */}

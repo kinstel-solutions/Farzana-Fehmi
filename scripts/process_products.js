@@ -1,14 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const smartcrop = require('smartcrop-sharp');
 
 const PRODUCTS_TXT = path.join(process.cwd(), 'data', 'products.txt');
-// Source of truth for optimized images is now public/Product-images
 const IMAGES_ROOT = path.join(process.cwd(), 'public', 'Product-images');
 const OUTPUT_TS = path.join(process.cwd(), 'lib', 'products-data.ts');
-
-// We no longer need to rename recursive in public since optimization script handles names,
-// but let's keep it safe or just rely on the optimization script's output. 
-// Actually, optimized images already have clean names from the script.
 
 function parseProducts() {
     const content = fs.readFileSync(PRODUCTS_TXT, 'utf8');
@@ -26,8 +22,8 @@ function parseProducts() {
             price: '',
             priceNumeric: 0,
             featured: false,
-            mainImage: null, // Will be object
-            additionalImages: [], // Will be array of objects
+            mainImageRaw: '',
+            additionalImagesRaw: '',
             description: '',
             material: '',
             occasion: [],
@@ -63,7 +59,7 @@ function parseProducts() {
             }
             
             if (line.includes('**Featured on Homepage?:**')) data.featured = line.split('**Featured on Homepage?:**')[1].trim().toLowerCase() === 'yes';
-            // We store the raw filename to match later
+            
             if (line.includes('**Cover / Main Image Filename:**')) data.mainImageRaw = line.split('**Cover / Main Image Filename:**')[1].trim();
             if (line.includes('**Additional Image Filenames:**')) data.additionalImagesRaw = line.split('**Additional Image Filenames:**')[1].trim();
             
@@ -101,8 +97,43 @@ function parseProducts() {
     });
 }
 
-function linkImages(products) {
-    const allFiles = []; // will store paths to -detail.webp as the "canonical" reference
+// Helper to analyze image using smartcrop
+async function analyzeImage(imagePath) {
+    try {
+        if (!fs.existsSync(imagePath)) return undefined;
+        
+        // We crop to 3:4 aspect ratio (300x400) which our UI uses
+        const result = await smartcrop.crop(imagePath, { width: 300, height: 400 });
+        const crop = result.topCrop;
+        
+        // Calculate center point percentage
+        const centerX = crop.x + (crop.width / 2);
+        const centerY = crop.y + (crop.height / 2);
+        
+        // Get original dimensions to calculate percentage
+        // Since smartcrop handles this internally, we can infer percentages from logic:
+        // topCrop gives x, y, width, height relative to original image
+        // but we need the % relative to the original image dimensions.
+        // Wait, startcrop result doesn't give total width/height directly in topCrop?
+        // Actually we might need sharp to get metadata if we need exact percentages
+        // But smartcrop returns score and crop region.
+        
+        // Let's use sharp to get dimensions first
+        const sharp = require('sharp');
+        const metadata = await sharp(imagePath).metadata();
+        
+        const xPercent = Math.round((centerX / metadata.width) * 100);
+        const yPercent = Math.round((centerY / metadata.height) * 100);
+        
+        return { x: xPercent, y: yPercent };
+    } catch (err) {
+        console.error(`Error analyzing image ${imagePath}:`, err.message);
+        return undefined;
+    }
+}
+
+async function linkImages(products) {
+    const allFiles = []; 
     const allFolders = [];
     
     function walkSync(dir) {
@@ -122,19 +153,26 @@ function linkImages(products) {
     }
     walkSync(IMAGES_ROOT);
 
-    // Helpers to construct variants from a detail path
-    const getVariants = (detailPath) => {
+    const getVariants = async (detailPath) => {
         if (!detailPath) return null;
         const basePath = detailPath.replace('-detail.webp', '');
         const relativeBase = basePath.split('public')[1].replace(/\\/g, '/');
+        
+        // Analyze the detail image for focal point
+        const focalPoint = await analyzeImage(detailPath);
+        
         return {
             grid: `${relativeBase}-grid.webp`,
             detail: `${relativeBase}-detail.webp`,
-            hero: `${relativeBase}-hero.webp`
+            hero: `${relativeBase}-hero.webp`,
+            focalPoint
         };
     };
 
-    return products.map(p => {
+    // Use loop instead of map for async operations
+    const resultProducts = [];
+
+    for (const p of products) {
         // 1. Find the best folder for this product
         const nameWords = p.name.toLowerCase().replace(/[()]/g, '').split(/\s+/).filter(w => w.length > 2);
         const noise = ['suit', 'set', 'wear', 'light', 'party', 'casual', 'festive'];
@@ -154,9 +192,8 @@ function linkImages(products) {
         const productFolder = maxIntersection >= 1 ? bestFolder : null;
 
         // 2. Find Main Image
-        const findImageVariant = (filenameRaw, folder = null) => {
+        const findImageVariant = async (filenameRaw, folder = null) => {
             if (!filenameRaw) return null;
-            // Remove extension and spaces
             const targetBase = filenameRaw.split('.')[0].replace(/\s+/g, '').toLowerCase();
             
             // Search in folder first
@@ -166,7 +203,7 @@ function linkImages(products) {
                     const fBase = f.replace('-detail.webp', '').toLowerCase();
                     return fBase.includes(targetBase) || targetBase.includes(fBase);
                 });
-                if (match) return getVariants(path.join(folder, match));
+                if (match) return await getVariants(path.join(folder, match));
             }
 
             // Global search
@@ -174,35 +211,36 @@ function linkImages(products) {
                 const fBase = path.basename(f).replace('-detail.webp', '').toLowerCase();
                 return fBase.includes(targetBase) || targetBase.includes(fBase);
             });
-            return globalMatch ? getVariants(globalMatch) : null;
+            return globalMatch ? await getVariants(globalMatch) : null;
         };
 
-        let mainImage = findImageVariant(p.mainImageRaw, productFolder);
+        let mainImage = await findImageVariant(p.mainImageRaw, productFolder);
         
         // Auto-select if not found
         if (!mainImage && productFolder) {
             const files = fs.readdirSync(productFolder).filter(f => f.endsWith('-detail.webp'));
             if (files.length > 0) {
-                mainImage = getVariants(path.join(productFolder, files[0]));
+                mainImage = await getVariants(path.join(productFolder, files[0]));
             }
         }
 
-        // 3. Find Additional Images (All in folder except main)
+        // 3. Find Additional Images
         let additionalImages = [];
         if (productFolder) {
             const files = fs.readdirSync(productFolder)
                 .filter(f => f.endsWith('-detail.webp'))
                 .map(f => path.join(productFolder, f));
             
-            // Exclude main image if present
             const mainDetailPath = mainImage ? path.join(process.cwd(), 'public', mainImage.detail) : '';
             
-            additionalImages = files
+            const variantPromises = files
                 .filter(f => path.normalize(f) !== path.normalize(mainDetailPath))
                 .map(f => getVariants(f));
+                
+            additionalImages = await Promise.all(variantPromises);
         }
 
-        return {
+        resultProducts.push({
             id: p.id,
             slug: p.slug,
             name: p.name,
@@ -217,13 +255,18 @@ function linkImages(products) {
             tags: p.tags,
             mainImage,
             additionalImages
-        };
-    });
+        });
+    }
+    
+    return resultProducts;
 }
 
-function run() {
+async function run() {
+    console.log('Parsing products...');
     let products = parseProducts();
-    products = linkImages(products);
+    
+    console.log('Analyzing images and linking (this may take a while)...');
+    products = await linkImages(products);
 
     const allCollections = [...new Set(products.flatMap(p => p.collections))].sort();
     const allOccasions = [...new Set(products.flatMap(p => p.occasion))].sort();
@@ -234,6 +277,7 @@ export interface ImageVariant {
     grid: string;
     detail: string;
     hero: string;
+    focalPoint?: { x: number; y: number };
 }
 
 export interface Product {
@@ -282,7 +326,7 @@ export function getRelatedProducts(product: Product): Product[] {
 }
 `;
     fs.writeFileSync(OUTPUT_TS, output);
-    console.log('Done! Generated optimized data with variants.');
+    console.log('Done! Generated optimized data with variants and smart focal points.');
 }
 
 run();

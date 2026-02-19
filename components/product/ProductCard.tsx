@@ -8,7 +8,7 @@ interface ProductCardProps {
   id: string;
   name: string;
   price: string;
-  mainImage: { grid: string; detail: string; hero: string } | null;
+  mainImage: { grid: string; detail: string; hero: string; focalPoint?: { x: number; y: number } } | null;
   collections: string[];
   slug: string;
 }
@@ -22,7 +22,7 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
             src={mainImage.grid}
             alt={name}
             fill
-            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+            className="object-contain transition-transform duration-700 ease-in-out group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (
@@ -40,8 +40,8 @@ export function ProductCard({ id, name, price, mainImage, collections, slug }: P
       </div>
       
       <div className="space-y-1 text-center">
-        <h3 className="font-serif text-lg text-gray-900 group-hover:text-black transition-colors">{name}</h3>
-        <p className="text-sm font-light text-gray-500 tracking-wider text-xs uppercase">{collections[0]}</p>
+        <h3 className="font-sans text-lg text-gray-900 group-hover:text-black transition-colors">{name}</h3>
+
         <p className="text-sm font-medium tracking-wide text-gray-900">{price}</p>
       </div>
     </Link>

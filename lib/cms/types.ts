@@ -3,6 +3,7 @@ export interface ImageVariant {
   grid: string;
   detail: string;
   hero: string;
+  focalPoint?: { x: number; y: number };
 }
 
 export interface Product {
@@ -20,6 +21,7 @@ export interface Product {
   occasion: string[];
   fit?: string;
   tags: string[];
+  bgColor?: string;
 }
 
 export interface Collection {
@@ -33,7 +35,8 @@ export interface Collection {
 export interface HeroData {
   title: string;
   subtitle: string;
-  image: string;
+  images: string[];
+  desktopImages?: string[];
   buttonText: string;
   buttonLink: string;
 }
@@ -50,9 +53,15 @@ export interface StoryData {
     image: string;
   };
   narrative: StorySection[];
+  mission?: {
+    title: string;
+    quote: string;
+    description: string;
+  };
   philosophy: {
     title: string;
     quote: string;
+    description?: string;
     author: string;
   };
   footer: {
@@ -69,7 +78,14 @@ export interface NavigationLink {
 
 export interface GlobalData {
   siteName: string;
-  description: string;
+  description?: string;
+  contact: {
+    email: string;
+    phone: string;
+    phoneFull: string;
+    whatsapp: string;
+    whatsappFull: string;
+  };
   navigation: NavigationLink[];
   footer: {
     explore: NavigationLink[];
@@ -78,7 +94,6 @@ export interface GlobalData {
     socials: {
         instagram: string;
         facebook: string;
-        twitter: string;
     };
   };
 }

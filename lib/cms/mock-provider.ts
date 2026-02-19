@@ -9,43 +9,80 @@ const getCollectionImage = (colName: string) => {
 };
 
 // Map allCollections to Collection interface
-const collections: Collection[] = allCollections.map((col, idx) => ({
-  id: idx + 1,
-  title: col,
-  image: getCollectionImage(col),
-  link: `/shop?category=${encodeURIComponent(col)}`,
-  size: (idx === 0 ? 'large' : 'small') as 'large' | 'small' // 1st is large, rest small for grid layout
-})).slice(0, 3); // Limit to 3 for the home layout
+const collections: Collection[] = [
+  {
+    id: 1,
+    title: 'Everyday Wear',
+    image: '/photos/cards/casual-wear.webp',
+    link: '/shop?category=Everyday%20Wear',
+    size: 'large'
+  },
+  {
+    id: 2,
+    title: 'Festive',
+    image: '/photos/cards/festive-wear.webp',
+    link: '/shop?category=Festive',
+    size: 'small'
+  },
+  {
+    id: 3,
+    title: 'Party',
+    image: '/photos/cards/party-wear.webp',
+    link: '/shop?category=Party',
+    size: 'small'
+  }
+];
 
 // Dynamic Hero Data from a Featured Product
 const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || products[0];
 
 const heroData: HeroData = {
-  title: 'ETHEREAL ELEGANCE',
-  subtitle: 'Spring / Summer 2026',
-  image: featuredHeroProduct?.mainImage?.hero || '/hero.png',
+  title: '',
+  subtitle: '',
+  images: [
+    '/photos/hero/hero-1.webp',
+    '/photos/hero/hero-2.webp',
+    '/photos/hero/hero-3.webp',
+    '/photos/hero/hero-4.webp',
+  ],
+  desktopImages: [
+    '/photos/hero/hero-hero1blured.webp',
+    '/photos/hero/hero-hero2blured.webp',
+    '/photos/hero/hero-hero3blured.webp',
+    '/photos/hero/hero-hero4blured.webp',
+    '/photos/hero/hero-hero5blured.webp',
+    '/photos/hero/hero-hero6blured.webp',
+    '/photos/hero/hero-hero7blured.webp',
+    '/photos/hero/hero-hero8blured.webp',
+    '/photos/hero/hero-hero9.webp',
+    '/photos/hero/hero-hero10.webp',
+  ],
   buttonText: 'Discover The Collection',
   buttonLink: '/shop'
 };
 
 const storyData: StoryData = {
   hero: {
-    title: "The Artisan's Tale",
-    subtitle: "Where heritage meets contemporary elegance.",
-    image: "/images/designer-studio.png"
+    title: "Design With Purpose",
+    subtitle: "Honoring craft, people, and the process behind every piece.",
+    image: "/photos/to-be-processed-then-delete/DSCF1508-Edit.jpg"
   },
   narrative: [
     {
-      title: "A Vision of Timelessness",
+      title: "Our Story",
       content: [
-        "Farzana Fehmi established her eponymous label with a singular vision: to create garments that transcend seasons. Drawing inspiration from the rich tapestry of ethnic craftsmanship and blending it with modern silhouettes, the brand stands as a testament to the enduring allure of quiet luxury.",
-        "Every piece is a dialogue between the past and the present, designed for the woman who moves through the world with grace and purpose."
+        "Fehmifarzana Designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
+        "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
+        "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
+        "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet."
       ]
     }
   ],
+
   philosophy: {
-    title: "Philosophy",
-    quote: "Fashion is not just about what you wear, but how it makes you feel. It is an armor of elegance.",
+    title: "Mission and Philosophy",
+    quote: "Design With Purpose",
+    description: "We exist to make beautiful clothes the right way. By honoring craft, people, and the process behind every piece, we design fashion with purpose-so fashion can be worn with confidence and care.",
     author: "Farzana Fehmi"
   },
   footer: {
@@ -55,13 +92,41 @@ const storyData: StoryData = {
   }
 };
 
+const sortProductsByColor = (items: Product[]) => {
+  if (!items.length) return [];
+  
+  // Group by color
+  const groups: { [key: string]: Product[] } = {};
+  items.forEach(p => {
+    const color = p.bgColor || 'unknown';
+    if (!groups[color]) groups[color] = [];
+    groups[color].push(p);
+  });
+
+  // Interleave
+  const sorted: Product[] = [];
+  const keys = Object.keys(groups);
+  let maxLen = 0;
+  keys.forEach(k => maxLen = Math.max(maxLen, groups[k].length));
+
+  for (let i = 0; i < maxLen; i++) {
+    keys.forEach(k => {
+      if (groups[k][i]) {
+        sorted.push(groups[k][i]);
+      }
+    });
+  }
+  return sorted;
+};
+
 export class MockCMSProvider implements CMSProvider {
   async getAllProducts(): Promise<Product[]> {
-    return products;
+    return sortProductsByColor(products);
   }
 
   async getFeaturedProducts(): Promise<Product[]> {
-    return products.filter(p => p.featured).slice(0, 4);
+    const featured = products.filter(p => p.featured);
+    return sortProductsByColor(featured).slice(0, 4);
   }
 
   async getProductBySlug(slug: string): Promise<Product | null> {
@@ -83,7 +148,13 @@ export class MockCMSProvider implements CMSProvider {
   async getGlobalData(): Promise<GlobalData> {
     return {
       siteName: 'Fehmi Farzana',
-      description: 'Defining contemporary luxury through heritage craftsmanship.',
+      contact: {
+        email: 'farzana@fehmifarz.com',
+        phone: '+61 416 966 865',
+        phoneFull: '+61416966865',
+        whatsapp: 'WhatsApp',
+        whatsappFull: '61416966865',
+      },
       navigation: [
         { label: 'SHOP', href: '/shop' },
         { label: 'COLLECTIONS', href: '/shop' },
@@ -95,19 +166,17 @@ export class MockCMSProvider implements CMSProvider {
           { label: 'Shop All', href: '/shop' },
           { label: 'Our Story', href: '/story' },
           { label: 'Contact', href: '/contact' },
-          { label: 'Press', href: '#' },
         ],
         customerCare: [
-          { label: 'Shipping & Returns', href: '#' },
-          { label: 'Size Guide', href: '#' },
-          { label: 'Terms of Service', href: '#' },
-          { label: 'Privacy Policy', href: '#' },
+          { label: 'Shipping & Returns', href: '/shipping-returns' },
+          { label: 'Size Guide', href: '/size-guide' },
+          { label: 'Terms of Service', href: '/terms-of-service' },
+          { label: 'Privacy Policy', href: '/privacy-policy' },
         ],
         copyRight: `Farzana Fehmi. All rights reserved.`,
         socials: {
-            instagram: '#',
-            facebook: '#',
-            twitter: '#'
+            instagram: 'https://instagram.com/fehmifarzanadesigns',
+            facebook: '#'
         }
       }
     };

@@ -9,6 +9,7 @@ interface ImageVariant {
   grid: string;
   detail: string;
   hero: string;
+  focalPoint?: { x: number; y: number };
 }
 
 interface ProductGalleryProps {
@@ -59,7 +60,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
                   src={variant.detail} // Use detail size
                   alt={`${productName} view ${index + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -102,7 +103,7 @@ export function ProductGallery({ mainImage, additionalImages, productName }: Pro
                         src={variant.grid} // Use grid size for thumbs
                         alt={`${productName} thumbnail ${idx + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         sizes="20vw"
                     />
                 </button>

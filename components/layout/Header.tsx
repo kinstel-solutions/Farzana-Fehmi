@@ -2,20 +2,27 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Search, ShoppingBag, Menu, User, X } from 'lucide-react';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export function Header({ 
   siteName, 
-  navigation 
+  navigation
 }: { 
   siteName: string;
   navigation: Array<{ label: string; href: string }>;
 }) {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  // Pages with hero sections that should have transparent navbar
+  const heroPages = ['/', '/story'];
+  const hasHero = heroPages.includes(pathname);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -34,64 +41,110 @@ export function Header({
     }
   }, [isMobileMenuOpen]);
 
+  // Determine if we should show transparent mode (only on hero pages when not scrolled)
+  const isTransparent = hasHero && !isScrolled && !isMobileMenuOpen;
+  const isHomePage = pathname === '/';
+  const shouldHideLogos = isHomePage && isTransparent;
+
   return (
     <>
       <header
         className={cn(
-          'fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent',
-          isScrolled || isMobileMenuOpen
-            ? 'bg-white/95 backdrop-blur-md border-border py-2 shadow-sm text-black'
-            : 'bg-gradient-to-b from-black/50 to-transparent py-6 text-white'
+          'fixed top-0 w-full z-50 transition-all duration-300',
+          isTransparent
+            ? 'bg-transparent py-6 text-white'
+            : 'bg-white/95 backdrop-blur-md py-2 shadow-sm text-black'
         )}
       >
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between relative">
+          
+          {/* Left: F-Logo */}
+          <Link 
+            href="/" 
+            className={cn(
+              "relative z-20 shrink-0 transition-all duration-300",
+              isTransparent ? "h-14 w-14" : "h-10 w-10",
+              shouldHideLogos && "opacity-0 pointer-events-none"
+            )} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Image
+              src={isTransparent
+                ? "/logos/Fahemi_Logo-F_(forDark-BG).svg" 
+                : "/logos/Fahemi_Logo-F_(forLight-BG).svg"
+              }
+              alt="F Logo"
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
+
+          {/* Center: Text Logo */}
+          <Link 
+            href="/" 
+            className={cn(
+              "absolute left-1/2 -translate-x-1/2 z-20 hidden md:block transition-all duration-300",
+              isTransparent ? "h-12 w-56" : "h-8 w-40",
+              shouldHideLogos && "opacity-0 pointer-events-none"
+            )}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Image
+              src={isTransparent
+                ? "/logos/Fahemi_Logo-text_(forDark-BG).svg" 
+                : "/logos/Fahemi_Logo-text_(forLight-BG).svg"
+              }
+              alt={siteName}
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
+          {/* Mobile Center Text Logo */}
+           <Link 
+             href="/" 
+             className={cn(
+               "absolute left-1/2 -translate-x-1/2 z-20 md:hidden transition-all duration-300",
+               isTransparent ? "h-8 w-40" : "h-6 w-32",
+               shouldHideLogos && "opacity-0 pointer-events-none"
+             )}
+             onClick={() => setIsMobileMenuOpen(false)}
+           >
+            <Image
+              src={isTransparent
+                ? "/logos/Fahemi_Logo-text_(forDark-BG).svg" 
+                : "/logos/Fahemi_Logo-text_(forLight-BG).svg"
+              }
+              alt={siteName}
+              fill
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
+
+
+          {/* Right: Navigation & Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
-            {/* Mobile Menu Toggle */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className={cn("lg:hidden relative z-10", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-            
-            {/* Desktop Nav */}
+             {/* Desktop Nav */}
             <nav className={cn(
-              "hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide transition-colors duration-300",
-               isScrolled ? "text-primary" : "text-white"
+              "hidden lg:flex items-center gap-8 font-medium tracking-wide transition-all duration-300",
+               isTransparent ? "text-white/90 hover:text-white text-base" : "text-primary/80 hover:text-primary text-sm"
             )}>
               {navigation.map((link) => (
                 <Link key={link.label} href={link.href} className="hover:opacity-70 transition-opacity">{link.label}</Link>
               ))}
             </nav>
-          </div>
 
-          {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 group" onClick={() => setIsMobileMenuOpen(false)}>
-            <h1 className={cn(
-              "font-tangerine lowercase transition-all duration-300",
-              isScrolled || isMobileMenuOpen ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
-            )}>
-              {siteName}
-            </h1>
-          </Link>
-
-          {/* Icons */}
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className={cn("transition-colors", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <Search className="w-5 h-5" />
-              <span className="sr-only">Search</span>
-            </Button>
-            <Button variant="ghost" size="icon" className={cn("hidden md:inline-flex transition-colors", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <User className="w-5 h-5" />
-              <span className="sr-only">Account</span>
-            </Button>
-            <Button variant="ghost" size="icon" className={cn("transition-colors relative", !isScrolled && !isMobileMenuOpen && "hover:bg-white/10 hover:text-white")}>
-              <ShoppingBag className="w-5 h-5" />
-              <div className={cn("absolute top-2 right-2 w-2 h-2 rounded-full", isScrolled || isMobileMenuOpen ? "bg-black" : "bg-white")}></div>
-              <span className="sr-only">Cart</span>
+            {/* Mobile Menu Toggle */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className={cn("lg:hidden relative z-30", isTransparent && "hover:bg-white/10 hover:text-white")}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <span className="sr-only">Toggle Menu</span>
             </Button>
           </div>
         </div>
@@ -112,7 +165,7 @@ export function Header({
                 <Link 
                   key={link.label}
                   href={link.href} 
-                  className="text-2xl font-serif font-medium tracking-wide hover:opacity-70 transition-opacity"
+                  className="text-2xl font-sans font-medium tracking-wide hover:opacity-70 transition-opacity"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
