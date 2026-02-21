@@ -107,7 +107,7 @@ export default function ShippingReturnsPage() {
                 </h2>
                 <p>
                   We offer <strong>free shipping</strong> for all orders within
-                  India.
+                  Australia.
                 </p>
               </section>
 

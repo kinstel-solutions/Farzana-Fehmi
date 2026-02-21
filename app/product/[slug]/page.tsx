@@ -122,7 +122,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="border-t border-gray-100 pt-6 space-y-3">
               <div className="flex items-center gap-3 text-sm text-gray-600">
                 <Truck className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span>Free shipping within India</span>
+                <span>Free shipping within Australia</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-600">
                 <Clock className="w-4 h-4 text-gray-400 flex-shrink-0" />
