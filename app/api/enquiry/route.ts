@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "Fehmi Farzana Designs <onboarding@resend.dev>",
+        from: "Fehmi Farzana Designs <no-reply@fehmifarz.com>",
         to: "farzana@fehmifarz.com",
         reply_to: email,
         subject: `New Enquiry: ${productName} — ${name}`,
