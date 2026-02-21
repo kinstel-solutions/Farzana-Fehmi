@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "Fehmi Farzana Designs <no-reply@fehmifarz.com>",
-        to: "farzana@fehmifarz.com",
+        to: ["farzana@fehmifarz.com", "kinstelsolutions@gmail.com"],
         reply_to: email,
         subject: `New Enquiry: ${productName} — ${name}`,
         html: htmlContent,
