@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { allSizeTables, sizeGuideNote } from "@/data/size-guide";
 
 export default function SizeGuidePage() {
   return (
@@ -18,155 +19,55 @@ export default function SizeGuidePage() {
           </div>
 
           <div className="space-y-12">
-            {/* Kurta Table */}
-            <div className="space-y-4">
-              <h2 className="text-xl font-medium text-gray-900 font-sans border-b border-gray-200 pb-2">
-                Kurta
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm text-left whitespace-nowrap">
-                  <thead className="text-xs text-gray-500 uppercase bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Size
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Bust
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Waist
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Hip
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Sleeve
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Length
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">S</td>
-                      <td className="px-6 py-4">34"</td>
-                      <td className="px-6 py-4">32"</td>
-                      <td className="px-6 py-4">33"</td>
-                      <td className="px-6 py-4">20"</td>
-                      <td className="px-6 py-4">45"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">M</td>
-                      <td className="px-6 py-4">40"</td>
-                      <td className="px-6 py-4">36"</td>
-                      <td className="px-6 py-4">43"</td>
-                      <td className="px-6 py-4">22"</td>
-                      <td className="px-6 py-4">46"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">L</td>
-                      <td className="px-6 py-4">40"</td>
-                      <td className="px-6 py-4">36"</td>
-                      <td className="px-6 py-4">44"</td>
-                      <td className="px-6 py-4">22"</td>
-                      <td className="px-6 py-4">39.5"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">
-                        XL
-                      </td>
-                      <td className="px-6 py-4">45"</td>
-                      <td className="px-6 py-4">40"</td>
-                      <td className="px-6 py-4">48"</td>
-                      <td className="px-6 py-4">16.5"</td>
-                      <td className="px-6 py-4">44"</td>
-                    </tr>
-                  </tbody>
-                </table>
+            {allSizeTables.map((table) => (
+              <div
+                key={table.title}
+                className="space-y-4">
+                <h2 className="text-xl font-medium text-gray-900 font-sans border-b border-gray-200 pb-2">
+                  {table.title}
+                </h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm text-left whitespace-nowrap">
+                    <thead className="text-xs text-gray-500 uppercase bg-gray-50">
+                      <tr>
+                        {table.columns.map((col) => (
+                          <th
+                            key={col}
+                            scope="col"
+                            className="px-6 py-3">
+                            {col}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {table.rows.map((row) => (
+                        <tr
+                          key={row.size}
+                          className="bg-white">
+                          <td className="px-6 py-4 font-medium text-gray-900">
+                            {row.size}
+                          </td>
+                          {table.columns.slice(1).map((col) => (
+                            <td
+                              key={col}
+                              className="px-6 py-4">
+                              {row[col.toLowerCase()]}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-
-            {/* Bottom/Pant Table */}
-            <div className="space-y-4">
-              <h2 className="text-xl font-medium text-gray-900 font-sans border-b border-gray-200 pb-2">
-                Bottom/Pant
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm text-left whitespace-nowrap">
-                  <thead className="text-xs text-gray-500 uppercase bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Size
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Length
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Waist
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3">
-                        Flair
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">S</td>
-                      <td className="px-6 py-4">39"</td>
-                      <td className="px-6 py-4">37"</td>
-                      <td className="px-6 py-4">14"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">M</td>
-                      <td className="px-6 py-4">38"</td>
-                      <td className="px-6 py-4">41.5"</td>
-                      <td className="px-6 py-4">16"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">L</td>
-                      <td className="px-6 py-4">39.5"</td>
-                      <td className="px-6 py-4">45"</td>
-                      <td className="px-6 py-4">14"</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-medium text-gray-900">
-                        XL
-                      </td>
-                      <td className="px-6 py-4">40"</td>
-                      <td className="px-6 py-4">50"</td>
-                      <td className="px-6 py-4">21"</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            ))}
 
             <div className="bg-gray-50 p-6 text-center space-y-2 text-sm text-gray-600 font-light rounded-sm">
-              <p className="font-medium">Kurta, Pant, and Dupatta set.</p>
-              <p>100% viscose lining</p>
+              <p className="font-medium">{sizeGuideNote.setDescription}</p>
+              <p>{sizeGuideNote.lining}</p>
               <p className="text-xs text-gray-400 pt-2 italic">
-                Fit may vary by style and personal preference.
+                {sizeGuideNote.disclaimer}
               </p>
             </div>
           </div>
