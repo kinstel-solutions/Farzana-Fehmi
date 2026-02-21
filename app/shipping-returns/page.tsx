@@ -18,7 +18,7 @@ export default function ShippingReturnsPage() {
 
             <div className="prose prose-gray max-w-none font-light text-gray-600 space-y-6">
               <p>
-                At Fehmi Farzana Designs, we strive to make your shopping
+                At fehmi farzana designs, we strive to make your shopping
                 experience seamless. Please read our returns and exchanges
                 policies carefully before making a purchase.
               </p>

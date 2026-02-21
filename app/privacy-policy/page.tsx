@@ -24,10 +24,10 @@ export default function PrivacyPolicyPage() {
                 Introduction
               </h2>
               <p>
-                This Privacy Policy describes how Fehmi Farzana Designs
+                This Privacy Policy describes how fehmi farzana designs
                 collects, uses, and discloses your personal information when you
-                visit, use our services, or make a purchase from Fehmi Farzana
-                Designs.
+                visit, use our services, or make a purchase from fehmi farzana
+                designs.
               </p>
             </section>
 

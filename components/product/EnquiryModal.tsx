@@ -15,6 +15,7 @@ import {
   Mail,
   Instagram,
   MessageCircle,
+  Facebook,
   CheckCircle,
   Loader2,
 } from "lucide-react";
@@ -322,6 +323,15 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
                 className="flex items-center gap-2 px-4 py-2.5 rounded-sm border border-gray-200 text-sm text-gray-600 hover:border-gray-400 hover:text-gray-900 transition-colors">
                 <Instagram className="w-4 h-4" />
                 <span>Instagram</span>
+              </button>
+
+              {/* Facebook — disabled until page URL is provided */}
+              <button
+                disabled
+                title="Coming soon"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-sm border border-gray-200 text-sm text-gray-300 cursor-not-allowed">
+                <Facebook className="w-4 h-4" />
+                <span>Facebook</span>
               </button>
             </div>
 
