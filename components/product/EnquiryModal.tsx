@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/lib/cms/types";
+import { Mail } from "lucide-react";
 
 interface EnquiryModalProps {
   product: Product;
@@ -21,13 +22,13 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
   const [quantity, setQuantity] = useState(1);
 
   const handleOrder = () => {
-    const phoneNumber = "919889988408"; // Hardcoded number as requested
     const productUrl =
       typeof window !== "undefined" ? window.location.href : "";
-    const message = `Hi, I am interested in ${product.name}.\nQuantity: ${quantity}\nLink: ${productUrl}`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const subject = `Enquiry: ${product.name}`;
+    const body = `Hi,\n\nI am interested in ${product.name}.\nQuantity: ${quantity}\nLink: ${productUrl}\n\nPlease get back to me with more details.\n\nThank you.`;
+    const mailtoUrl = `mailto:farzana@fehmifarz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    window.open(whatsappUrl, "_blank");
+    window.open(mailtoUrl, "_self");
     setOpen(false);
   };
 
@@ -87,8 +88,9 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
         <div className="flex justify-end">
           <Button
             onClick={handleOrder}
-            className="w-full uppercase tracking-wider text-xs">
-            Order Now
+            className="w-full uppercase tracking-wider text-xs gap-2">
+            <Mail className="w-4 h-4" />
+            Send Enquiry
           </Button>
         </div>
       </DialogContent>

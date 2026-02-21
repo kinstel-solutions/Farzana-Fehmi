@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Mail, Phone, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, Mail } from "lucide-react";
 import { LogoWhiteNoBGwithDesigns } from "@/components/ui/LogoWhiteNoBGwithDesigns";
 import { getCMSProvider } from "@/lib/cms/cms-provider";
 
@@ -76,20 +76,6 @@ export async function Footer() {
                 className="flex items-center gap-3 hover:text-gray-300 transition-colors">
                 <Mail className="w-4 h-4 text-red-500" />
                 <span>{contact.email}</span>
-              </a>
-              <a
-                href={`tel:${contact.phoneFull}`}
-                className="flex items-center gap-3 hover:text-gray-300 transition-colors">
-                <Phone className="w-4 h-4 text-blue-400" />
-                <span>{contact.phone}</span>
-              </a>
-              <a
-                href={`https://wa.me/${contact.whatsappFull}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-gray-300 transition-colors">
-                <MessageCircle className="w-4 h-4 text-green-500" />
-                <span>{contact.whatsapp}</span>
               </a>
               <div className="pt-2 space-y-3">
                 <a

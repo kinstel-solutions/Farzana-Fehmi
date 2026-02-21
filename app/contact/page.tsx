@@ -1,7 +1,7 @@
 // Split into a server component for data fetching and a client component for the form
 import { getCMSProvider } from "@/lib/cms/cms-provider";
 import ContactForm from "@/components/contact/ContactForm";
-import { Mail, Phone, MessageCircle, Instagram, Facebook } from "lucide-react";
+import { Mail, Instagram, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default async function ContactPage() {
@@ -42,20 +42,6 @@ export default async function ContactPage() {
                     className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
                     <Mail className="w-4 h-4 text-red-500" />
                     <span>{contact.email}</span>
-                  </a>
-                  <a
-                    href={`tel:${contact.phoneFull}`}
-                    className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
-                    <Phone className="w-4 h-4 text-blue-400" />
-                    <span>{contact.phone}</span>
-                  </a>
-                  <a
-                    href={`https://wa.me/${contact.whatsappFull}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
-                    <MessageCircle className="w-4 h-4 text-green-500" />
-                    <span>{contact.whatsapp}</span>
                   </a>
                 </div>
               </div>
