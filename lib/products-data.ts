@@ -73,13 +73,13 @@ export const products: Product[] = [
   {
     id: "P002",
     slug: "emerald-green-kaamdaani-suit",
-    name: "Emerald Green Kaamdaani suit",
+    name: "Emerald Green Kaamdaani Suit",
     collections: ["Party"],
     price: "$200",
     priceNumeric: 200,
     featured: true,
     description:
-      "This Luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
+      "This luxurious georgette suit with heavy intricate zardozi work is perfectly suited for a grand occasion due to its rich colour and detailed craftsmanship.",
     material: "Georgette and Shantoon",
     occasion: ["Party"],
     fit: "Large",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     priceNumeric: 0,
     featured: true,
     description:
-      "Inspired by rich heritage and craftmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
+      "Inspired by rich heritage and craftsmanship, this silk suit is adorned with floral motifs in gota patti and zardozi work, perfect for a grand occasion.",
     material: "Pure Silk and crepe",
     occasion: ["Party"],
     fit: "Made-to-order",
@@ -254,7 +254,7 @@ export const products: Product[] = [
   {
     id: "P005",
     slug: "dark-mauve-anarkali-suit",
-    name: "Dark Mauve Anarkali suit",
+    name: "Dark Mauve Anarkali Suit",
     collections: ["Festive"],
     price: "$230",
     priceNumeric: 230,
@@ -263,7 +263,7 @@ export const products: Product[] = [
       "This outfit is perfect for a light evening wear, featuring Anarkali style with delicate silk thread embroidery around neckline and sleeve band, paired with a crepe dupatta adorned with small booties.",
     material: "Georgette and Crepe",
     occasion: ["Festive"],
-    fit: "small",
+    fit: "Small",
     tags: ["Limited", "Handcrafted"],
     mainImage: {
       grid: "/Product-images/DarkMauveAnaarkalisuitset(LightPartyWear)/DSCF1671-Edit-grid.webp",
@@ -311,7 +311,7 @@ export const products: Product[] = [
   {
     id: "P006",
     slug: "maharani-shalwar-suit-set",
-    name: "Maharani Shalwar suit set",
+    name: "Maharani Shalwar Suit Set",
     collections: ["Festive"],
     price: "$200",
     priceNumeric: 200,
@@ -374,7 +374,7 @@ export const products: Product[] = [
     priceNumeric: 190,
     featured: true,
     description:
-      "This elegant off-white tissue suit, adorned with diagonal mettalic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
+      "This elegant off-white tissue suit, adorned with a diagonal metallic leheria pattern, transforms a simple design into a stunning ensemble, complemented by the understated elegance of a chiffon dupatta.",
     material: "Tissue and Chiffon",
     occasion: ["Casual"],
     fit: "Large",
@@ -435,7 +435,7 @@ export const products: Product[] = [
   {
     id: "P008",
     slug: "azure-blue-sequined-suit-set",
-    name: "Azure Blue Sequined suit set",
+    name: "Azure Blue Sequined Suit Set",
     collections: ["Everyday Wear"],
     price: "$185",
     priceNumeric: 185,
@@ -498,7 +498,7 @@ export const products: Product[] = [
     priceNumeric: 185,
     featured: true,
     description:
-      "Exquisite apricot and salmon pink sequined georgette suit, adorned with delicate embroidery on the front lower hemline, paired with chiffon dupatta makes it ideal for daytime events.",
+      "Exquisite apricot and salmon pink sequined georgette suit, adorned with delicate embroidery on the front lower hemline, paired with a chiffon dupatta, makes it ideal for daytime events.",
     material: "Georgette and chiffon",
     occasion: ["Casual"],
     fit: "Large",
@@ -549,13 +549,13 @@ export const products: Product[] = [
   {
     id: "P010",
     slug: "bottle-green-mirror-sequined-suit-set",
-    name: "Bottle Green Mirror Sequined suit set",
+    name: "Bottle Green Mirror Sequined Suit Set",
     collections: ["Festive"],
     price: "$150",
     priceNumeric: 150,
     featured: true,
     description:
-      "Ideal for celebrations, this bottle green crepe ensemble with intricate floral resham and zari embroidery, paired with a gorgeous crepe dupatta featuring, mirror and banarsi border details.",
+      "Ideal for celebrations, this bottle green crepe ensemble with intricate floral resham and zari embroidery, paired with a gorgeous crepe dupatta featuring mirror and Banarsi border details.",
     material: "Crepe silk",
     occasion: ["Festive"],
     fit: "Large",
@@ -606,7 +606,7 @@ export const products: Product[] = [
   {
     id: "P011",
     slug: "dusty-rose-organza-suit-set",
-    name: "Dusty Rose Organza suit set",
+    name: "Dusty Rose Organza Suit Set",
     collections: ["Party"],
     price: "$170",
     priceNumeric: 170,
@@ -663,14 +663,14 @@ export const products: Product[] = [
   {
     id: "P012",
     slug: "royal-blue-crepe-bandhani-suit-set",
-    name: "Royal Blue Crepe Bandhani suit set",
+    name: "Royal Blue Crepe Bandhani Suit Set",
     collections: ["Everyday Wear"],
     price: "$160",
     priceNumeric: 160,
     featured: true,
     description:
       "This elegant royal blue bandhani crepe suit is adorned with light embroidery on the front, perfect for a casual yet refined atmosphere.",
-    material: "crepe silk and chiffon",
+    material: "Crepe Silk and Chiffon",
     occasion: ["Casual"],
     fit: "Medium",
     tags: ["Casual", "Handcrafted", "Comfort Wear"],
