@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +13,17 @@ import { Button } from "@/components/ui/button";
 import { Ruler } from "lucide-react";
 import { allSizeTables, sizeGuideNote } from "@/data/size-guide";
 
+type Unit = "in" | "cm";
+
+function formatMeasurement(value: string | number, unit: Unit): string {
+  if (typeof value === "string") return value;
+  if (unit === "in") return `${value}"`;
+  return `${Math.round(value * 2.54)} cm`;
+}
+
 export function SizeGuide() {
+  const [unit, setUnit] = useState<Unit>("in");
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,23 +35,49 @@ export function SizeGuide() {
           Size Guide
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[600px] max-h-[85vh] overflow-y-auto px-4 sm:px-6">
         <DialogHeader>
-          <DialogTitle className="font-sans text-2xl text-center mb-2">
+          <DialogTitle className="font-sans text-xl sm:text-2xl text-center mb-1">
             Suit Measurements
           </DialogTitle>
-          <DialogDescription className="text-center mb-4">
-            All measurements are in inches.
+          <DialogDescription className="text-center mb-2 text-xs sm:text-sm">
+            Select your preferred unit of measurement.
           </DialogDescription>
         </DialogHeader>
+
+        {/* Unit toggle */}
+        <div className="flex justify-center mb-5">
+          <div className="inline-flex rounded-md border border-gray-200 overflow-hidden text-sm">
+            <button
+              onClick={() => setUnit("in")}
+              className={`px-4 py-1.5 transition-colors ${
+                unit === "in"
+                  ? "bg-gray-900 text-white"
+                  : "bg-white text-gray-600 hover:bg-gray-50"
+              }`}>
+              Inches
+            </button>
+            <button
+              onClick={() => setUnit("cm")}
+              className={`px-4 py-1.5 transition-colors border-l border-gray-200 ${
+                unit === "cm"
+                  ? "bg-gray-900 text-white"
+                  : "bg-white text-gray-600 hover:bg-gray-50"
+              }`}>
+              Centimetres
+            </button>
+          </div>
+        </div>
 
         <div className="space-y-8">
           {allSizeTables.map((table) => (
             <div key={table.title}>
-              <h3 className="text-lg font-medium text-center mb-4 font-sans">
+              <h3 className="text-base sm:text-lg font-medium text-center mb-4 font-sans">
                 {table.title}
               </h3>
-              <div className="overflow-x-auto">
+
+              {/* ── Desktop table ── */}
+              <div className="hidden sm:block overflow-x-auto">
                 <table className="w-full text-sm text-left">
                   <thead className="text-xs text-gray-500 uppercase bg-gray-50">
                     <tr>
@@ -48,9 +85,7 @@ export function SizeGuide() {
                         <th
                           key={col}
                           scope="col"
-                          className={
-                            table.columns.length > 4 ? "px-4 py-3" : "px-6 py-3"
-                          }>
+                          className="px-4 py-3">
                           {col}
                         </th>
                       ))}
@@ -61,15 +96,14 @@ export function SizeGuide() {
                       <tr
                         key={row.size}
                         className={`bg-white ${i < table.rows.length - 1 ? "border-b" : ""}`}>
-                        <td
-                          className={`${table.columns.length > 4 ? "px-4" : "px-6"} py-3 font-medium text-gray-900`}>
+                        <td className="px-4 py-3 font-medium text-gray-900">
                           {row.size}
                         </td>
                         {table.columns.slice(1).map((col) => (
                           <td
                             key={col}
-                            className={`${table.columns.length > 4 ? "px-4" : "px-6"} py-3`}>
-                            {row[col.toLowerCase()]}
+                            className="px-4 py-3">
+                            {formatMeasurement(row[col.toLowerCase()], unit)}
                           </td>
                         ))}
                       </tr>
@@ -77,14 +111,37 @@ export function SizeGuide() {
                   </tbody>
                 </table>
               </div>
+
+              {/* ── Mobile cards ── */}
+              <div className="sm:hidden grid grid-cols-2 gap-3">
+                {table.rows.map((row) => (
+                  <div
+                    key={row.size}
+                    className="border border-gray-100 rounded-lg p-3 bg-gray-50">
+                    <p className="text-sm font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">
+                      Size {row.size}
+                    </p>
+                    {table.columns.slice(1).map((col) => (
+                      <div
+                        key={col}
+                        className="flex justify-between items-center py-0.5">
+                        <span className="text-xs text-gray-500">{col}</span>
+                        <span className="text-xs font-medium text-gray-800">
+                          {formatMeasurement(row[col.toLowerCase()], unit)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-6 text-sm text-gray-500 text-center space-y-2">
+        <div className="mt-6 text-sm text-gray-500 text-center space-y-1">
           <p className="font-medium">{sizeGuideNote.setDescription}</p>
           <p>{sizeGuideNote.lining}</p>
-          <p className="text-xs text-gray-400 mt-4">
+          <p className="text-xs text-gray-400 mt-3">
             {sizeGuideNote.disclaimer}
           </p>
         </div>
