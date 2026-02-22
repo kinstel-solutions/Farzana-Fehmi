@@ -26,6 +26,7 @@ import {
   EnquiryFormData,
   buildEnquiryMessage,
   handleInstagramDM,
+  handleFacebookDM,
   submitEnquiryEmail,
 } from "@/lib/enquiry";
 import {
@@ -121,6 +122,14 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
     const copied = await handleInstagramDM(message);
     if (copied) {
       showToast("Message copied! Paste it in your Instagram chat.", "info");
+    }
+  };
+
+  const handleFacebook = async () => {
+    const message = buildEnquiryMessage(product, form);
+    const copied = await handleFacebookDM(message);
+    if (copied) {
+      showToast("Message copied! Paste it in your Facebook chat.", "info");
     }
   };
 
@@ -325,19 +334,18 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
               <span>Instagram</span>
             </button>
 
-            {/* Facebook — disabled until page URL is provided */}
+            {/* Facebook */}
             <button
-              disabled
-              title="Coming soon"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-sm border border-gray-200 text-sm text-gray-300 cursor-not-allowed">
+              onClick={handleFacebook}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-sm border border-gray-200 text-sm text-gray-600 hover:border-gray-400 hover:text-gray-900 transition-colors">
               <Facebook className="w-4 h-4" />
               <span>Facebook</span>
             </button>
           </div>
 
           <p className="text-[11px] text-gray-400 text-center">
-            Instagram will copy the enquiry message to your clipboard and open
-            our DM.
+            Instagram &amp; Facebook will copy the enquiry to your clipboard and
+            open our chat.
           </p>
         </div>
       )}

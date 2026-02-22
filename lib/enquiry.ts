@@ -71,6 +71,18 @@ export async function handleInstagramDM(message: string): Promise<boolean> {
   return copied;
 }
 
+const FACEBOOK_URL =
+  "https://www.facebook.com/share/18VpgC1fMH/?mibextid=wwXIfr";
+
+/**
+ * Open Facebook — copies message to clipboard first since Messenger doesn't support prefilled DMs
+ */
+export async function handleFacebookDM(message: string): Promise<boolean> {
+  const copied = await copyToClipboard(message);
+  window.open(FACEBOOK_URL, "_blank");
+  return copied;
+}
+
 /**
  * Open WhatsApp with prefilled message (ready for when business number is added)
  */
