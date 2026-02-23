@@ -80,24 +80,81 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
 
   const isFormValid = form.name.trim() && form.email.trim() && form.size;
 
-  const resetForm = () => {
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      size: "M",
-      quantity: 1,
-      message: "",
-    });
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem("enquiry_form_data");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (
+          parsed &&
+          parsed.timestamp &&
+          Date.now() - parsed.timestamp < 3600000
+        ) {
+          setForm(parsed.data);
+        } else {
+          window.localStorage.removeItem("enquiry_form_data");
+        }
+      }
+    } catch (e) {
+      console.error("Failed to parse stored form data", e);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (form.name || form.email || form.phone || form.message) {
+      window.localStorage.setItem(
+        "enquiry_form_data",
+        JSON.stringify({ data: form, timestamp: Date.now() }),
+      );
+    }
+  }, [form]);
+
+  const clearFormState = (wasSubmitted: boolean) => {
+    if (wasSubmitted) {
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        size: "M",
+        quantity: 1,
+        message: "",
+      });
+      window.localStorage.removeItem("enquiry_form_data");
+    }
     setSubmitted(false);
     setError(null);
     setLoading(false);
   };
 
   const handleOpenChange = (isOpen: boolean) => {
+    if (isOpen) {
+      try {
+        const stored = window.localStorage.getItem("enquiry_form_data");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (
+            parsed &&
+            parsed.timestamp &&
+            Date.now() - parsed.timestamp >= 3600000
+          ) {
+            setForm({
+              name: "",
+              email: "",
+              phone: "",
+              size: "M",
+              quantity: 1,
+              message: "",
+            });
+            window.localStorage.removeItem("enquiry_form_data");
+          }
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
     setOpen(isOpen);
     if (!isOpen) {
-      setTimeout(resetForm, 300);
+      setTimeout(() => clearFormState(submitted), 300);
     }
   };
 
@@ -137,7 +194,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
     "flex h-10 w-full rounded-sm border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50";
 
   // Shared form content
-  const FormContent = () => (
+  const renderFormContent = () => (
     <>
       {/* Product Preview */}
       <div className="flex items-center gap-4 pb-4 border-b border-gray-100">
@@ -367,7 +424,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
         <MobileDrawer
           open={open}
           onClose={() => handleOpenChange(false)}>
-          <FormContent />
+          {renderFormContent()}
         </MobileDrawer>
       )}
 
@@ -382,7 +439,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
                 Enquire About Product
               </DialogTitle>
             </DialogHeader>
-            <FormContent />
+            {renderFormContent()}
           </DialogContent>
         </Dialog>
       )}
