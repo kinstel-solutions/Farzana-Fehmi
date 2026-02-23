@@ -1,104 +1,108 @@
-import { CMSProvider } from './cms-provider';
-import { Product, Collection, HeroData, StoryData, GlobalData } from './types';
-import { products, allCollections } from '@/lib/products-data';
+import { CMSProvider } from "./cms-provider";
+import { Product, Collection, HeroData, StoryData, GlobalData } from "./types";
+import { products, allCollections } from "@/lib/products-data";
 
 // Helper to get image for a collection
 const getCollectionImage = (colName: string) => {
-  const p = products.find(p => p.collections.includes(colName) && p.mainImage);
-  return p?.mainImage?.hero || p?.mainImage?.detail || '/hero.png';
+  const p = products.find(
+    (p) => p.collections.includes(colName) && p.mainImage,
+  );
+  return p?.mainImage?.hero || p?.mainImage?.detail || "/hero.png";
 };
 
 // Map allCollections to Collection interface
 const collections: Collection[] = [
   {
     id: 1,
-    title: 'Everyday Wear',
-    image: '/photos/cards/casual-wear.webp',
-    link: '/shop?category=Everyday%20Wear',
-    size: 'large'
+    title: "Everyday Wear",
+    image: "/photos/cards/casual-wear.webp",
+    link: "/shop?category=Everyday%20Wear",
+    size: "large",
   },
   {
     id: 2,
-    title: 'Festive',
-    image: '/photos/cards/festive-wear.webp',
-    link: '/shop?category=Festive',
-    size: 'small'
+    title: "Festive",
+    image: "/photos/cards/festive-wear.webp",
+    link: "/shop?category=Festive",
+    size: "small",
   },
   {
     id: 3,
-    title: 'Party',
-    image: '/photos/cards/party-wear.webp',
-    link: '/shop?category=Party',
-    size: 'small'
-  }
+    title: "Party",
+    image: "/photos/cards/party-wear.webp",
+    link: "/shop?category=Party",
+    size: "small",
+  },
 ];
 
 // Dynamic Hero Data from a Featured Product
-const featuredHeroProduct = products.find(p => p.featured && p.mainImage) || products[0];
+const featuredHeroProduct =
+  products.find((p) => p.featured && p.mainImage) || products[0];
 
 const heroData: HeroData = {
-  title: '',
-  subtitle: '',
+  title: "",
+  subtitle: "",
   images: [
-    '/photos/hero/hero-1.webp',
-    '/photos/hero/hero-2.webp',
-    '/photos/hero/hero-3.webp',
-    '/photos/hero/hero-4.webp',
+    "/photos/hero/hero-1.webp",
+    "/photos/hero/hero-2.webp",
+    "/photos/hero/hero-3.webp",
+    "/photos/hero/hero-4.webp",
   ],
   desktopImages: [
-    '/photos/hero/hero-hero1blured.webp',
-    '/photos/hero/hero-hero2blured.webp',
-    '/photos/hero/hero-hero3blured.webp',
-    '/photos/hero/hero-hero4blured.webp',
-    '/photos/hero/hero-hero5blured.webp',
-    '/photos/hero/hero-hero6blured.webp',
-    '/photos/hero/hero-hero7blured.webp',
-    '/photos/hero/hero-hero8blured.webp',
-    '/photos/hero/hero-hero9.webp',
-    '/photos/hero/hero-hero10.webp',
+    "/photos/hero/hero-hero1blured.webp",
+    "/photos/hero/hero-hero2blured.webp",
+    "/photos/hero/hero-hero3blured.webp",
+    "/photos/hero/hero-hero4blured.webp",
+    "/photos/hero/hero-hero5blured.webp",
+    "/photos/hero/hero-hero6blured.webp",
+    "/photos/hero/hero-hero7blured.webp",
+    "/photos/hero/hero-hero8blured.webp",
+    "/photos/hero/hero-hero9.webp",
+    "/photos/hero/hero-hero10.webp",
   ],
-  buttonText: 'Discover The Collection',
-  buttonLink: '/shop'
+  buttonText: "Discover The Collection",
+  buttonLink: "/shop",
 };
 
 const storyData: StoryData = {
   hero: {
     title: "Design With Purpose",
     subtitle: "Honoring craft, people, and the process behind every piece.",
-    image: "/photos/to-be-processed-then-delete/DSCF1508-Edit.jpg"
+    image: "/photos/to-be-processed-then-delete/DSCF1508-Edit.jpg",
   },
   narrative: [
     {
       title: "Our Story",
       content: [
-        "Fehmifarzana Designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
+        "fehmi farzana designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
         "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
         "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
-        "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet."
-      ]
-    }
+        "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet.",
+      ],
+    },
   ],
 
   philosophy: {
     title: "Mission and Philosophy",
     quote: "Design With Purpose",
-    description: "We exist to make beautiful clothes the right way. By honoring craft, people, and the process behind every piece, we design fashion with purpose-so fashion can be worn with confidence and care.",
-    author: "Farzana Fehmi"
+    description:
+      "We exist to make beautiful clothes the right way. By honoring craft, people, and the process behind every piece, we design fashion with purpose-so fashion can be worn with confidence and care.",
+    author: "Farzana Fehmi",
   },
   footer: {
     title: "Experience the Collection",
     buttonText: "View All Products",
-    buttonLink: "/shop"
-  }
+    buttonLink: "/shop",
+  },
 };
 
 const sortProductsByColor = (items: Product[]) => {
   if (!items.length) return [];
-  
+
   // Group by color
   const groups: { [key: string]: Product[] } = {};
-  items.forEach(p => {
-    const color = p.bgColor || 'unknown';
+  items.forEach((p) => {
+    const color = p.bgColor || "unknown";
     if (!groups[color]) groups[color] = [];
     groups[color].push(p);
   });
@@ -107,10 +111,10 @@ const sortProductsByColor = (items: Product[]) => {
   const sorted: Product[] = [];
   const keys = Object.keys(groups);
   let maxLen = 0;
-  keys.forEach(k => maxLen = Math.max(maxLen, groups[k].length));
+  keys.forEach((k) => (maxLen = Math.max(maxLen, groups[k].length)));
 
   for (let i = 0; i < maxLen; i++) {
-    keys.forEach(k => {
+    keys.forEach((k) => {
       if (groups[k][i]) {
         sorted.push(groups[k][i]);
       }
@@ -125,12 +129,12 @@ export class MockCMSProvider implements CMSProvider {
   }
 
   async getFeaturedProducts(): Promise<Product[]> {
-    const featured = products.filter(p => p.featured);
+    const featured = products.filter((p) => p.featured);
     return sortProductsByColor(featured).slice(0, 4);
   }
 
   async getProductBySlug(slug: string): Promise<Product | null> {
-    return products.find(p => p.slug === slug) || null;
+    return products.find((p) => p.slug === slug) || null;
   }
 
   async getAllCollections(): Promise<Collection[]> {
@@ -147,38 +151,39 @@ export class MockCMSProvider implements CMSProvider {
 
   async getGlobalData(): Promise<GlobalData> {
     return {
-      siteName: 'Fehmi Farzana',
+      siteName: "fehmi farzana",
       contact: {
-        email: 'farzana@fehmifarz.com',
-        phone: '+61 416 966 865',
-        phoneFull: '+61416966865',
-        whatsapp: 'WhatsApp',
-        whatsappFull: '61416966865',
+        email: "farzana@fehmifarz.com",
+        phone: "+61 416 966 865",
+        phoneFull: "+61416966865",
+        whatsapp: "WhatsApp",
+        whatsappFull: "61416966865",
       },
       navigation: [
-        { label: 'SHOP', href: '/shop' },
-        { label: 'COLLECTIONS', href: '/shop' },
-        { label: 'STORY', href: '/story' },
-        { label: 'CONTACT', href: '/contact' }
+        { label: "SHOP", href: "/shop" },
+        { label: "COLLECTIONS", href: "/shop" },
+        { label: "STORY", href: "/story" },
+        { label: "CONTACT", href: "/contact" },
       ],
       footer: {
         explore: [
-          { label: 'Shop All', href: '/shop' },
-          { label: 'Our Story', href: '/story' },
-          { label: 'Contact', href: '/contact' },
+          { label: "Shop All", href: "/shop" },
+          { label: "Our Story", href: "/story" },
+          { label: "Contact", href: "/contact" },
         ],
         customerCare: [
-          { label: 'Shipping & Returns', href: '/shipping-returns' },
-          { label: 'Size Guide', href: '/size-guide' },
-          { label: 'Terms of Service', href: '/terms-of-service' },
-          { label: 'Privacy Policy', href: '/privacy-policy' },
+          { label: "Shipping & Returns", href: "/shipping-returns" },
+          { label: "Size Guide", href: "/size-guide" },
+          { label: "Terms of Service", href: "/terms-of-service" },
+          { label: "Privacy Policy", href: "/privacy-policy" },
         ],
         copyRight: `Farzana Fehmi. All rights reserved.`,
         socials: {
-            instagram: 'https://instagram.com/fehmifarzanadesigns',
-            facebook: '#'
-        }
-      }
+          instagram: "https://instagram.com/fehmifarzanadesigns",
+          facebook:
+            "https://www.facebook.com/share/18VpgC1fMH/?mibextid=wwXIfr",
+        },
+      },
     };
   }
 }

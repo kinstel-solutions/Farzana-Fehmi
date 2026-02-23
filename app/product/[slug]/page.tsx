@@ -6,7 +6,7 @@ import { SizeGuide } from "@/components/product/SizeGuide";
 import { Button } from "@/components/ui/button";
 import { EnquiryModal } from "@/components/product/EnquiryModal";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Truck, Clock, RotateCcw } from "lucide-react";
 
 interface ProductPageProps {
   params: Promise<{
@@ -116,6 +116,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <p className="text-xs text-gray-400 text-center md:text-left">
                 * Our team will contact you for sizing and customization.
               </p>
+            </div>
+
+            {/* Shipping & Returns Info */}
+            <div className="border-t border-gray-100 pt-6 space-y-3">
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Truck className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span>Free shipping within Australia</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Clock className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span>
+                  Made-to-order: 7–8 weeks for production &amp; dispatch
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <RotateCcw className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span>
+                  7-day returns on unused items ·{" "}
+                  <Link
+                    href="/shipping-returns"
+                    className="underline underline-offset-4 hover:text-gray-900 transition-colors">
+                    View full policy
+                  </Link>
+                </span>
+              </div>
             </div>
           </div>
         </div>
