@@ -28,7 +28,7 @@ export const products: Product[] = [
     slug: "rani-silk-suit",
     name: "Rani Silk Suit",
     collections: ["Festive"],
-    price: "$300",
+    price: "$300 AUD",
     priceNumeric: 300,
     featured: true,
     description:
@@ -75,7 +75,7 @@ export const products: Product[] = [
     slug: "emerald-green-kaamdaani-suit",
     name: "Emerald Green Kaamdaani Suit",
     collections: ["Party"],
-    price: "$200",
+    price: "$200 AUD",
     priceNumeric: 200,
     featured: true,
     description:
@@ -209,7 +209,7 @@ export const products: Product[] = [
     slug: "vintage-maroon-chanderi-suit-set",
     name: "Vintage Maroon Chanderi Suit Set",
     collections: ["Everyday Wear"],
-    price: "$180",
+    price: "$180 AUD",
     priceNumeric: 180,
     featured: true,
     description:
@@ -256,7 +256,7 @@ export const products: Product[] = [
     slug: "dark-mauve-anarkali-suit",
     name: "Dark Mauve Anarkali Suit",
     collections: ["Festive"],
-    price: "$230",
+    price: "$230 AUD",
     priceNumeric: 230,
     featured: true,
     description:
@@ -313,7 +313,7 @@ export const products: Product[] = [
     slug: "maharani-shalwar-suit-set",
     name: "Maharani Shalwar Suit Set",
     collections: ["Festive"],
-    price: "$200",
+    price: "$200 AUD",
     priceNumeric: 200,
     featured: true,
     description:
@@ -370,7 +370,7 @@ export const products: Product[] = [
     slug: "leheria-tissue-suit-set",
     name: "Leheria Tissue Suit Set",
     collections: ["Everyday Wear"],
-    price: "$190",
+    price: "$190 AUD",
     priceNumeric: 190,
     featured: true,
     description:
@@ -437,7 +437,7 @@ export const products: Product[] = [
     slug: "azure-blue-sequined-suit-set",
     name: "Azure Blue Sequined Suit Set",
     collections: ["Everyday Wear"],
-    price: "$185",
+    price: "$185 AUD",
     priceNumeric: 185,
     featured: true,
     description:
@@ -494,7 +494,7 @@ export const products: Product[] = [
     slug: "apricot-and-salmon-pink-georgette-suit-set",
     name: "Apricot and Salmon Pink Georgette Suit Set",
     collections: ["Everyday Wear"],
-    price: "$185",
+    price: "$185 AUD",
     priceNumeric: 185,
     featured: true,
     description:
@@ -551,7 +551,7 @@ export const products: Product[] = [
     slug: "bottle-green-mirror-sequined-suit-set",
     name: "Bottle Green Mirror Sequined Suit Set",
     collections: ["Festive"],
-    price: "$150",
+    price: "$150 AUD",
     priceNumeric: 150,
     featured: true,
     description:
@@ -608,7 +608,7 @@ export const products: Product[] = [
     slug: "dusty-rose-organza-suit-set",
     name: "Dusty Rose Organza Suit Set",
     collections: ["Party"],
-    price: "$170",
+    price: "$170 AUD",
     priceNumeric: 170,
     featured: true,
     description:
@@ -665,7 +665,7 @@ export const products: Product[] = [
     slug: "royal-blue-crepe-bandhani-suit-set",
     name: "Royal Blue Crepe Bandhani Suit Set",
     collections: ["Everyday Wear"],
-    price: "$160",
+    price: "$160 AUD",
     priceNumeric: 160,
     featured: true,
     description:
@@ -722,7 +722,7 @@ export const products: Product[] = [
     slug: "jade-applique-suit-set",
     name: "Jade Applique Suit Set",
     collections: ["Festive"],
-    price: "$180",
+    price: "$180 AUD",
     priceNumeric: 180,
     featured: true,
     description:
@@ -779,7 +779,7 @@ export const products: Product[] = [
     slug: "purple-tissue-front-slit-suit",
     name: "Purple Tissue Front Slit Suit",
     collections: ["Festive"],
-    price: "$200",
+    price: "$200 AUD",
     priceNumeric: 200,
     featured: true,
     description:
@@ -836,7 +836,7 @@ export const products: Product[] = [
     slug: "sea-green-semi-crepe-suit-set",
     name: "Sea Green Semi-Crepe Suit Set",
     collections: ["Festive"],
-    price: "$230",
+    price: "$230 AUD",
     priceNumeric: 230,
     featured: true,
     description:

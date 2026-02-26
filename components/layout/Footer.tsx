@@ -119,7 +119,8 @@ export async function Footer() {
 
           <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 pt-2 mt-2 border-t border-gray-900/50">
             <p className="text-gray-500 text-xs font-light">
-              © {new Date().getFullYear()} {footer.copyRight}
+              © {new Date().getFullYear()} {footer.copyRight} • All prices are
+              in AUD
             </p>
             <div className="flex gap-6 text-gray-400">
               <a
