@@ -26,9 +26,38 @@ const tangerine = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Farzana Fehmi | Designer Garments",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.fehmifarz.com'),
+  title: "Fehmi Farzana Designs",
   description:
-    "Discover the latest collection of designer garments by Farzana Fehmi.",
+    "Discover the latest collection of designer garments by Fehmi Farzana Designs. Unique, sustainable, and ethically made clothing.",
+  openGraph: {
+    type: "website",
+    locale: "en_AU",
+    url: "https://www.fehmifarz.com",
+    siteName: "Fehmi Farzana Designs",
+    title: "Fehmi Farzana Designs",
+    description: "Discover the latest collection of designer garments by Fehmi Farzana Designs. Unique, sustainable, and ethically made clothing.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Fehmi Farzana Designs",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fehmi Farzana Designs",
+    description: "Discover the latest collection of designer garments by Fehmi Farzana Designs.",
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark.svg', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
 };
 
 export default async function RootLayout({

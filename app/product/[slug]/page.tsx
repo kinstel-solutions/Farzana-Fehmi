@@ -5,6 +5,7 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { SizeGuide } from "@/components/product/SizeGuide";
 import { Button } from "@/components/ui/button";
 import { EnquiryModal } from "@/components/product/EnquiryModal";
+import { ProductShare } from "@/components/product/ProductShare";
 import Link from "next/link";
 import { ArrowLeft, Truck, Clock, RotateCcw } from "lucide-react";
 
@@ -20,6 +21,39 @@ export async function generateStaticParams() {
   return products.map((product) => ({
     slug: product.slug,
   }));
+}
+
+export async function generateMetadata({ params }: ProductPageProps) {
+  const { slug } = await params;
+  const provider = getCMSProvider();
+  const product = await provider.getProductBySlug(slug);
+
+  if (!product) return {};
+
+  const ogImage = product.mainImage?.hero || product.mainImage?.detail || "/logo.png";
+
+  return {
+    title: `${product.name} | Fehmi Farzana Designs`,
+    description: product.description,
+    openGraph: {
+      title: `${product.name} | Fehmi Farzana Designs`,
+      description: product.description,
+      images: [
+        {
+          url: ogImage,
+          width: 800,
+          height: 1200,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | Fehmi Farzana Designs`,
+      description: product.description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
@@ -142,6 +176,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </span>
               </div>
             </div>
+
+            {/* Share Section */}
+            <ProductShare productName={product.name} slug={product.slug} />
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ const getCollectionImage = (colName: string) => {
   const p = products.find(
     (p) => p.collections.includes(colName) && p.mainImage,
   );
-  return p?.mainImage?.hero || p?.mainImage?.detail || "/hero.png";
+  return p?.mainImage?.hero || p?.mainImage?.detail || "/logo.png";
 };
 
 // Map allCollections to Collection interface
@@ -74,7 +74,7 @@ const storyData: StoryData = {
     {
       title: "Our Story",
       content: [
-        "fehmi farzana designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
+        "fehmi farzana designs was founded by Fehmi Farzana Designs with a mission to create unique, sustainable, and ethically made clothing.",
         "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
         "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
         "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet.",
@@ -87,7 +87,7 @@ const storyData: StoryData = {
     quote: "Design With Purpose",
     description:
       "We exist to make beautiful clothes the right way. By honoring craft, people, and the process behind every piece, we design fashion with purpose-so fashion can be worn with confidence and care.",
-    author: "Farzana Fehmi",
+    author: "Fehmi Farzana Designs",
   },
   footer: {
     title: "Experience the Collection",
@@ -177,7 +177,7 @@ export class MockCMSProvider implements CMSProvider {
           { label: "Terms of Service", href: "/terms-of-service" },
           { label: "Privacy Policy", href: "/privacy-policy" },
         ],
-        copyRight: `Farzana Fehmi. All rights reserved.`,
+        copyRight: `Fehmi Farzana Designs. All rights reserved.`,
         socials: {
           instagram: "https://instagram.com/fehmifarzanadesigns",
           facebook:

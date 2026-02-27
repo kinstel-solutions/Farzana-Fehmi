@@ -18,7 +18,7 @@ export function LogoWhiteNoBGwithDesigns({
       <div className="relative w-full">
         <Image
           src="/logo-white-Nobg.svg"
-          alt="Farzana Fehmi"
+          alt="Fehmi Farzana Designs"
           width={width}
           height={height}
           className="w-full h-auto object-contain"
