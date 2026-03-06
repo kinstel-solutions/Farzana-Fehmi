@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
   if (!product) return {};
 
-  const ogImage = product.mainImage?.hero || product.mainImage?.detail || "/logo.png";
+  const ogImage =
+    product.mainImage?.hero || product.mainImage?.detail || "/logo.png";
 
   return {
     title: `${product.name} | Fehmi Farzana Designs`,
@@ -65,8 +66,38 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: `https://www.fehmifarz.com${product.mainImage?.hero || product.mainImage?.detail || "/logo.png"}`,
+    description: product.description,
+    brand: {
+      "@type": "Brand",
+      name: "Fehmi Farzana Designs",
+    },
+    ...(product.priceNumeric > 0 && {
+      offers: {
+        "@type": "Offer",
+        url: `https://www.fehmifarz.com/product/${product.slug}`,
+        priceCurrency: "AUD",
+        price: product.priceNumeric,
+        itemCondition: "https://schema.org/NewCondition",
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: "Fehmi Farzana Designs",
+        },
+      },
+    }),
+  };
+
   return (
     <div className="bg-white min-h-screen pt-[120px] pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="container mx-auto px-4 md:px-8">
         <Link
           href="/shop"
@@ -178,7 +209,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             {/* Share Section */}
-            <ProductShare productName={product.name} slug={product.slug} />
+            <ProductShare
+              productName={product.name}
+              slug={product.slug}
+            />
           </div>
         </div>
       </div>
