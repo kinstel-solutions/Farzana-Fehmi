@@ -26,7 +26,9 @@ const tangerine = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.fehmifarz.com'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "https://www.fehmifarz.com",
+  ),
   title: "Fehmi Farzana Designs",
   description:
     "Discover the latest collection of designer garments by Fehmi Farzana Designs. Unique, sustainable, and ethically made clothing.",
@@ -36,7 +38,8 @@ export const metadata: Metadata = {
     url: "https://www.fehmifarz.com",
     siteName: "Fehmi Farzana Designs",
     title: "Fehmi Farzana Designs",
-    description: "Discover the latest collection of designer garments by Fehmi Farzana Designs. Unique, sustainable, and ethically made clothing.",
+    description:
+      "Discover the latest collection of designer garments by Fehmi Farzana Designs. Unique, sustainable, and ethically made clothing.",
     images: [
       {
         url: "/logo.png",
@@ -49,13 +52,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Fehmi Farzana Designs",
-    description: "Discover the latest collection of designer garments by Fehmi Farzana Designs.",
+    description:
+      "Discover the latest collection of designer garments by Fehmi Farzana Designs.",
     images: ["/logo.png"],
   },
   icons: {
     icon: [
-      { url: '/icon.svg', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark.svg', media: '(prefers-color-scheme: dark)' },
+      { url: "/favicon.ico?v=2" },
+      { url: "/icon.svg?v=2", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.svg?v=2", media: "(prefers-color-scheme: dark)" },
     ],
   },
 };
