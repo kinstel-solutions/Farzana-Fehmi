@@ -2,7 +2,23 @@
 import { getCMSProvider } from "@/lib/cms/cms-provider";
 import ContactForm from "@/components/contact/ContactForm";
 import { Mail, Instagram, Facebook } from "lucide-react";
-import { motion } from "framer-motion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Fehmi Farzana Designs",
+  description:
+    "Get in touch with Fehmi Farzana Designs. Reach out for inquiries about our sustainable clothing, collections, or any other questions. We'd love to hear from you.",
+  openGraph: {
+    title: "Contact Us | Fehmi Farzana Designs",
+    description:
+      "Get in touch with Fehmi Farzana Designs. Reach out for inquiries about our sustainable clothing, collections, or any other questions. We'd love to hear from you.",
+  },
+  twitter: {
+    title: "Contact Us | Fehmi Farzana Designs",
+    description:
+      "Get in touch with Fehmi Farzana Designs. Reach out for inquiries about our sustainable clothing, collections, or any other questions. We'd love to hear from you.",
+  },
+};
 
 export default async function ContactPage() {
   const provider = getCMSProvider();
