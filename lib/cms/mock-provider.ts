@@ -74,7 +74,7 @@ const storyData: StoryData = {
     {
       title: "Our Story",
       content: [
-        "fehmi farzana designs was founded by Fehmi Farzana Designs with a mission to create unique, sustainable, and ethically made clothing.",
+        "fehmi farzana designs was founded by Farzana Fehmi with a mission to create unique, sustainable, and ethically made clothing.",
         "Our story begins with a dream that took time to unfold. Rooted in a lifelong passion for fashion, our brand was born from patience, purpose, and belief in conscious creation.",
         "Each garment is thoughtfully crafted using traditional tailoring techniques and produced in limited runs to support local communities while helping preserve age-old craftsmanship.",
         "We don't follow trends—we create with purpose. Our designs celebrate conscious choices, the human touch, and fashion that is kind to both people and the planet.",
