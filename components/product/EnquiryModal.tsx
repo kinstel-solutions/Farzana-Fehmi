@@ -68,6 +68,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
     size: "M",
     quantity: 1,
     message: "",
+    honeypot: "",
   });
 
   const updateField = (
@@ -118,6 +119,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
         size: "M",
         quantity: 1,
         message: "",
+        honeypot: "",
       });
       window.localStorage.removeItem("enquiry_form_data");
     }
@@ -144,6 +146,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
               size: "M",
               quantity: 1,
               message: "",
+              honeypot: "",
             });
             window.localStorage.removeItem("enquiry_form_data");
           }
@@ -238,6 +241,17 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
       ) : (
         /* Form */
         <div className="space-y-5 pt-2">
+          {/* Honeypot */}
+          <input
+            type="text"
+            name="honeypot"
+            value={form.honeypot}
+            onChange={(e) => updateField("honeypot", e.target.value)}
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
           {/* Name & Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">

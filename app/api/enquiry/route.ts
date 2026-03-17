@@ -10,10 +10,15 @@ export async function POST(request: NextRequest) {
       size,
       quantity,
       message,
+      honeypot,
       productName,
       productPrice,
       productUrl,
     } = body;
+
+    if (honeypot) {
+      return NextResponse.json({ success: true });
+    }
 
     // Validate required fields
     if (!name || !email || !size || !quantity || !productName) {
@@ -116,7 +121,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "fehmi farzana designs <no-reply@fehmifarz.com>",
-        to: ["farzana@fehmifarz.com", "kinstelsolutions@gmail.com"],
+        to: ["kinstelsolutions@gmail.com"],
         reply_to: email,
         subject: `New Enquiry: ${productName} — ${name}`,
         html: htmlContent,

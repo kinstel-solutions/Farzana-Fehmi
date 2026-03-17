@@ -3,7 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, honeypot } = body;
+
+    if (honeypot) {
+      return NextResponse.json({ success: true });
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -61,7 +65,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "fehmi farzana designs <no-reply@fehmifarz.com>",
-        to: ["farzana@fehmifarz.com", "kinstelsolutions@gmail.com"],
+        to: ["kinstelsolutions@gmail.com"],
         reply_to: email,
         subject: `Contact: ${subject || "General Enquiry"} — ${name}`,
         html: htmlContent,
