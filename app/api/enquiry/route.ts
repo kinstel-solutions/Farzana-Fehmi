@@ -10,10 +10,15 @@ export async function POST(request: NextRequest) {
       size,
       quantity,
       message,
+      honeypot,
       productName,
       productPrice,
       productUrl,
     } = body;
+
+    if (honeypot) {
+      return NextResponse.json({ success: true });
+    }
 
     // Validate required fields
     if (!name || !email || !size || !quantity || !productName) {

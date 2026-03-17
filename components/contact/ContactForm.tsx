@@ -17,6 +17,7 @@ export default function ContactForm() {
     email: "",
     subject: "General Enquiry",
     message: "",
+    honeypot: "",
   });
 
   const updateField = (field: string, value: string) => {
@@ -77,6 +78,7 @@ export default function ContactForm() {
               email: "",
               subject: "General Enquiry",
               message: "",
+              honeypot: "",
             });
           }}
           className="text-sm text-gray-500 underline underline-offset-4 hover:text-gray-900 transition-colors mt-2">
@@ -94,6 +96,16 @@ export default function ContactForm() {
       <form
         className="space-y-6"
         onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="honeypot"
+          value={form.honeypot}
+          onChange={(e) => updateField("honeypot", e.target.value)}
+          style={{ display: "none" }}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+
         <div className="space-y-2">
           <label
             htmlFor="name"
