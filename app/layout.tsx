@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getCMSProvider } from "@/lib/cms/cms-provider";
 import { ToastProvider } from "@/components/ui/Toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -86,6 +87,7 @@ export default async function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </ToastProvider>
+        <Analytics />
       </body>
     </html>
   );
