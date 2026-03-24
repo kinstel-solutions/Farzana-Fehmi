@@ -3,10 +3,18 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, honeypot } = body;
+    const { name, email, subject, message, _fax_number, _js_verification } =
+      body;
 
-    if (honeypot) {
+    if (_fax_number) {
       return NextResponse.json({ success: true });
+    }
+
+    if (_js_verification !== "human_verified") {
+      return NextResponse.json(
+        { error: "Verification failed. Please ensure JavaScript is enabled." },
+        { status: 400 },
+      );
     }
 
     if (!name || !email || !message) {
