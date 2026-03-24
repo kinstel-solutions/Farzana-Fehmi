@@ -5,19 +5,30 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/Toaster";
 import { Loader2, CheckCircle } from "lucide-react";
+import { useEffect } from "react";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [startTime, setStartTime] = useState<number>(0);
+  const [jsVerified, setJsVerified] = useState(false);
   const { showToast } = useToast();
+
+  useEffect(() => {
+    setStartTime(Date.now());
+    // Mark as JS-capable after a short delay
+    const timer = setTimeout(() => setJsVerified(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     subject: "General Enquiry",
     message: "",
-    honeypot: "",
+    _fax_number: "",
+    _js_verification: "",
   });
 
   const updateField = (field: string, value: string) => {
@@ -34,11 +45,34 @@ export default function ContactForm() {
     setLoading(true);
     setError(null);
 
+    if (form._fax_number) {
+      // Quietly "succeed" for bots
+      setSubmitted(true);
+      return;
+    }
+
+    // Check if JS verification happened
+    if (!jsVerified) {
+      setError("Please ensure JavaScript is enabled.");
+      setLoading(false);
+      return;
+    }
+
+    // Check if submitted too fast (reduced to 1 second for autofill)
+    if (Date.now() - startTime < 1000) {
+      setError("Please wait a moment before sending.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          _js_verification: "human_verified", // Inject the value on submission
+        }),
       });
 
       if (!res.ok) {
@@ -78,8 +112,12 @@ export default function ContactForm() {
               email: "",
               subject: "General Enquiry",
               message: "",
-              honeypot: "",
+              _fax_number: "",
+              _js_verification: "",
             });
+            setStartTime(Date.now());
+            setJsVerified(false);
+            setTimeout(() => setJsVerified(true), 100);
           }}
           className="text-sm text-gray-500 underline underline-offset-4 hover:text-gray-900 transition-colors mt-2">
           Send another message
@@ -98,9 +136,9 @@ export default function ContactForm() {
         onSubmit={handleSubmit}>
         <input
           type="text"
-          name="honeypot"
-          value={form.honeypot}
-          onChange={(e) => updateField("honeypot", e.target.value)}
+          name="_fax_number"
+          value={form._fax_number}
+          onChange={(e) => updateField("_fax_number", e.target.value)}
           style={{ display: "none" }}
           tabIndex={-1}
           autoComplete="off"
