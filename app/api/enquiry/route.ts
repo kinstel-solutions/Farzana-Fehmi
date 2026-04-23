@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,6 +15,7 @@ export async function POST(request: NextRequest) {
       productName,
       productPrice,
       productUrl,
+      recaptchaToken,
     } = body;
 
     if (honeypot) {
@@ -24,6 +26,14 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !size || !quantity || !productName) {
       return NextResponse.json(
         { error: "Missing required fields." },
+        { status: 400 },
+      );
+    }
+
+    const isHuman = await verifyRecaptcha(recaptchaToken);
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
         { status: 400 },
       );
     }

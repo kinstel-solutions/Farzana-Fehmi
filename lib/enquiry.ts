@@ -8,6 +8,7 @@ export interface EnquiryFormData {
   quantity: number;
   message: string;
   honeypot?: string;
+  recaptchaToken?: string;
 }
 
 const INSTAGRAM_USERNAME = "fehmifarzanadesigns";
@@ -112,6 +113,7 @@ export async function submitEnquiryEmail(
         quantity: formData.quantity,
         message: formData.message || undefined,
         honeypot: formData.honeypot || undefined,
+        recaptchaToken: formData.recaptchaToken,
         productName: product.name,
         productPrice: product.price,
         productUrl: typeof window !== "undefined" ? window.location.href : "",
