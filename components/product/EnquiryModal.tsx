@@ -35,6 +35,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface EnquiryModalProps {
   product: Product;
@@ -60,6 +61,7 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
   const [error, setError] = useState<string | null>(null);
   const { showToast } = useToast();
   const isMobile = useIsMobile();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [form, setForm] = useState<EnquiryFormData>({
     name: "",
@@ -81,25 +83,8 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
 
   const isFormValid = form.name.trim() && form.email.trim() && form.size;
 
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem("enquiry_form_data");
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (
-          parsed &&
-          parsed.timestamp &&
-          Date.now() - parsed.timestamp < 3600000
-        ) {
-          setForm(parsed.data);
-        } else {
-          window.localStorage.removeItem("enquiry_form_data");
-        }
-      }
-    } catch (e) {
-      console.error("Failed to parse stored form data", e);
-    }
-  }, []);
+  // State is now loaded in handleOpenChange to avoid cascading renders on mount
+
 
   useEffect(() => {
     if (form.name || form.email || form.phone || form.message) {
@@ -137,8 +122,10 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
           if (
             parsed &&
             parsed.timestamp &&
-            Date.now() - parsed.timestamp >= 3600000
+            Date.now() - parsed.timestamp < 3600000
           ) {
+            setForm(parsed.data);
+          } else {
             setForm({
               name: "",
               email: "",
@@ -166,7 +153,15 @@ export function EnquiryModal({ product }: EnquiryModalProps) {
     setLoading(true);
     setError(null);
 
-    const result = await submitEnquiryEmail(product, form);
+    if (!executeRecaptcha) {
+      setError("reCAPTCHA is not ready. Please refresh the page.");
+      setLoading(false);
+      return;
+    }
+
+    const recaptchaToken = await executeRecaptcha("enquiry");
+
+    const result = await submitEnquiryEmail(product, { ...form, recaptchaToken });
 
     if (result.success) {
       setSubmitted(true);

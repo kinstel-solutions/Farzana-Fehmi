@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, _fax_number, _js_verification } =
+    const { name, email, subject, message, _fax_number, _js_verification, recaptchaToken } =
       body;
 
     if (_fax_number) {
@@ -20,6 +21,14 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required." },
+        { status: 400 },
+      );
+    }
+
+    const isHuman = await verifyRecaptcha(recaptchaToken);
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
         { status: 400 },
       );
     }

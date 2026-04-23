@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { getCMSProvider } from "@/lib/cms/cms-provider";
 import { ToastProvider } from "@/components/ui/Toaster";
 import { Analytics } from "@vercel/analytics/react";
+import { RecaptchaProvider } from "@/components/providers/RecaptchaProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,14 +80,16 @@ export default async function RootLayout({
       lang="en"
       className={cn(inter.variable, playfair.variable, tangerine.variable)}>
       <body className="font-sans antialiased text-foreground bg-background selection:bg-black selection:text-white">
-        <ToastProvider>
-          <Header
-            siteName={globalData.siteName}
-            navigation={globalData.navigation}
-          />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </ToastProvider>
+        <RecaptchaProvider>
+          <ToastProvider>
+            <Header
+              siteName={globalData.siteName}
+              navigation={globalData.navigation}
+            />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </ToastProvider>
+        </RecaptchaProvider>
         <Analytics />
       </body>
     </html>

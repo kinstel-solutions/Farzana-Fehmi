@@ -1,22 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/Toaster";
 import { Loader2, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [startTime, setStartTime] = useState<number>(0);
+  const startTime = useRef(0);
   const [jsVerified, setJsVerified] = useState(false);
   const { showToast } = useToast();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   useEffect(() => {
-    setStartTime(Date.now());
+    startTime.current = Date.now();
     // Mark as JS-capable after a short delay
     const timer = setTimeout(() => setJsVerified(true), 100);
     return () => clearTimeout(timer);
@@ -59,19 +60,28 @@ export default function ContactForm() {
     }
 
     // Check if submitted too fast (reduced to 1 second for autofill)
-    if (Date.now() - startTime < 1000) {
+    if (startTime.current > 0 && Date.now() - startTime.current < 1000) {
       setError("Please wait a moment before sending.");
       setLoading(false);
       return;
     }
 
+    if (!executeRecaptcha) {
+      setError("reCAPTCHA is not ready. Please refresh the page.");
+      setLoading(false);
+      return;
+    }
+
     try {
+      const recaptchaToken = await executeRecaptcha("contact");
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
           _js_verification: "human_verified", // Inject the value on submission
+          recaptchaToken,
         }),
       });
 
@@ -115,7 +125,7 @@ export default function ContactForm() {
               _fax_number: "",
               _js_verification: "",
             });
-            setStartTime(Date.now());
+            startTime.current = Date.now();
             setJsVerified(false);
             setTimeout(() => setJsVerified(true), 100);
           }}
