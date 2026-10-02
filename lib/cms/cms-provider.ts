@@ -1,5 +1,6 @@
 
 import { MockCMSProvider } from './mock-provider';
+import { SanityCMSProvider } from './sanity-provider';
 import { Product, Collection, HeroData, StoryData, GlobalData } from './types';
 
 export interface CMSProvider {
@@ -20,13 +21,13 @@ export function getCMSProvider(): CMSProvider {
     return cmsProvider;
   }
 
-  const mode = process.env.CMS_MODE || 'mock';
+  const mode = process.env.CMS_MODE || 'sanity';
 
-  if (mode === 'wordpress') {
-    // Return WordPress Provider (to be implemented)
-     // return new WordPressCMSProvider();
-     console.warn('WordPress mode not implemented yet, falling back to mock');
-     cmsProvider = new MockCMSProvider();
+  if (mode === 'sanity') {
+    cmsProvider = new SanityCMSProvider();
+  } else if (mode === 'wordpress') {
+    console.warn('WordPress mode not implemented yet, falling back to mock');
+    cmsProvider = new MockCMSProvider();
   } else {
     cmsProvider = new MockCMSProvider();
   }

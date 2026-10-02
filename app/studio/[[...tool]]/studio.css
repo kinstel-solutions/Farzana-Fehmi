@@ -1,0 +1,34 @@
+/* ========================================================
+   Clean Studio UI for Client Experience
+   ======================================================== */
+
+/* 1. Hide Help and Resources menu button (? circle) */
+[data-testid="button-resources-menu"],
+button[aria-label="Help and resources"],
+button[aria-label="Help and resources" i] {
+  display: none !important;
+}
+
+/* 2. Hide Free Trial button (lightning bolt) & upsell dialogs */
+button:has(svg[data-sanity-icon="bolt"]),
+button:has(svg[data-sanity-icon*="bolt" i]),
+button[aria-label*="trial" i],
+button[data-testid*="trial" i],
+div[data-testid*="trial" i] {
+  display: none !important;
+}
+
+/* 3. Hide Manage Project & Invite Members links in project dropdown */
+a[href*="manage.sanity.io"],
+a[href*="/manage"],
+a[href*="/members"] {
+  display: none !important;
+}
+
+/* 4. Hide Vision and Releases tabs if cached */
+a[href*="/studio/vision"],
+a[href*="/studio/releases"],
+[data-testid="tool-vision"],
+[data-testid="tool-releases"] {
+  display: none !important;
+}
